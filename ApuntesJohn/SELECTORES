@@ -1,0 +1,796 @@
+SELECTORES
+
+---
+
+### 🧠 ¿Qué son los *selectores*?
+
+En programación web, especialmente en **CSS y JavaScript**, los *selectores* son como tus armas para apuntar a los elementos HTML. Literalmente le estás diciendo al navegador:
+"¡Eh tú! Sí, tú `#boton-rojo`, te voy a poner guapo o te voy a hacer explotar cuando te cliqueen" 💥.
+
+---
+
+### 🎨 Selectores en CSS (el estilista de tu web)
+
+En CSS, los selectores te dejan decidir **qué elementos se van a ver de qué forma**. Puedes usarlos para cambiar colores, poner márgenes, animar cosas, y más. Aquí van los tipos clave:
+
+* Si escribes solo `p`, estás eligiendo todos los párrafos.
+* Si usas `.nombre`, estás apuntando a todos los elementos con esa clase.
+* Con `#identificador`, eliges un solo elemento específico.
+* También puedes combinar cosas, como `div > p` (todos los párrafos hijos directos de un `div`).
+
+Y si te pones creativo puedes usar pseudo-clases como `:hover` para cuando pasas el ratón, o `:nth-child(2)` para pillar el segundo de un grupo.
+
+Esto te permite hacer efectos como: cuando pasas el ratón por una tarjeta, que se agrande y brille como si fuera una carta maldita de Jujutsu Kaisen 🔮🔥.
+
+---
+
+### 🤖 Selectores en JavaScript (el cerebro del asunto)
+
+En JS, los selectores son cómo **agarras un elemento del HTML** para hacerle algo: cambiarle el texto, ocultarlo, moverlo, hacerle caso a un clic...
+
+* Si usas `getElementById("menu")`, estás pillando un solo elemento con ese ID.
+* Con `querySelector(".boton")` pillas el primer elemento con esa clase.
+* Y con `querySelectorAll("input")` pillas todos los inputs que haya.
+
+Luego, le metes funciones. Por ejemplo, cuando alguien hace clic en un botón, le puedes decir que muestre un mensaje, mande datos a un servidor, o que el botón se auto-destruya (con elegancia, claro ✨).
+
+---
+
+### 💥 Lo guapo es combinarlos
+
+Lo ideal es que uses los **selectores de CSS** para darle estilo a la web, y los **de JavaScript** para hacerla interactiva. Por ejemplo:
+
+* En CSS le das color y efecto hover a un botón.
+* En JS le dices que al hacer clic envíe un formulario, cambie texto, o reproduzca un sonido de poder 🔊.
+
+Todo empieza seleccionando el elemento correcto, bro. Si no lo seleccionas bien, el navegador no sabe a quién te estás dirigiendo. Es como gritarle a una pared.
+
+---
+
+### 🧪 Truco de pro pa’ recordar
+
+* Si es para varios elementos: usa clase `.algo`.
+* Si es algo único: usa ID `#algo`.
+* Si quieres combinar estilos o comportamientos: mete `:hover`, `:focus`, `nth-child`, y cosas más loquitas.
+* En JS, `querySelector` es tu pana para todo, más flexible que `getElementById`.
+
+---
+
+### 🎬 Cierre con Kaisen Vibes
+
+Los **selectores** son como maldiciones canalizadas 💀: si los usas bien, controlas completamente la energía de tu web. Si los usas mal, te cargas todo el diseño o el JS no encuentra lo que necesita.
+
+Así que ponte en modo hechicero supremo, y **elige bien a quién estás apuntando**. Porque ya sea para darle un estilo molón o hacer que reaccione con magia al clic… todo empieza por saber **a quién estás eligiendo**.
+
+¡Gojo estaría orgulloso de ti si clavas los selectores, bro! 🥷✨
+
+🚨 OJO BRO:
+querySelector solo te devuelve el primer elemento que encuentra.
+
+Si hay más de uno con la misma clase, y quieres todos, se usa querySelectorAll.
+
+
+Tipos de selectores:
+
+---
+
+🔹 **Selector de tipo** (también llamado "de etiqueta o BLOQUE")
+👉 Este selecciona etiquetas HTML tal cual.
+📌 Ejemplo: si escribes `p { color: red; }`, todos los `<p>` del HTML se ponen rojos.
+💡 Útil cuando quieres afectar todos los elementos de un mismo tipo sin complicarte.
+
+---
+
+🔸 **Selector de clase** (`.`)
+👉 Se usa cuando pones una clase en tu HTML, como `<div class="caja">`.
+📌 En CSS harías `.caja { background: blue; }` y todos los que tengan esa clase pillan ese estilo.
+💪 Brutal para reutilizar estilos en varios sitios.
+
+---
+
+🔺 **Selector de ID** (`#`)
+👉 Este apunta a un elemento con un `id`. Por ejemplo: `<h1 id="titulo">`.
+📌 Lo atacas en CSS con `#titulo { font-size: 40px; }`.
+⚠️ Solo debe haber uno con ese ID por página, como un jefe supremo.
+
+---
+
+🌿 **Selector universal** (`*`)
+👉 Selecciona absolutamente todo.
+📌 Ejemplo: `* { margin: 0; padding: 0; }` para resetear todos los márgenes.
+☠️ Úsalo con cabeza, que si no se te va de madre.
+
+---
+
+📍 **Selectores de descendencia**
+👉 Son para pillar elementos dentro de otros. Ejemplo: `div p { color: green; }`.
+📌 Eso hace que todos los `<p>` que estén dentro de un `<div>` se pongan verdes.
+🎯 Preciso como un francotirador.
+
+---
+
+⚡ **Selectores de atributos**
+👉 Permiten pillar elementos según sus atributos, como `[type="text"]`.
+📌 Ejemplo: `input[type="text"] { border: 1px solid #000; }`.
+🔍 Muy útiles para formularios y componentes dinámicos.
+
+---
+
+🎩 **Selectores combinados (locuras avanzadas)**
+👉 Cosas como `ul > li` (solo los hijos directos), `a:hover` (cuando pasas el ratón), o `div + p` (el párrafo que viene justo después de un div).
+🧠 Aquí empieza la magia real del CSS, bro.
+
+---
+
+🧠 **¿Por qué son importantes?**
+Porque sin ellos el CSS no sabe a qué le estás hablando. Es como intentar hablarle a una multitud sin decir el nombre de nadie. Son el puente entre tu HTML y tu diseño.
+
+---
+
+1. **Selector inline** (estilo escrito directamente en la etiqueta HTML con `style="..."`)
+   👉 Tiene la máxima prioridad, machaca todo lo demás.
+   Ejemplo: `<p style="color: blue;">` va a ser azul aunque en CSS digas otra cosa.
+
+---
+
+2. **Selector ID (`#`)**
+   👉 Súper específico, gana a clases y etiquetas.
+   Ejemplo: `#menu { color: red; }` se aplica antes que `.menu { color: green; }`.
+
+---
+
+3. **Selector de clase (`.`), atributos (`[attr]`), y pseudo-clases (`:hover`)**
+   👉 Aquí están las clases y combinados que no sean IDs.
+   Ejemplo: `.btn { color: yellow; }` o `input[type="text"] { color: black; }`.
+
+---
+
+4. **Selector de tipo (etiquetas, ej: `p`, `div`) y pseudo-elementos (`::before`)**
+   👉 Menor prioridad, se usa para reglas más generales.
+
+---
+
+5. **Selector universal (`*`)**
+   👉 Casi nunca tiene más peso, está abajo en la escala.
+
+---
+
+**Bonus troll:** si metes `!important` en un estilo, ese estilo se come a todos, menos a los inline con `!important` también. Es como usar cheat codes en un videojuego. Pero abusar de eso es de novato y lío asegurado.
+
+---
+
+**En resumen:**
+Inline > ID > Clase/atributos/pseudo-clases > Tipo > Universal
+
+---
+
+PSEUDOCLASES
+
+---
+
+🧠 **¿Qué narices es una pseudoclase?**
+
+Una pseudoclase es como decirle al CSS:
+*"Ey, quiero que este estilo se aplique **solo cuando pase esto**..."*
+
+No cambias el HTML, no metes clases, solo le dices al CSS: **vigila esto y actúa**. Se usa con `:` y va pegada al selector.
+
+---
+
+🎯 **Algunas pseudoclases clave que sí o sí debes controlar:**
+
+---
+
+🔸 `:hover`
+Cuando pasas el ratón por encima de algo.
+Ejemplo mental: pasas el puntero sobre un botón y cambia de color.
+👉 Muy usada en menús, botones, links. Básica y sexy.
+
+---
+
+🔸 `:active`
+Cuando haces clic, justo en el momento que estás apretando.
+Ejemplo: el botón se oscurece cuando lo presionas.
+👉 Útil para dar feedback visual al usuario.
+
+---
+
+🔸 `:focus`
+Cuando un input está seleccionado.
+Ejemplo: haces clic en un campo de texto y se ilumina la caja.
+👉 Ideal para formularios accesibles y modernos.
+
+---
+
+🔸 `:first-child`
+Solo se aplica al **primer hijo** dentro de un padre.
+Ejemplo: en una lista, que el primer elemento esté en negrita.
+👉 Es como decir: "solo al primero, el resto que se aguanten".
+
+---
+
+🔸 `:last-child`
+Lo mismo que el anterior, pero para el último.
+👉 Para cerrar secciones, poner bordes, márgenes, lo que quieras.
+
+---
+
+🔸 `:nth-child(n)`
+Apunta al hijo número **n**.
+Puedes hacer virguerías como:
+
+* `odd` (impares)
+* `even` (pares)
+* `3` (el tercero, sin excusas)
+
+👉 Esto lo usas para rayado de tablas, efectos escalonados, o destacar un ítem puntual.
+
+---
+
+🔸 `:not()`
+Esta es la pseudoclase troll.
+Te permite **negar** cosas.
+Ejemplo mental: "pon todo en gris... excepto este".
+👉 Ultra útil para aplicar estilos por descarte.
+
+---
+
+🔸 `:checked`
+Cuando una checkbox o radio está marcada.
+Ejemplo: marcas una opción y cambia su aspecto.
+👉 Brutal para toggles, switches y formularios sin una sola línea de JavaScript.
+
+---
+
+🔸 `:disabled` / `:enabled`
+Para inputs o botones desactivados/activados.
+Te permite cambiar cómo se ven cuando no están disponibles.
+👉 Ideal para cuando tienes que forzar al usuario a completar algo antes de continuar.
+
+---
+
+🔥 **Resumen callejero:**
+Las pseudoclases son como sensores. CSS te dice:
+*"Cuando esto pase, yo actúo."*
+Y tú, como jefe de estilo, le dices exactamente cómo. No necesitas JS, ni cambiar el HTML, ni movidas raras. Solo CSS listo para el combate.
+
+
+---
+
+### Pseudoelementos CSS: Los cracks invisibles que mejoran tu web 👻✨
+
+Los pseudoelementos son como pequeñas capas extra que CSS pone dentro o alrededor de un elemento HTML para añadir contenido o decoración sin que tengas que meter más etiquetas en tu código. Esto hace que puedas darle un toque pro a tu web sin complicarte la vida ni ensuciar el HTML.
+
+---
+
+### Los reyes de los pseudoelementos 👑
+
+**::before**
+Inserta contenido justo **antes** del contenido original del elemento.
+Ejemplo: si quieres que cada párrafo empiece con un fuego, haces esto:
+p::before {
+  content: "🔥 ";
+}
+Así todos tus párrafos empiezan con ese emoji que llama la atención y da flow.
+
+**::after**
+Inserta contenido justo **después** del contenido original.
+Ejemplo: si quieres que cada párrafo termine con un check para dar sensación de “todo correcto”, pones:
+p::after {
+  content: " ✅";
+}
+Así tus textos quedan con un toque final chulo y profesional.
+
+---
+
+### ¿Qué más puedes hacer con pseudoelementos? 🛠️
+
+* Añadir iconos o símbolos decorativos sin tocar el HTML.
+* Crear barras, líneas o formas para decorar títulos o secciones.
+* Meter efectos visuales como sombras, degradados o animaciones.
+* Mejorar la usabilidad con etiquetas o avisos extras sin meter más código.
+
+---
+
+### La regla de oro para que funcionen ⚠️
+
+Tienes que usar siempre la propiedad content. Si no la pones, los pseudoelementos no aparecen ni con un cañón. Puede ser texto, emoji, o incluso vacío (content: "";) si solo quieres una forma o color.
+
+---
+
+### Un ejemplo guapo que suele molar 🔥
+
+Quieres poner una barra roja a la izquierda de todos los títulos h2, pero sin añadir más etiquetas en el HTML. Pues haces esto:
+
+h2::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 100%;
+  background-color: red;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+Así sin tocar el HTML, tus títulos tienen una barra roja que da caña visualmente.
+
+---
+
+### Otros pseudoelementos menos comunes, pero útiles
+
+* \::first-letter → para darle estilo solo a la primera letra de un texto (como en libros antiguos).
+* \::first-line → para cambiar el estilo solo a la primera línea.
+* \::selection → para cambiar el color cuando seleccionas texto con el ratón (pinta el texto seleccionado).
+
+---
+
+### En resumen, bro
+
+Los pseudoelementos son la forma más limpia, elegante y profesional de añadir contenido extra o detalles visuales sin tocar ni un solo HTML. Son fáciles de usar, súper potentes y te permiten hacer diseños muy guapos con poco código.
+
+No todas las propiedades de CSS son heredables. inherit se usa para forzar la herencia de aquellas propiedades que no sean heredables.
+Cuando varias reglas afectan al mismo elemento se aplican una serie de normas de prioridad, la regla mas especifica prevalece. Por defecto las reglas definidas en una hoja de estilo de autor tienen preferencia (!important;) sobre las de usuario y estas a su vez sobre las del navegador. Para alterar este orden es posible marcar las declaraciones de las reglas de estilo como importantes.
+
+Orden de prioridad:
+-NAVEGADOR, USUARIO, AUTOR en IMPORTANT. AUTOR,USUARIO, NAVEGADOR en NORMAL
+Dentro de las hojas de estilo de autor, las reglas en linea tienen prioridad sobre las hojas de estilo internas y estas a su vez sobre las externas. Si tras aplicar todos lo criterios dos reglas tienen la misma prioridad, se aplica la ultima de declararse.
+
+Modelo de Cajas:
+Define como se muestran los elementos en la pantalla, cada elemento HTML se representa dentro de una caja. El aspecto basico de una caja se define por su anchura, altura, relleno, borde y margen. Widh y height son ancho y alto de la caja.
+El relleno (padding) es el espacio que va desde el contenido hasta el borde de la caja, con el mismo fondo que la caja.
+El borde rodea la caja y el relleno y es posible cambiar tamaño, color y estilo y que ademas se distingue entre los cuatro lados. 
+El margen es el espacio que deja la caja.
+
+
+---
+
+En HTML, los elementos se dividen en dos tipos según cómo se comportan en la página: **elementos de bloque** y **elementos en línea (inline)**. Esto define cómo se muestran, cómo ocupan espacio y qué estilos puedes meterles. Vamos a darle con emojis y flow para que lo pilles a la primera.
+
+---
+
+### Elementos de bloque 🧱⬛️
+
+Estos elementos son como bloques grandes y fuertes que ocupan toda la línea horizontal disponible, como un muro sólido. Siempre empiezan en una línea nueva y empujan todo lo que venga después para abajo. Pueden tener ancho, alto, márgenes y relleno sin problema.
+
+**Ejemplos típicos:**
+`<div>`, `<p>`, `<h1>`, `<section>`, `<article>`, `<form>`
+
+**¿Cómo funcionan?**
+Imagina un ladrillo 🧱 que ocupa todo el ancho de la pared. Cada ladrillo va debajo del anterior, sin juntarse en la misma fila.
+
+**Visualmente:**
+🧱
+🧱
+🧱
+
+O sea, bloque tras bloque, uno bajo otro.
+
+---
+
+### Elementos en línea (inline) ✂️📏
+
+Estos son los elementos pequeños que se comportan como letras o palabras en una frase. No empiezan en línea nueva, ocupan solo el espacio que necesitan, y se colocan uno al lado del otro.
+
+No puedes ponerles ancho o alto directo, ni margen arriba y abajo (solo a los lados).
+
+**Ejemplos típicos:**
+`<span>`, `<a>`, `<strong>`, `<em>`, `<img>`
+
+**¿Cómo funcionan?**
+Piensa en letras o emojis en un texto, que fluyen en la misma línea sin saltar. Así: 😎👊🔥
+
+**Visualmente:**
+📏📏📏📏📏 (todo seguido, sin romper línea)
+
+---
+
+### ¿Por qué importa esta diferencia? 🤔
+
+Porque si quieres controlar el diseño de tu web, necesitas saber qué tipo de elemento tienes para aplicar bien estilos como márgenes, rellenos, o anchos.
+
+* Si usas un elemento de bloque, puedes poner márgenes arriba, abajo, y ajustar su tamaño a lo bestia.
+* Si usas un inline, solo puedes tocar margen a los lados y no va a empezar en una línea nueva, sigue pegado a lo que tiene al lado.
+
+---
+
+### Elementos inline-block ⚡✨
+
+Son una mezcla rara pero muy útil: se comportan como inline (van en la misma línea) pero admiten ancho, alto, márgenes y relleno como los bloques.
+
+Ejemplo:
+Un `<button>` normalmente es inline-block, o si a un `<span>` le pones `display: inline-block;` en CSS.
+
+**Visualmente:**
+Es como tener cajas pequeñas (bloques) que están una al lado de otra, pero puedes controlarlas como si fueran bloques.
+
+---
+
+### Para cerrar, bro:
+
+* 🧱 **Bloque:** ocupa toda la línea, empieza en línea nueva, margen arriba y abajo.
+* ✂️ **Inline:** ocupa solo lo que necesita, va pegado en línea, margen solo a los lados.
+* ⚡ **Inline-block:** inline que se puede controlar como bloque.
+
+---
+
+
+
+### `display: none;` ❌👻
+
+Este es el botón mágico para **hacer que un elemento desaparezca por completo** de la página. O sea, el elemento NO se ve, **no ocupa espacio ni lugar** en el diseño, como si ni existiera.
+
+---
+
+### ¿Qué pasa cuando usas `display: none;`?
+
+* El elemento se **esconde totalmente**: ni se ve, ni deja hueco, ni afecta a los demás.
+* Es diferente de `visibility: hidden;` que solo lo hace invisible pero sigue ocupando espacio (como un fantasma).
+* Tampoco responde a eventos ni se puede seleccionar porque no está en el flujo del documento.
+
+---
+
+### ¿Para qué sirve? 🎯
+
+* Para esconder menús, pop-ups, o elementos que quieres mostrar después con JS (por ejemplo, un modal o un menú desplegable).
+* Para ocultar cosas en móviles o pantallas pequeñas y mostrarlas en grandes con media queries.
+* Para hacer animaciones con JS cambiando el `display` y luego aplicando estilos.
+
+---
+
+### Ejemplo sencillo 👇
+
+Si tienes un `<div>` que no quieres que se vea:
+
+```css
+div {
+  display: none;
+}
+```
+
+¡Pum! desaparece como por arte de magia.
+
+---
+
+### Resumen con emojis
+
+`display: none;` = 🚫👀 + 🕳️ (no se ve y no ocupa espacio)
+
+`visibility: hidden;` = 👻 (invisible pero sigue ahí)
+
+---
+
+
+### Cómo hacer un círculo en un div 🔵⚪️
+
+Lo básico es usar CSS para que el div tenga el mismo ancho y alto, y luego redondear las esquinas al máximo con `border-radius`.
+
+---
+
+### Paso a paso:
+
+1. Dale un tamaño fijo, por ejemplo 100px de ancho y alto (puedes cambiarlo a lo que quieras).
+2. Usa `border-radius: 50%;` para que las esquinas se redondeen hasta formar un círculo perfecto.
+3. Ponle un color de fondo para verlo bien.
+
+---
+
+### Código ejemplo directo:
+
+```css
+div {
+  width: 100px;        /* ancho */
+  height: 100px;       /* alto */
+  background-color: #3498db;  /* color azul molón */
+  border-radius: 50%;  /* ¡esto lo convierte en círculo! */
+}
+
+---
+
+### ¿Qué está pasando? 🤓
+
+* `width` y `height` igualitos hacen un cuadrado.
+* `border-radius: 50%` redondea cada esquina la mitad del tamaño, creando un círculo perfecto.
+* El `background-color` es solo para que lo veas, puede ser el color que quieras o una imagen de fondo.
+
+---
+
+### Bonus 👌
+
+Si quieres un círculo con borde, solo añade:
+`border: 3px solid #2c3e50;`
+
+Si quieres que sea un círculo responsive que se adapte al tamaño del contenedor, puedes usar porcentajes o unidades relativas, pero para empezar así está de lujo.
+
+
+
+---
+
+### Sombras en CSS: el poder del `box-shadow` y `text-shadow` 🕶️✨
+
+---
+
+### 1. `box-shadow` — Sombras para cajas y elementos 🏠🖤
+
+Este es el más usado, para crear sombras alrededor de cualquier caja, div, botón, imagen, lo que sea.
+
+---
+
+### Sintaxis básica:
+
+```css
+box-shadow: offsetX offsetY blurRadius spreadRadius color;
+```
+
+* **offsetX** → cuánto se mueve la sombra a la derecha (+) o a la izquierda (-)
+* **offsetY** → cuánto se mueve la sombra hacia abajo (+) o arriba (-)
+* **blurRadius** → cuánto se difumina la sombra (más valor = sombra más suave y grande)
+* **spreadRadius** → cuánto crece o se reduce la sombra (positivo la hace más grande, negativo más pequeña)
+* **color** → color de la sombra (puede tener transparencia con rgba)
+
+---
+
+### Ejemplo básico y guapo:
+
+```css
+div {
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+}
+```
+
+Esto hace una sombra que se mueve 5 píxeles a la derecha y 5 hacia abajo, con un desenfoque suave de 10 píxeles y color negro semitransparente.
+
+---
+
+### Extra: múltiples sombras
+
+Puedes poner varias sombras separadas por coma:
+
+```css
+box-shadow: 3px 3px 5px rgba(0,0,0,0.3), -3px -3px 5px rgba(255,255,255,0.2);
+```
+
+O sea, una sombra oscura abajo a la derecha y una clarita arriba a la izquierda para efecto “lifting”.
+
+---
+
+### Sombras internas 🕳️🔦
+
+Si quieres que la sombra esté dentro del elemento (como un recorte o hundimiento), usa la palabra clave `inset`:
+
+```css
+box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5);
+```
+
+Esto mete la sombra hacia dentro, da efecto de relieve hundido o borde sombreado.
+
+---
+
+### 2. `text-shadow` — Sombras para texto ✍️🖤
+
+Si quieres que el texto tenga sombra para destacar, usarás `text-shadow` con casi la misma sintaxis (sin spread):
+
+```css
+text-shadow: offsetX offsetY blurRadius color;
+```
+
+Ejemplo:
+
+```css
+h1 {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+```
+
+Esto hace que el texto tenga una sombra negra suave, desplazada 2 píxeles a la derecha y abajo.
+
+---
+
+### Tips para usar sombras como un pro 💡
+
+* Las sombras no deben ser muy exageradas para que no cansen la vista.
+* Usa transparencias para que la sombra sea sutil y elegante.
+* Combina sombras internas y externas para efectos cool.
+* Las sombras pueden dar profundidad sin necesidad de imágenes ni efectos complejos.
+
+---
+
+### Resumen con emojis
+
+* `box-shadow` = 🏠➡️💨 sombra de caja, con offsetX/Y, desenfoque, expansión y color.
+* `box-shadow inset` = 🕳️ sombra dentro de la caja, efecto hundido.
+* `text-shadow` = ✍️🖤 sombra para texto, con offset y blur.
+
+
+
+---
+
+### Posicionamiento en CSS: controlar dónde está tu elemento 🧭📍
+
+El posicionamiento sirve para mover y colocar elementos en la página de formas específicas, más allá del flujo normal del HTML.
+
+---
+
+### Tipos básicos de posicionamiento:
+
+---
+
+### 1. `static` 🏠 (por defecto)
+
+Es la posición natural, sin mover nada. El elemento se coloca según el flujo normal del documento.
+
+**No se puede mover con top, left, right, bottom.**
+
+---
+
+### 2. `relative` 🎯
+
+El elemento se posiciona relativo a su posición normal, permite desplazar a los elementos en relacion a la posicion que tendrian en el modo estatico. Los demas elementos ignoran este desplazamiento y se posicionan como si el elemento estuviera en la posicion normal, asi que se pueden producir solapamientos
+.
+Puedes usar `top`, `left`, `right`, `bottom` para moverlo pero el espacio que ocupa en el flujo sigue ahí (como un fantasma).
+
+Ejemplo:
+
+```css
+div {
+  position: relative;
+  top: 10px;   /* baja 10 píxeles desde su posición normal */
+  left: 5px;   /* se mueve 5 píxeles a la derecha */
+}
+```
+
+---
+
+### 3. `absolute` 🚀
+
+El elemento se posiciona respecto a su antecesor **posicionado** más cercano (que tenga `position: relative`, `absolute`, `fixed` o `sticky`).
+
+Sale del flujo normal, o sea que no ocupa espacio y puede superponerse.
+
+Ejemplo:
+
+```css
+.container {
+  position: relative;
+}
+.child {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+}
+```
+
+Aquí `.child` se coloca 20px desde arriba y 15px desde la derecha del `.container`.
+
+---
+
+### 4. `fixed` 📌
+
+El elemento se posiciona respecto a la ventana del navegador, o sea que no se mueve aunque hagas scroll.
+
+Muy usado para menús fijos o botones flotantes.
+
+Ejemplo:
+
+```css
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+```
+
+---
+
+### 5. `sticky` 🧲
+
+Es como un mix entre `relative` y `fixed`.
+
+El elemento se comporta como `relative` hasta que llegas a un punto del scroll, y ahí se queda “pegado” fijo.
+
+Ejemplo:
+
+```css
+header {
+  position: sticky;
+  top: 0;
+  background: white;
+}
+```
+
+Esto hace que el header se quede fijo en la parte superior cuando haces scroll.
+
+---
+
+### Propiedades que se usan con posicionamiento:
+
+* `top`: distancia desde arriba
+* `right`: distancia desde la derecha
+* `bottom`: distancia desde abajo
+* `left`: distancia desde la izquierda
+
+Se usan para mover el elemento según el tipo de posición.
+
+---
+
+### Resumen con emojis:
+
+* `static` = 🏠 posición normal, sin mover.
+* `relative` = 🎯 mueve respecto a su sitio original (pero espacio sigue).
+* `absolute` = 🚀 mueve respecto al padre posicionado, fuera del flujo.
+* `fixed` = 📌 fijo en pantalla, no se mueve con scroll.
+* `sticky` = 🧲 pega y se queda fijo cuando llegas a un punto.
+
+
+---
+
+### Float no es posicionamiento, es “flotar” elementos 🛟🌊
+
+Mientras que los modos de posicionamiento (`static`, `relative`, `absolute`, `fixed`, `sticky`) controlan cómo se coloca un elemento en el espacio, **float** sirve para hacer que un elemento se “pegue” a la izquierda o derecha y que el contenido que venga después fluya a su alrededor, como texto al lado de una imagen.
+
+---
+
+### Por qué float no es posicionamiento:
+
+* No saca al elemento del flujo completamente (aunque puede hacer que el contenedor “colapse” si no tienes cuidado).
+* No se controla con `top`, `left`, etc. sino con `float: left` o `float: right`.
+* Es más una técnica para envolver contenido que para colocar elementos en un punto exacto.
+
+---
+
+### Resumen brutal:
+
+* **Modos de posicionamiento** = controlan la posición absoluta o relativa en la página.
+* **Float** = mueve el elemento a un lado y hace que el contenido lo rodee.
+
+---
+
+Hoy en día, para layouts más chulos y fáciles, mejor usa Flexbox o Grid que te dan control total sin liarla con floats, pero sigue siendo útil para cosas simples como imágenes que quieres que floten al lado.
+
+
+Modos de posicionamiento:
+
+🔥 SOLAPAMIENTOS
+---
+
+🧠 **¿Qué significa el valor de `z-index`?**
+Cuanto **mayor es el valor**, **más arriba** se coloca el elemento en la pila de capas. Es como un montón de cartas:
+
+* `z-index: 1` está por encima de `z-index: 0`.
+* `z-index: 9999` aplasta a todos los demás como un jefe final 🥵.
+
+---
+
+📌 **Pero ojo**: `z-index` **solo funciona en elementos posicionados**, es decir, con `position: relative`, `absolute`, `fixed` o `sticky`. Si no tienen eso, `z-index` se lo pasa por el forro.
+
+---
+
+### Resumen con flow:
+
+* `z-index` = orden de capas.
+* Valor más alto = **mayor prioridad visual**, se ve por encima.
+* Necesita que el elemento esté posicionado (`relative`, `absolute`, etc.).
+* Puede ser negativo (`z-index: -1`) para mandar algo al fondo.
+
+---
+
+Con el modo absoluto se especifica la posicion del elemento en relacion a otro elemento. Los demas elementos se posicionan como si los elementos con posicionamiento absoluto no existieran, asi que pueden darse solapamientos.
+El posicionamiento fijo sirve para dejar un elemento fijo en la pantalla, aunque haya desplazamiento vertical u horizontal..
+
+El módulo de caja flexible se cono como flexbox. diseñado como un modelo unidimensional de layout y como un metodo para ayudar a distribuir el espacio entre los items de una interfaz y mejorar las capacidades de alineacion. Flexbox es unidimensional pero destaca que maneja el layout en una sola dimension a la vez 
+El posicionamiento fijo sirve para dejar un elemento fijo en la pantalla, aunque haya desplazamiento vertical u horizontal.
+
+Lo que se usa mas que el float es el GRID.
+Grid-Layout es el como se construye la estructura de un sitio web, se crea mediante filas y columnas y con gran control de diseño para decidir donde meter el contenido. Vamos a poder crear sitios totalmente responsive y facilitando el uso de @media.
+Con Grid vamos a tener un elemento que sera el contenedor principal (body). Dentro del contenedor tendremos la estructura tal y como lo hemos visto en HTML5
+En nuestro CSS lo primero que tenemos que hacer es trabajar el estilo del contenedor. Para poder trabajar con grid el display de este elemento sera grid.
+Podemos espaciar la regila de nuestras filas y columnas mediantee la propiedad gap. Su valor sera una unidad de medida valida (en px).
+Para definir el numero de columnas usaremos la medida de fraccion de CSS (fr)
+En grid la definicion de las columnas se realiza mediante propiedad grid-template-columns y su valor sera las fracciones que ocupa cada columna(podemos usar la funcion repeat(n,fr)si son muchas columnas).
+Para definir las filas en grid usaremos la propiedad grid-template-rows y su valor puede ser en (fr) aunque normalmente se puede dejar en auto ya que crecen segun el contenido. En realidad esta definicion no se utiliza si usamos la definicion implicita de las filas usando grid-template-areas en la que le diremos el mapa del contenido de cada celda en nuestro grid.
+
+Las media queries permiten adaptar la presentacion de la pagina a las caracteristicas del dispositivo con que se accede a la pagina.
+Constituyen la base para conseguir un diseño adaptable. Entre otras cosas con las media queries podemos preguntar por:
+-Tipo de dispositivo
+-Orientacion de la pantalla.
+-Ancho de la ventana del navegador.
+El media query ex una expresion logica que se evalua a verdadero o falso. Cuando sale verdadero, las reglas asociadas a la consultan entran en vigor y al ser falso no se tienen en cuenta.

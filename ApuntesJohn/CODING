@@ -1,0 +1,152 @@
+CODING
+
+NESTING:
+**Nesting en HTML y CSS** se refiere a la idea de **anidar elementos o reglas** dentro de otros. Aunque el concepto existe en ambos lenguajes, funciona de maneras distintas:
+
+---
+
+### **Nesting en HTML** 🧱
+
+En HTML, el **nesting** ocurre cuando **unas etiquetas se colocan dentro de otras**, creando una estructura jerarquica que refleja la organizacion logica del contenido.
+
+Ejemplo basico:
+
+```html
+<body>
+  <section>
+    <h1>Noticias</h1>
+    <article>
+      <h2>Titulo del articulo</h2>
+      <p>Este es el contenido del articulo.</p>
+    </article>
+  </section>
+</body>
+```....
+
+Aqui `<article>` esta dentro de `<section>`, y a su vez todo esta dentro del `<body>`. Este tipo de nesting ayuda a los navegadores y motores de busqueda a entender mejor el contenido y su jerarquia.
+
+Errores comunes:
+
+* Mal cierre de etiquetas anidadas
+* Etiquetas que no deben estar dentro de otras (por ejemplo, un `<div>` dentro de un `<p>`, lo cual no es valido)
+
+---
+
+### **Nesting en CSS** 🎨
+
+En CSS tradicional, las reglas no se pueden anidar. Sin embargo, con **preprocesadores** como **SASS o SCSS**, y ahora con **CSS Nesting nativo** (soportado en navegadores modernos), puedes anidar reglas para organizar mejor el estilo.
+
+Ejemplo en CSS nativo moderno (o SCSS):
+
+```css
+nav {
+  background: black;
+  ul {
+    list-style: none;
+    li {
+      display: inline-block;
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+```
+
+Esto mejora la legibilidad y estructura del estilo cuando trabajas con componentes complejos. Al compilarse (o si usas nesting nativo), se transforma en reglas completas como:
+
+```css
+nav ul { ... }
+nav ul li { ... }
+nav ul li a { ... }
+```
+
+**Ventajas del nesting en CSS:**
+
+* Mayor claridad estructural
+* Evita repetir selectores
+* Facilita el mantenimiento del codigo
+
+**Cuidado:** No abuses del nesting en CSS, especialmente si anidas mas de 3 niveles, ya que puede dificultar la lectura y afectar el rendimiento.
+
+---
+
+### Conclusion 📌
+
+* En HTML, **nesting** refleja la estructura del contenido mediante etiquetas dentro de otras.
+* En CSS, el **nesting** permite escribir reglas mas organizadas, ya sea mediante SASS o el nuevo soporte nativo.
+
+
+
+
+
+### 🧠 ¿Qué es `--borderboton`?
+
+Es una **variable CSS personalizada**. Básicamente es un nombre que tú inventas (empezando siempre por `--`) para guardar un valor que puedas reutilizar. En este caso, `--borderboton` guarda algo que vas a usar para el **borde de un botón**, como podría ser esto:
+
+```css
+--borderboton: 2px solid red;
+```
+
+Eso puede guardar **grosor**, **tipo de borde** y **color**, todo en uno. Luego la usas con `var(--borderboton)` donde quieras.
+
+---
+
+### 🧱 ¿Qué es `:root`?
+
+`:root` es un **selector CSS** especial que apunta al **elemento raíz del documento**, o sea, el `<html>`. Sirve para definir variables globales que luego puedes usar en cualquier parte del CSS.
+
+Piensa en `:root` como una especie de "centro de mando" de tus variables.
+
+---
+
+### 🔧 Ejemplo completo
+
+```css
+:root {
+  --borderboton: 2px solid red;
+  --colorprimario: #007bff;
+  --tamaniotexto: 16px;
+}
+
+button {
+  border: var(--borderboton);
+  color: var(--colorprimario);
+  font-size: var(--tamaniotexto);
+}
+```
+
+Con eso, si quieres cambiar el color o estilo de todos los botones, solo tocas la variable en `:root`, y se actualiza en todas partes.
+
+---
+
+### 🧙 En resumen:
+
+* `--borderboton` → variable que guarda el estilo de borde.
+* `:root` → lugar donde defines esas variables globales.
+
+Es como tener tus poderes mágicos CSS centralizados en una sola sala de control. 🔥
+
+
+
+---
+
+### 📐 Funciones CSS matemáticas (resumen para humanos programadores):
+
+* **`calc()`** → Para hacer cuentas con unidades (`px`, `%`, `vh`, etc.).
+* **`abs()` / `sign()`** → Para obtener el valor absoluto o el signo (`+` o `-`) de un número.
+* **`min()` / `max()`** → Te da el mínimo o el máximo entre varios valores.
+* **`clamp()`** → Establece un valor dentro de un rango (`mínimo`, `ideal`, `máximo`).
+* **`round()` / `mod()` / `rem()`** → Redondear, obtener el módulo o el resto (muy útiles con bucles o diseños escalonados).
+* **`sin()` / `cos()` / `tan()`** → Funciones trigonométricas: seno, coseno y tangente (sí, por si te pones trigonométrico con animaciones locas).
+* **`asin()` / `acos()` / `atan()`** → Inversas de las anteriores: arcosenos, arcocosenos y arcotangentes.
+* **`atan2()`** → Calcula la arcotangente con dos parámetros (más precisión, ideal para direcciones/ángulos).
+* **`pow()` / `sqrt()` / `hypot()`** → Potencias, raíces cuadradas e hipotenusas (sí, puedes sacar el Teorema de Pitágoras en CSS 💀).
+* **`log()` / `exp()`** → Logaritmos y exponenciales (por si te metes en movidas de crecimiento exponencial, animaciones no lineales, etc.).
+
+---
+
+🔧 **Consejo de máquina a máquina**: Estas funciones **van con `math-*` y aún no son soportadas en todos los navegadores**, algunas están en plan experimental. Así que úsalas con cabeza o revisa compatibilidad en [Can I Use](https://caniuse.com/) si vas a producción.
+
+

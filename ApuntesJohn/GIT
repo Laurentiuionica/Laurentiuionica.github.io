@@ -1,0 +1,163 @@
+## 🧠 GIT
+
+*(GitHub y control de versiones)*
+
+---
+
+### 🧩 ¿Qué es el control de versiones?
+
+Un sistema de control de versiones (**VCS**) realiza un seguimiento de los cambios en archivos. Sus funciones principales son:
+
+* 📜 Recuperar versiones anteriores
+* 👥 Permitir trabajo colaborativo
+* 💾 Conservar historial completo
+
+**Git** es un VCS distribuido, de código abierto, rápido y versátil, creado por **Linus Torvalds**.
+
+---
+
+### ✅ ¿Qué permite hacer Git?
+
+* 👁️ Ver historial de cambios: quién, cuándo y qué se cambió
+* 📝 Añadir mensajes descriptivos a cada cambio
+* 🔄 Recuperar versiones pasadas
+* 🌱 Crear ramas para pruebas o desarrollo paralelo
+* 🔖 Etiquetar versiones importantes
+
+---
+
+### ⚙️ Git como sistema distribuido
+
+Git permite trabajar con una copia **completa del historial** en cada equipo. Esto ofrece ventajas como:
+
+* 🔌 Trabajo sin conexión
+* ☁️ Sincronización posterior
+* 💡 Trabajo seguro incluso si el servidor falla
+* 📤 Compartir cambios por diferentes medios (aunque poco común)
+
+---
+
+### 🗂️ Terminología clave en Git
+
+* 📁 **Repositorio (repo):** Carpeta principal con historial y metadatos
+* 🔢 **Hash:** Identificador único (SHA-1) para detectar cambios
+* 🧱 **Objeto Git:**
+
+  * *Blob:* Contenido de archivo
+  * *Tree:* Estructura de carpetas
+  * *Commit:* Versión del proyecto
+  * *Tag:* Nombre asignado a un commit
+* 📌 **Commit (Confirmación):** Registro de cambios
+* 🌿 **Branch (Rama):** Línea de desarrollo independiente (por defecto: `main`)
+* 🌐 **Remote (Remoto):** Repositorio externo conectado
+* 💻 **HEAD:** Último commit de la rama activa
+* 🔤 **Comandos y opciones:** git comando --opción
+
+---
+
+### 🔧 Convenciones en Azure DevOps
+
+* `feature/`: Ramas para nuevas tareas
+* `hotfix/`: Ramas para corregir errores
+* 🚫 Evitar espacios en los nombres de ramas
+* ✅ Separar palabras con guiones: `feature/login-api`
+* 📝 Usar ramas vinculadas a tareas
+* 🧪 `cherry-pick`: Copia un commit específico de una rama a otra
+
+---
+
+### 🍴 Fork y remotos: `origin` y `upstream`
+
+Un **fork** es una copia personal de un repositorio. Se usan dos remotos:
+
+* 🔁 `origin`: tu copia personal
+* 🌍 `upstream`: el repositorio original
+
+---
+
+### 🚀 git push
+
+Sube tus cambios al repositorio remoto (tu fork).
+Ejemplo:
+git push origin mi-rama
+
+---
+
+### 📥 git fetch
+
+Trae cambios desde el repositorio original sin aplicarlos.
+Ejemplo:
+git fetch upstream
+
+Sirve para ver qué hay de nuevo antes de mezclarlo.
+
+---
+
+### 🔄 git pull
+
+Descarga y aplica los cambios de otra rama/remoto.
+Ejemplo:
+git pull upstream main
+
+Es equivalente a hacer fetch + merge.
+
+---
+
+### 📊 Comparativa rápida
+
+**git fetch:** Trae cambios sin aplicarlos (usualmente desde `upstream`)
+**git pull:** Trae y aplica cambios (usualmente desde `upstream`)
+**git push:** Sube tus cambios (normalmente a `origin`, tu fork)
+
+---
+Windows-Shift-S captura pantalla
+
+---
+
+## 🔱 Git Fork – Resumen General
+
+Un **Fork** en Git es una 🔁 **copia completa e independiente** de un repositorio remoto (como en GitHub, GitLab o Azure DevOps). Esta copia se crea en tu propio espacio de trabajo y te permite trabajar sobre el código sin afectar el repositorio original. Es una práctica común cuando deseas contribuir a un proyecto en el que no tienes acceso directo o simplemente quieres modificarlo por tu cuenta.
+
+---
+
+### ⚙️ Características Principales
+
+🧩 **Independencia total**: Puedes hacer cambios libremente en tu fork sin modificar el proyecto base. Esto es útil para desarrollar nuevas funcionalidades, corregir errores o hacer pruebas.
+
+🔐 **No requiere permisos del repo original**: Al hacer un fork puedes colaborar aunque no seas parte del equipo oficial del proyecto.
+
+🕓 **Historial completo preservado**: El fork conserva todos los commits, ramas y etiquetas del repositorio original.
+
+🔄 **Posibilidad de sincronización**: Aunque es una copia independiente, puedes mantener tu fork actualizado con los últimos cambios del original utilizando comandos de Git como `fetch` y `merge`.
+
+🌐 **Separación visual en la plataforma**: En servicios como GitHub, los forks se muestran claramente como versiones derivadas, lo que facilita su gestión y seguimiento.
+
+---
+
+### 🛠️ Utilidades Prácticas
+
+🤝 **Colaboración en proyectos de terceros**: Puedes contribuir a proyectos sin necesidad de formar parte oficial del equipo de desarrollo.
+
+🧪 **Desarrollo y pruebas sin riesgos**: Al trabajar sobre tu fork, puedes experimentar libremente sin romper el código del proyecto principal.
+
+🧰 **Personalización**: Puedes adaptar un proyecto a tus necesidades específicas sin alterar el repositorio original.
+
+📤 **Propuesta de cambios mediante Pull Requests**: Una vez que has hecho mejoras en tu fork, puedes enviar una propuesta de cambio al proyecto original.
+
+🧭 **Exploración educativa**: Ideal para estudiar el funcionamiento interno de proyectos reales modificándolos sin riesgos.
+
+---
+
+### 🔁 Flujo de Trabajo Típico con Fork
+
+1. 🔱 Haces un fork del repositorio desde la plataforma (GitHub, Azure DevOps, etc.).
+2. 💻 Clonas tu fork localmente en tu equipo para trabajar.
+3. 🌿 Creas una nueva rama para la funcionalidad o corrección que deseas implementar.
+4. 🛠️ Realizas los cambios y haces commit.
+5. 🚀 Subes tus cambios al repositorio remoto (push).
+6. 📬 Creas un Pull Request desde tu fork hacia el repositorio original para revisión.
+
+---
+
+
+

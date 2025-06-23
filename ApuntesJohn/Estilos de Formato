@@ -1,0 +1,72 @@
+### 🎨 **Estilos de Formato: ¡Así se Viste tu Texto\!**
+
+Estos estilos son como la ropa de tu texto; cambian cómo se ve. Son los que usas en WhatsApp, en tus documentos o al diseñar:
+
+  * **Negrita** (Bold) 💪: Para darle **fuerza** y que el texto destaque.
+      * *Ejemplo:* **¡Importante\!** 📣
+  * **Cursiva** (Italic) 📝: Para inclinarlo, ideal para *citas*, *palabras especiales* o un toque de *énfasis sutil*.
+      * *Ejemplo:* Mi libro *favorito* es... 📖
+  * **Subrayado** (Underline) ✍️: Pone una línea debajo, útil para resaltar o, en la web, solía indicar un **enlace**.
+      * *Ejemplo:* \<u\>Haz clic aquí\</u\> 😉
+  * **Color de Fuente** 🌈: ¡Cambia el color de tus palabras\!
+      * *Ejemplo:* \<span style="color: purple;"\>Texto morado\</span\> 💜
+  * **Tamaño de Fuente** 📏: ¡Hazlo más grande o más pequeño\!
+      * *Ejemplo:* \<span style="font-size: 20px;"\>¡GRANDE\!\</span\> 🦁 vs. \<span style="font-size: 10px;"\>pequeño\</span\> 🐜
+  * **Tipo de Fuente** (Familia Tipográfica) 🔡: Esto cambia el "dibujo" de las letras (Arial, Times New Roman, Calibri...).
+      * *Ejemplo:* ¡Hola en \<span style="font-family: 'Comic Sans MS';"\>Comic Sans\</span\>\! 🤪
+  * **Mayúsculas/Minúsculas** 🅰️🅱️: Controla la capitalización.
+      * *Ejemplo:* ¡TODO EN MAYÚSCULAS\! 🗣️, solo minúsculas, O Solo La Primera Letra.
+  * **Tachado** ❌: Una línea sobre el texto, ¡para indicar que algo ya no va\!
+      * *Ejemplo:* \<del\>Precio antiguo\</del\> ¡Nuevo precio\! ✅
+  * **Superíndice/Subíndice** 🔢: Pequeños números o letras arriba o abajo, perfectos para fórmulas.
+      * *Ejemplo:* H₂O 💧, X³ 🚀
+
+-----
+
+### 🏛️ **Estilos de Diseño: ¡Organizando tu Información\!**
+
+Estos estilos ayudan a estructurar y dar jerarquía a tu contenido, combinando a menudo los formatos anteriores:
+
+  * **Encabezados** (Headings) 📑: Como los títulos y subtítulos de un libro, para organizar tu texto.
+      * *Ejemplo:*
+        ## Tu Gran Título H2 ✨
+        ### Tu Subtítulo H3 👇
+  * **Cuerpo de Texto** (Body Text) 📄: El texto principal, ¡la carne de tu documento\!
+      * *Ejemplo:* Aquí va toda la información importante que quieres compartir.
+  * **Listas** ✅: ¡Perfectas para enumerar cosas\!
+      * **Viñetas** (Sin orden) 📋:
+          * Manzanas 🍏
+          * Plátanos 🍌
+      * **Numeradas** (Con orden) 📝:
+        1.  Primer paso 🚶‍♀️
+        2.  Segundo paso ➡️
+  * **Citas** (Blockquotes) 💬: Para destacar frases célebres o trozos de otros textos.
+      * *Ejemplo:*
+        > "Sé el cambio que quieres ver en el mundo." - Mahatma Gandhi 🕊️
+  * **Énfasis** (Highlight) 💡: Cuando quieres que algo **brille** y sea imposible de ignorar.
+      * *Ejemplo:* \<mark\>¡No te lo pierdas\!\</mark\> ⭐
+  * **Código/Monoespaciado** 💻: Para mostrar código de programación o algo que necesita un tipo de letra muy específico.
+      * *Ejemplo:* `print("Hola mundo!")`
+
+-----
+
+### 🗣️ **Estilos de Escritura: ¡El Tono de tu Voz\!**
+
+Aunque no son formatos, ¡estos estilos definen cómo "suena" tu texto y a quién va dirigido\!
+
+  * **Formal** 💼: Lenguaje serio y preciso, ideal para informes o correos de trabajo.
+      * *Ejemplo:* "Estimado cliente, le informamos que..." 📧
+  * **Informal** 👋: Relajado y cercano, como si hablaras con un amigo.
+      * *Ejemplo:* "¡Hola\! ¿Qué tal todo? 😉"
+  * **Técnico** 🔬: Usa palabras específicas de un tema, para expertos en la materia.
+      * *Ejemplo:* "El algoritmo de compresión implementa un enfoque de entropía..." 🤓
+  * **Persuasivo** 🤝: Busca convencerte de algo o que hagas una acción.
+      * *Ejemplo:* "¡No dejes pasar esta oportunidad única\! ✨"
+  * **Narrativo** 📚: Para contar historias y crear mundos.
+      * *Ejemplo:* "Érase una vez en un reino lejano..." 👑
+  * **Descriptivo** 🎨: Detalla cómo son las cosas, pintando imágenes con palabras.
+      * *Ejemplo:* "El cielo, un manto azul profundo, salpicado de estrellas centelleantes." 🌌
+  * **Expositivo** 👨‍🏫: Explica temas de forma clara y objetiva.
+      * *Ejemplo:* "La fotosíntesis es el proceso por el cual las plantas producen su alimento..." 🌱
+
+-----

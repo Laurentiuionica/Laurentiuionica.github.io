@@ -1,0 +1,574 @@
+JavaScript
+
+Las paginas web dinamicas se dan cuando su contenido se genera en el servidor. Estas requieren una aplicacion (front-end) en el lado del servidor.
+Tambien se habla de contenido dinamico en el lado del cliente, en cuyo caso los cambios se producen mediante un programa o un script que se ejecuta en el navegador (cliente), se trata normalmente de JavaScript.
+Server-Side Rendering (SSR) es cuando el contenido dinamico se genera en el lado del servidor.
+Client-side Rendering (CSR) es cuando el contenido dinamico se genera en el lado del cliente.
+
+
+¡Absolutamente! Entendido, colega. No hay problema. Vamos a desmenuzar todo este rollo de JavaScript para que lo entiendas de verdad, sin prisas y con ejemplos que te hagan click. ¡Aquí no nos quedamos con dudas! 🧠💡
+
+---
+
+### **JavaScript: ¡El Maguito que Le Da Vida a Tu Web!** 🧙‍♂️✨
+
+Imagínate que estás construyendo una casa 🏠 en internet.
+
+* **HTML** es como el **esqueleto** de la casa: las paredes, el techo, las puertas. Le da la forma básica, pero no hace nada por sí mismo.
+* **CSS** es como la **pintura y la decoración**: el color de las paredes, los muebles, los cuadros. Hace que la casa se vea bonita.
+* Pero, ¿cómo abres la puerta? ¿Cómo enciendes las luces? ¿Cómo haces que el televisor funcione? ¡Ahí entra **JavaScript**! Es el **sistema eléctrico**, la **fontanería**, los **mecanismos inteligentes** que hacen que la casa sea funcional e interactiva. Es el que le da vida a tu web, ¡haciendo que las cosas pasen cuando el usuario lo pida! 🥳
+
+---
+
+### **Los Conceptos Clave de JavaScript: ¡Desgranados para Ti!** 👇
+
+Vamos a ver estos conceptos uno por uno, como si estuviéramos tomando un café y charlando. ☕
+
+#### **1. Variables: Tus Cajitas para Guardar Información** 📦
+
+Imagina que estás organizando tu habitación y tienes varias cajas. Cada caja tiene una etiqueta y dentro guardas algo diferente. ¡Eso son las variables!
+
+* **¿Qué son?** Son espacios en la memoria de la computadora donde **guardas datos** temporalmente. Les pones un **nombre** (la etiqueta de la caja) para poder encontrarlos y usarlos después.
+* **¿Por qué son importantes?** Sin ellas, no podrías recordar el nombre de un usuario, el resultado de una suma o si un botón está activado. ¡Son la memoria de tu programa!
+
+Hay tres formas principales de crear estas cajas (variables) en JavaScript:
+
+* **`var`**: La "vieja escuela" de las variables. Funciona, pero a veces da sorpresas porque su alcance es un poco "descontrolado". Piensa en ella como una caja grande que puedes dejar en cualquier parte y cualquiera puede meter mano. **Hoy en día, se usa muy poco.**
+* **`let`**: Esta es la más común y recomendada para la mayoría de los casos. Es como una caja que puedes **cambiar de contenido** más tarde, pero está mejor organizada y no se mete donde no la llaman. Si guardas un número, luego puedes guardar otro.
+    * Ejemplo: `let miEdad = 30;` (Mi edad puede cambiar el próximo año).
+    * Luego: `miEdad = 31;` (¡La caja ahora tiene otro valor!).
+* **`const`**: Esta es para cosas que **NUNCA van a cambiar** una vez que les asignas un valor. Es como una caja con candado. Si intentas meter algo diferente después, ¡JavaScript te dirá que no!
+    * Ejemplo: `const pi = 3.14159;` (El valor de Pi es fijo).
+    * Ejemplo: `const nombreEmpresa = "Mi Tienda S.L.";` (El nombre de la empresa no suele cambiar).
+
+---
+
+#### **2. Tipos de Datos: ¿Qué Tipo de Cosa Hay en la Caja?** 🏷️
+
+No es lo mismo guardar un juguete que un libro, ¿verdad? JavaScript también necesita saber qué tipo de información guardas en tus variables para saber cómo trabajar con ella.
+
+* **Números (Numbers):** Para todo lo que sea cantidad. Enteros, decimales, positivos, negativos.
+    * Ejemplos: `10`, `3.14`, `-50`.
+* **Cadenas de Texto (Strings):** Para palabras, frases, nombres. ¡Siempre van entre comillas! Dobles (`"`) o simples (`'`).
+    * Ejemplos: `"Hola Mundo"`, `'JavaScript es genial'`, `"Tomelloso"`.
+* **Booleanos (Booleans):** Solo tienen dos valores posibles: **`true`** (verdadero) o **`false`** (falso). Son perfectos para preguntas que se responden con sí o no.
+    * Ejemplos: `estaLogueado = true;` (El usuario ha iniciado sesión).
+    * `haceFrio = false;` (No hace frío).
+* **Arrays (Arreglos o Listas):** Si quieres guardar una **lista de cosas** en una sola variable. Es como una lista de compras. Van entre corchetes `[]`.
+    * Ejemplo: `let frutas = ["manzana", "plátano", "uva"];` (Aquí tienes 3 frutas en una lista).
+* **Objetos (Objects):** Para guardar información más compleja y organizada, como si fuera una **ficha de algo**. Cada objeto tiene "propiedades" (características) y "valores". Piensa en una ficha de persona que tiene su nombre, edad, ciudad, etc. Van entre llaves `{}`.
+    * Ejemplo:
+        ```javascript
+        let persona = {
+            nombre: "Ana",
+            edad: 28,
+            ciudad: "Madrid"
+        };
+        ```
+* **`null` y `undefined`:** Ambas significan "nada", pero de forma diferente.
+    * **`null`**: Significa "ausencia intencional de valor". Tú mismo le dices a la variable que **no tiene nada**.
+        * Ejemplo: `let cocheFavorito = null;` (No tengo un coche favorito ahora mismo).
+    * **`undefined`**: Significa que una variable **todavía no tiene un valor asignado**. JavaScript se lo pone por defecto si no le das uno.
+        * Ejemplo: `let miColor;` (Si no le asigno un color, `miColor` será `undefined`).
+
+---
+
+#### **3. Operadores: Los Que Hacen la Magia** ➕➖✖️➗
+
+Son los símbolos que usas para hacer cosas con tus datos.
+
+* **Operadores Aritméticos:** Para las operaciones de matemáticas.
+    * `+` (suma), `-` (resta), `*` (multiplicación), `/` (división).
+    * Ejemplo: `let resultado = 5 + 3;` (resultado es 8).
+* **Operadores de Comparación:** Para preguntar si algo es igual, diferente, mayor o menor. El resultado siempre será `true` o `false`.
+    * `==` (Igual a, **sin importar el tipo**): `5 == '5'` sería `true` (un 5 es igual a un '5' si no miras el tipo).
+    * `===` (Estrictamente igual a, **importando el tipo**): `5 === '5'` sería `false` (un 5 número no es igual a un '5' texto). **¡Este es el que más se recomienda usar!**
+    * `!=` (Diferente de), `!==` (Estrictamente diferente de).
+    * `>` (Mayor que), `<` (Menor que), `>=` (Mayor o igual que), `<=` (Menor o igual que).
+* **Operadores Lógicos:** Para combinar varias preguntas.
+    * `&&` (AND - "y"): Si quieres que se cumplan **todas** las condiciones.
+        * Ejemplo: `si (esMayorDeEdad && tieneCarnet)` (Sólo si ambas son verdaderas).
+    * `||` (OR - "o"): Si quieres que se cumpla **al menos una** de las condiciones.
+        * Ejemplo: `si (esViernes || esSabado)` (Si es viernes o sábado).
+    * `!` (NOT - "no"): Para invertir el valor. Si algo es `true`, lo convierte en `false`.
+        * Ejemplo: `if (!estaLloviendo)` (Si NO está lloviendo).
+
+---
+
+#### **4. Condicionales (`if`/`else`): Tomando Decisiones en el Código** 🚦
+
+Imagina que tu código es como tú por la mañana. Tienes que decidir: "Si hace sol, salgo de paseo. Si no hace sol, me quedo en casa leyendo."
+
+* **¿Qué son?** Son estructuras que le dicen a JavaScript: "Si esta condición es verdadera, haz esto. Si no, haz esto otro."
+* **¿Por qué son importantes?** Permiten que tu programa reaccione de manera diferente según lo que pase (la hora, la entrada del usuario, etc.).
+
+```javascript
+let temperatura = 25; // Hoy estamos a 25 grados aquí en Tomelloso
+
+if (temperatura > 20) { // Si la temperatura es mayor de 20...
+    console.log("¡Qué buen día para salir! ☀️"); // ...entonces di esto.
+} else { // Si no (es decir, si la temperatura es 20 o menos)...
+    console.log("Quizás hoy mejor me quedo en casita. 🏠"); // ...entonces di esto otro.
+}
+```
+
+---
+
+#### **5. Bucles (`for`/`while`): ¡Hazlo de Nuevo, Sam!** 🔁
+
+¿Alguna vez has tenido que repetir la misma tarea una y otra vez? ¡Los bucles son tus asistentes para eso!
+
+* **¿Qué son?** Son estructuras que le dicen a JavaScript que repita un bloque de código **varias veces**.
+* **¿Por qué son importantes?** Para no tener que escribir el mismo código muchas veces. Imagina que tienes una lista de 100 usuarios y quieres saludarlos a todos. ¡Un bucle lo hace en un instante!
+
+* **`for` (Para):** Lo usas cuando sabes **cuántas veces** quieres que algo se repita.
+    ```javascript
+    for (let i = 0; i < 5; i++) { // Empieza en 0, repite mientras 'i' sea menor que 5, y suma 1 a 'i' cada vez.
+        console.log("¡Estamos en la repetición número " + (i + 1) + "!");
+    }
+    // Esto imprimirá 5 veces un mensaje, del 1 al 5.
+    ```
+* **`while` (Mientras):** Lo usas cuando quieres que algo se repita **mientras una condición sea verdadera**. No sabes exactamente cuántas veces, solo que siga mientras se cumpla algo.
+    ```javascript
+    let energia = 3;
+
+    while (energia > 0) { // Mientras tengamos energía (sea mayor que 0)...
+        console.log("¡Sigo programando!");
+        energia = energia - 1; // Le restamos 1 a la energía en cada repetición
+    }
+    // Esto se repetirá 3 veces, hasta que la energía llegue a 0.
+    ```
+
+---
+
+#### **6. Funciones: Tus Recetas de Cocina Personalizadas** 🍳
+
+Imagina que te encanta hacer tortilla de patatas. En lugar de escribir todos los pasos cada vez que quieres una, ¡creas una receta!
+
+* **¿Qué son?** Son bloques de código que **agrupas** para que hagan una tarea específica. Les das un **nombre** y puedes "llamarlas" (usar la receta) cada vez que necesites esa tarea.
+* **¿Por qué son importantes?**
+    * **Reutilización:** Escribes el código una vez y lo usas muchas.
+    * **Organización:** Tu código se ve más limpio y ordenado.
+    * **Modularidad:** Divides problemas grandes en problemas más pequeños y manejables.
+
+```javascript
+// Definimos nuestra "receta" (función) para saludar
+function saludar(nombrePersona) { // 'nombrePersona' es lo que le pasamos a la receta
+    return "¡Hola, " + nombrePersona + "! ¿Cómo estás hoy?"; // Lo que la receta "devuelve"
+}
+
+// Ahora "usamos la receta" (llamamos a la función)
+let saludo1 = saludar("Pepe"); // 'saludo1' será: "¡Hola, Pepe! ¿Cómo estás hoy?"
+let saludo2 = saludar("María"); // 'saludo2' será: "¡Hola, María! ¿Cómo estás hoy?"
+```
+
+---
+
+#### **7. DOM (Document Object Model): ¡Hablando con tu Página Web!** 🗣️🌐
+
+Esto es lo que hace que JavaScript sea tan poderoso para las webs.
+
+* **¿Qué es?** Piensa en el DOM como un **mapa interactivo** de tu página web. JavaScript puede usar este mapa para **encontrar cualquier elemento HTML** (un botón, un párrafo, una imagen) y **cambiarlo, añadirlo o quitarlo**.
+* **¿Por qué es importante?** Es la forma en que JavaScript **modifica visualmente la web**.
+    * Cambiar el texto de un título.
+    * Mostrar u ocultar una imagen.
+    * Añadir nuevos elementos a una lista.
+    * Cambiar el color de un botón.
+
+    Si tienes este HTML: `<p id="mensaje">¡Bienvenido!</p>`
+
+    Puedes cambiarlo con JavaScript así:
+    `document.getElementById("mensaje").textContent = "¡Hola, colega! ¿Qué tal todo?";`
+    * `document`: Es como la "página" entera.
+    * `getElementById("mensaje")`: Busca el elemento HTML que tiene el `id` "mensaje".
+    * `.textContent`: Accede al texto dentro de ese elemento.
+    * `= "..."`: Le asigna el nuevo texto.
+
+---
+
+#### **8. Eventos: ¡Cuando el Usuario Hace Algo!** 👆🖱️⌨️
+
+Tu página web no es una estatua, ¡reacciona! Los eventos son esa capacidad de reacción.
+
+* **¿Qué son?** Son **acciones que ocurren** en la página, generalmente causadas por el usuario.
+    * Hacer **clic** en un botón.
+    * **Mover el ratón** por encima de una imagen.
+    * **Escribir** en un campo de texto.
+    * **Cargar** la página completa.
+* **¿Por qué son importantes?** Permiten que tu web responda a lo que el usuario hace, haciéndola interactiva.
+
+Si tienes un botón en tu HTML: `<button id="miBoton">Haz clic</button>`
+
+Puedes hacer que reaccione a un clic así:
+```javascript
+let miBoton = document.getElementById("miBoton"); // Primero, encontramos el botón
+
+miBoton.addEventListener("click", function() { // Cuando alguien haga "clic" en el botón...
+    alert("¡Me has presionado! 🥳"); // ...mostrará un mensaje emergente.
+});
+```
+
+---
+
+
+
+
+OPERADORES
+
+La precedencia de operadores es como el "orden de las operaciones" en matemáticas que aprendiste en la escuela (¿te acuerdas de PEMDAS o PAPOMUDAS?). Algunos operadores tienen más "prioridad" que otros y se ejecutan antes. Y si tienen la misma precedencia, entonces entra en juego la **asociatividad**, que es si se evalúan de izquierda a derecha o de derecha a izquierda.
+
+¡Vamos a ver esa tabla, pero bien explicada, como nos gusta aquí en Tomelloso, con calma y sin prisas!
+
+---
+
+### **Precedencia de Operadores en JavaScript: ¡La Tabla y el Chismorreo!** 📊
+
+Aquí te va la tabla de operadores, de mayor a menor precedencia. Imagina que los de arriba son los "jefes" y se ejecutan primero. Los de abajo son los "curritos".
+
+| Precedencia | Tipo de Operador | Operadores | Descripción | Asociatividad |
+| :---------- | :--------------- | :--------- | :---------- | :------------ |
+| **20** | **Agrupación** | `( ... )`  | Lo que pones entre paréntesis se ejecuta **siempre primero**. Es como un "rompe-reglas" para forzar el orden. | N/A |
+| **19** | **Miembro** | `.` `[]` `?.` | Para acceder a propiedades de objetos o elementos de arrays. | Izquierda a Derecha |
+|             | **Llamada** | `()`       | Para ejecutar funciones. | Izquierda a Derecha |
+|             | **new** (con args)| `new ...()`| Crea una nueva instancia de un objeto con argumentos. | Izquierda a Derecha |
+| **18** | **new** (sin args)| `new ...`  | Crea una nueva instancia de un objeto sin argumentos. | Derecha a Izquierda |
+| **17** | **Incremento/Decremento (Postfijo)** | `++` `--` | Incrementa/decrementa el valor **después** de usarlo. | Izquierda a Derecha |
+| **16** | **Incremento/Decremento (Prefijo)** | `++` `--` | Incrementa/decrementa el valor **antes** de usarlo. | Derecha a Izquierda |
+|             | **Lógico NOT** | `!`        | Invierte un booleano (`true` a `false`, `false` a `true`). | Derecha a Izquierda |
+|             | **Bitwise NOT** | `~`        | Invierte bits (para operaciones a bajo nivel, menos común). | Derecha a Izquierda |
+|             | **Unario +/-** | `+` `-`    | Convierte a número (si es posible) o niega un número. | Derecha a Izquierda |
+|             | **typeof** | `typeof`   | Devuelve el tipo de una variable como un string. | Derecha a Izquierda |
+|             | **void** | `void`     | Evalúa una expresión y devuelve `undefined`. | Derecha a Izquierda |
+|             | **delete** | `delete`   | Elimina una propiedad de un objeto o un elemento de un array. | Derecha a Izquierda |
+|             | **await** | `await`    | Espera a que una Promesa se resuelva (en funciones asíncronas). | Derecha a Izquierda |
+| **15** | **Exponenciación** | `**`     | Elevado a una potencia. | Derecha a Izquierda |
+| **14** | **Multiplicación/División** | `*` `/` `%` | Multiplicación, división, módulo (resto de la división). | Izquierda a Derecha |
+| **13** | **Adición/Sustracción** | `+` `-` | Suma y resta. | Izquierda a Derecha |
+| **12** | **Desplazamiento de bits** | `<<` `>>` `>>>` | Desplaza bits (operaciones a bajo nivel). | Izquierda a Derecha |
+| **11** | **Relacional** | `<` `<=` `>` `>=` | Comparación de "mayor o menor que". | Izquierda a Derecha |
+|             | **`in`** | `in`       | Comprueba si una propiedad existe en un objeto. | Izquierda a Derecha |
+|             | **`instanceof`** | `instanceof` | Comprueba si un objeto es una instancia de un tipo. | Izquierda a Derecha |
+| **10** | **Igualdad** | `==` `!=` `===` `!==` | Comparación de igualdad o desigualdad (estricta o no). | Izquierda a Derecha |
+| **9** | **Bitwise AND** | `&`        | AND a nivel de bits. | Izquierda a Derecha |
+| **8** | **Bitwise XOR** | `^`        | XOR a nivel de bits. | Izquierda a Derecha |
+| **7** | **Bitwise OR** | `|`        | OR a nivel de bits. | Izquierda a Derecha |
+| **6** | **Lógico AND** | `&&`       | AND lógico. | Izquierda a Derecha |
+| **5** | **Lógico OR** | `||`       | OR lógico. | Izquierda a Derecha |
+| **4** | **Nullish Coalescing** | `??`   | Devuelve el operando derecho si el izquierdo es `null` o `undefined`. | Izquierda a Derecha |
+| **3** | **Condicional (Ternario)** | `? :` | Una forma abreviada de un `if/else` simple. | Derecha a Izquierda |
+| **2** | **Asignación** | `=`, `+=`, `-=`, `*=`, `/=`, etc. | Asigna un valor a una variable. | Derecha a Izquierda |
+| **1** | **Coma** | `,`        | Evalúa cada operando y devuelve el valor del último. | Izquierda a Derecha |
+
+---
+
+### **¡Para que lo entiendas como si fuera un cotilleo del pueblo!** 🤫
+
+1.  **Paréntesis `( )` - ¡Los Intrusos VIP!** 👑
+    Estos son los reyes de la precedencia. Lo que metes entre paréntesis se evalúa **primero, sí o sí**, sin importar qué operadores haya dentro. Es tu carta para forzar el orden.
+    * Ejemplo: `5 + 3 * 2` da `11` (porque `*` es más prioritario).
+    * Pero: `(5 + 3) * 2` da `16` (porque la suma se hace primero por el paréntesis).
+    * **Consejo:** Si dudas, ¡usa paréntesis! Mejor ser claro que tener un dolor de cabeza depurando. 🤕
+
+2.  **Operadores Unarios (como `++`, `!`, `-` unario) - ¡Los Solitarios Fuertes!** 💪
+    Estos actúan sobre un solo valor. Los que van antes del valor (`++x`, `!y`, `-z`) se ejecutan antes que los binarios (que usan dos valores, como `x + y`).
+    * Ejemplo: `let x = 5; let y = ++x * 2;`
+        * `++x` (prefijo) hace que `x` se convierta en `6` y luego se usa ese `6`.
+        * Entonces `y` será `6 * 2`, que es `12`.
+    * Ejemplo: `let a = 5; let b = a++ * 2;`
+        * `a++` (postfijo) usa el valor actual de `a` (`5`) y **después** lo incrementa a `6`.
+        * Entonces `b` será `5 * 2`, que es `10`. Y `a` ahora vale `6`. ¡Tramposillos! 😅
+
+3.  **Multiplicación, División, Módulo (`*`, `/`, `%`) - ¡Los Hermanos Mayores!** 👨‍👦‍👦
+    Estos siempre se ejecutan antes que las sumas y restas.
+    * Ejemplo: `10 - 2 * 3`
+        * Primero `2 * 3` (que es `6`).
+        * Luego `10 - 6` (que es `4`).
+
+4.  **Suma y Resta (`+`, `-`) - ¡Los Hermanos Medianos!** 🧑‍🤝‍🧑
+    Vienen después de las multiplicaciones y divisiones.
+
+5.  **Comparación (`<`, `>`, `==`, `===`) - ¡Los Jueces!** ⚖️
+    Estos operadores deciden si algo es mayor, menor, igual, etc. Suelen ejecutarse después de las operaciones aritméticas.
+    * Ejemplo: `5 + 3 > 7`
+        * Primero `5 + 3` (que es `8`).
+        * Luego `8 > 7` (que es `true`).
+
+6.  **Operadores Lógicos (`&&`, `||`) - ¡Los Decisores Finales!** 🚦
+    Estos combinan los resultados de las comparaciones. `&&` (AND) es más prioritario que `||` (OR).
+    * Ejemplo: `true || false && true`
+        * Primero `false && true` (que es `false`).
+        * Luego `true || false` (que es `true`).
+    * ¡Ojo! Si no estuviera la precedencia: `(true || false) && true` (sería `true && true`, que es `true`). En este caso, no cambia, pero podría.
+
+7.  **Asignación (`=`, `+=`, etc.) - ¡Los Últimos en la Fila!** 🏁
+    Los operadores de asignación (como `=`) tienen la precedencia más baja. Primero se calcula todo lo que está a la derecha del `=`, y el resultado final se asigna a la variable de la izquierda.
+    * Ejemplo: `let miVariable = 5 + 3 * 2;`
+        * Primero se calcula `5 + 3 * 2` (que ya vimos que da `11`).
+        * Luego ese `11` se asigna a `miVariable`.
+
+---
+
+### **¿Y la Asociatividad? ¡El Desempate!** 👯‍♀️
+
+Cuando dos operadores tienen la **misma precedencia**, la asociatividad decide cuál se ejecuta primero:
+
+* **Izquierda a Derecha (la mayoría):** Si tienes `10 / 2 * 5`, se hace `(10 / 2)` primero, que es `5`, y luego `5 * 5`, que es `25`.
+* **Derecha a Izquierda (algunos pocos, como la exponenciación `**` y la asignación `=`):**
+    * Ejemplo de `**`: `2 ** 3 ** 2` se evalúa como `2 ** (3 ** 2)`, que es `2 ** 9` (512). Si fuera izquierda a derecha, sería `(2 ** 3) ** 2`, que es `8 ** 2` (64). ¡Menuda diferencia!
+    * Ejemplo de `=`: `a = b = 5;` se evalúa como `a = (b = 5)`. Primero `b` se vuelve `5`, y luego ese `5` se asigna a `a`.
+
+### **Consejo de Oro (¡Gratis y de calidad!):** 🏆
+
+¡Cuando tengas dudas sobre la precedencia o simplemente quieras que tu código sea **súper claro** para ti y para cualquier otro que lo lea, **USA PARÉNTESIS!** 括弧 (kakko). Son tus amigos. No pesan, no estorban y evitan malentendidos.
+
+* En vez de `resultado = a + b * c;`
+* Escribe `resultado = a + (b * c);` (si eso es lo que quieres).
+
+
+
+
+
+
+### **Condicionales: ¡Elige Tu Propio Camino en el Código!** 🛤️
+
+Las condiciones son la forma de darle **lógica de decisión** a tu programa. Le dices a JavaScript: "Si pasa esto, haz esto. Si no, haz esto otro." ¡Es fundamental para que tu web no sea una estatua, sino que reaccione a lo que ocurre!
+
+Vamos a ver las formas más comunes de crear estas "reglas" en tu código:
+
+#### **1. `if...else`: La Decisión Clásica** 🤔
+
+Esta es la estructura más básica y la que más vas a usar. Es como un simple "si... entonces... si no...".
+
+* **¿Cómo funciona?**
+    1.  Evalúa una **condición** (una pregunta cuya respuesta es `true` o `false`).
+    2.  Si la condición es **verdadera (`true`)**, ejecuta el código que está dentro del bloque `if`.
+    3.  Si la condición es **falsa (`false`)**, salta el bloque `if` y, si existe, ejecuta el código que está dentro del bloque `else`.
+
+* **Cuándo usarlo:** Para decisiones simples de "sí o no".
+
+* **Ejemplo:** ¿Hace sol o no para pasear por el centro de Tomelloso?
+
+    ```javascript
+    let haceSol = true; // Imagina que miramos por la ventana y ¡sí, hace sol!
+
+    if (haceSol) { // Si haceSol es TRUE...
+        console.log("¡Qué buen día para un paseo! 🚶‍♀️☀️");
+    } else { // Si haceSol es FALSE (es decir, no hace sol)...
+        console.log("Quizás hoy es día de manta y peli. 🛋️🎬");
+    }
+    // Salida: "¡Qué buen día para un paseo! 🚶‍♀️☀️"
+    ```
+
+    ---
+
+#### **2. `else if`: Añadiendo Más Opciones** 🛣️
+
+A veces, no hay solo dos opciones (sí/no), sino varias. Para eso usamos `else if`.
+
+* **¿Cómo funciona?**
+    1.  Evalúa la primera condición (`if`). Si es `true`, ejecuta su código y salta todo lo demás.
+    2.  Si la primera condición es `false`, entonces evalúa la siguiente condición (`else if`).
+    3.  Si esa es `true`, ejecuta su código y salta lo que queda.
+    4.  Puedes poner tantos `else if` como necesites.
+    5.  Si ninguna de las condiciones anteriores es `true`, y hay un `else` final, ese `else` se ejecuta como "último recurso".
+
+* **Cuándo usarlo:** Cuando tienes múltiples caminos que dependen de diferentes condiciones.
+
+* **Ejemplo:** ¿Qué clima hace en Tomelloso?
+
+    ```javascript
+    let temperatura = 18; // La temperatura actual
+
+    if (temperatura >= 25) { // Si la temperatura es 25 o más...
+        console.log("¡Hace calorcito, ideal para una horchata! 🥵🍹");
+    } else if (temperatura >= 15) { // Si NO hace 25 o más, PERO sí 15 o más...
+        console.log("Temperatura agradable para pasear. 😊");
+    } else { // Si NO hace 25 o más, Y NO hace 15 o más (es decir, menos de 15)...
+        console.log("Hace fresquito, ¡saca la rebequita! 🥶🧥");
+    }
+    // Salida: "Temperatura agradable para pasear. 😊"
+    ```
+
+    ---
+
+#### **3. `switch`: Para Decisiones con Múltiples Valores Exactos** 🚥
+
+Cuando tienes una variable que puede tener muchos valores **específicos** y quieres hacer algo diferente para cada uno de ellos, el `switch` es tu aliado. Es como un menú: si pides A, te doy esto; si pides B, te doy lo otro.
+
+* **¿Cómo funciona?**
+    1.  Toma una **expresión** (normalmente una variable).
+    2.  Compara el valor de esa expresión con los valores de cada `case` (caso).
+    3.  Cuando encuentra una coincidencia, ejecuta el código de ese `case`.
+    4.  La palabra clave `break;` es **crucial** porque detiene la ejecución del `switch` una vez que se encuentra una coincidencia y se ejecuta el código. ¡Sin `break`, seguiría ejecutando los siguientes `case`s aunque no coincidieran! (Esto se llama "fall-through" y a veces es deseado, pero la mayoría de las veces no).
+    5.  `default:` es opcional y se ejecuta si **ningún `case` coincide**, como un `else` final.
+
+* **Cuándo usarlo:** Ideal para menús, opciones, o cuando tienes muchos `else if` que comparan una variable con valores fijos.
+
+* **Ejemplo:** ¿Qué día de la semana es hoy?
+
+    ```javascript
+    let diaSemana = "miércoles"; // Hoy es miércoles (¡y ya casi viernes!)
+
+    switch (diaSemana) {
+        case "lunes":
+            console.log("¡Ánimo con la semana! 😩");
+            break; // ¡Importante para salir!
+        case "martes":
+            console.log("El martes es como un lunes extendido. 😴");
+            break;
+        case "miércoles":
+            console.log("¡Ombligo de la semana! Ya queda menos para el fin de. 🎉");
+            break;
+        case "jueves":
+            console.log("¡Casi, casi viernes! Prepárate para el finde. 🥳");
+            break;
+        case "viernes":
+            console.log("¡Viernes y el cuerpo lo sabe! ¡A disfrutar! 💃🕺");
+            break;
+        case "sábado":
+        case "domingo": // Puedes agrupar casos si hacen lo mismo
+            console.log("¡Fin de semana! A relajarse o salir por Tomelloso. 🏖️");
+            break;
+        default: // Si el valor de diaSemana no coincide con ninguno de los anteriores
+            console.log("Ese no es un día de la semana válido. 🤔");
+    }
+    // Salida: "¡Ombligo de la semana! Ya queda menos para el fin de. 🎉"
+    ```
+
+---
+
+#### **4. Operador Ternario (`? :`): La Condición "Express"** ⚡
+
+Este es un atajo para el `if...else` cuando solo tienes una expresión muy simple y quieres que la variable tome un valor u otro.
+
+* **¿Cómo funciona?**
+    * Sintaxis: `condición ? valor_si_true : valor_si_false;`
+    * Si la `condición` es `true`, devuelve el `valor_si_true`.
+    * Si la `condición` es `false`, devuelve el `valor_si_false`.
+
+* **Cuándo usarlo:** Para asignaciones rápidas de valores basadas en una condición simple. ¡No abuses para cosas complejas, que se vuelve ilegible!
+
+* **Ejemplo:** ¿Puedo comprar alcohol en el bar de la esquina?
+
+    ```javascript
+    let edad = 19; // La edad de la persona
+    let esLegal = (edad >= 18) ? "Sí, puedes comprar alcohol. 🍻" : "No, eres menor de edad. 🥤";
+
+    console.log(esLegal);
+    // Salida: "Sí, puedes comprar alcohol. 🍻"
+    ```
+
+---
+
+### **¿Cuál usar y cuándo? ¡La Píldora de la Sabiduría!** 💡
+
+* Usa **`if...else` y `else if`** para la mayoría de las decisiones, especialmente cuando las condiciones son rangos (mayor que, menor que) o combinaciones complejas (`&&`, `||`).
+* Usa **`switch`** cuando tengas una variable que pueda ser un **valor específico** de una lista de muchos valores. Es más limpio que muchos `else if` para eso.
+* Usa el **operador ternario** para asignaciones rápidas y simples de valores basadas en una sola condición.
+
+
+
+
+
+
+### **`switch`: La Estructura para Múltiples Opciones Exactas** 🎯
+
+El `switch` es una forma elegante de manejar decisiones donde una **misma variable o expresión** puede tener **varios valores posibles**, y quieres que tu código haga algo diferente para cada uno de esos valores. Es una alternativa más limpia a tener un montón de `if...else if...else if...` anidados para comparar el mismo valor repetidamente.
+
+#### **¿Cómo Funciona?**
+
+Imagina que tienes una caja de herramientas 🧰 y, según la herramienta que necesites, haces algo distinto. El `switch` trabaja así:
+
+1.  **La Expresión a Evaluar:** Le das al `switch` una variable o una expresión cuyo valor quieres comprobar. Es como decir: "Mira el valor de esta herramienta".
+
+2.  **Los `case`s (Casos):** Dentro del `switch`, defines varios `case`s. Cada `case` es un valor **específico** que podría tener tu expresión. Si el valor de la expresión coincide con un `case`, entonces se ejecuta el código que está dentro de ese `case`. Es como decir: "Si la herramienta es un martillo, haz esto; si es un destornillador, haz esto otro."
+
+3.  **El `break`: ¡Parada Obligatoria!** 🛑
+    Esta es la parte más importante y la que a veces se le olvida a la gente, ¡así que ponle atención! Cuando JavaScript encuentra un `case` que coincide y ejecuta su código, **si no pones `break;`**, seguirá ejecutando el código de los `case`s siguientes, ¡incluso si no coinciden! Esto se llama "fall-through" y rara vez es lo que buscas. El `break;` le dice a JavaScript: "Ya encontré lo que buscaba, ¡salte de este `switch` y sigue con el resto del programa!".
+
+4.  **El `default` (Opcional): El "Por Defecto"** 🤷‍♂️
+    Es como el `else` de un `if`. Si la expresión que evalúas no coincide con **ninguno** de los `case`s que has definido, entonces se ejecuta el código que está dentro del `default:`. Si no pones `default` y no hay ninguna coincidencia, simplemente no se ejecuta nada dentro del `switch`.
+
+#### **Estructura Básica (El Plano):** 🏗️
+
+```javascript
+switch (expresion_a_evaluar) { // Aquí va la variable o el valor que quieres comprobar
+    case valor1: // Si 'expresion_a_evaluar' es igual a 'valor1'
+        // Código a ejecutar si coincide con valor1
+        console.log("Coincide con el valor 1");
+        break; // ¡No te olvides del break!
+
+    case valor2: // Si 'expresion_a_evaluar' es igual a 'valor2'
+        // Código a ejecutar si coincide con valor2
+        console.log("Coincide con el valor 2");
+        break;
+
+    case valor3: // Puedes agrupar varios case si quieres que hagan lo mismo
+    case valor4:
+        // Código a ejecutar si coincide con valor3 o valor4
+        console.log("Coincide con el valor 3 o 4");
+        break;
+
+    default: // Si no coincide con ningún valor de los case anteriores
+        // Código a ejecutar por defecto
+        console.log("No coincide con ningún valor conocido.");
+        // Aquí el break es opcional, porque es el último, pero no hace daño ponerlo
+        break; 
+}
+```
+
+#### **Ejemplo Práctico: ¡El Clima en Tomelloso!** ☀️🌧️🥶
+
+Imagina que tenemos un sensor que nos da el estado del clima con un código. Queremos mostrar un mensaje diferente para cada código.
+
+```javascript
+let codigoClima = "nublado"; // Supongamos que el sensor nos dice "nublado"
+
+switch (codigoClima) { // Vamos a comprobar el valor de 'codigoClima'
+    case "sol": // Si es "sol"...
+        console.log("¡Día soleado en Tomelloso! Ideal para un paseo. ☀️🚶");
+        break; // Paramos aquí
+
+    case "nublado": // Si es "nublado"...
+        console.log("El cielo está nublado, pero sin lluvia. ☁️");
+        break; // Paramos aquí
+
+    case "lluvia": // Si es "lluvia"...
+        console.log("¡Paraguas a mano! Está lloviendo. ☔");
+        break;
+
+    case "nieve": // Si es "nieve" (¡difícil en Tomelloso, pero quién sabe!)...
+        console.log("¡Cuidado con la nieve! ❄️");
+        break;
+
+    default: // Si el código no es ninguno de los anteriores...
+        console.log("Clima desconocido. Consulta tu app del tiempo. 🤔");
+        break; // No hace daño ponerlo aquí también
+}
+
+// En este caso, la salida sería: "El cielo está nublado, pero sin lluvia. ☁️"
+```
+
+#### **¿Cuándo usar `switch` en lugar de `if/else if`?** 🔄
+
+* **Claridad:** Cuando tienes muchas comparaciones de **igualdad exacta** contra el **mismo valor** (`x === 1`, `x === 2`, `x === 3`), el `switch` es mucho más legible y organizado. Imagina 10 `else if` seguidos... ¡un lío!
+* **Rendimiento (a veces):** En algunos casos y para muchísimas opciones, los motores de JavaScript pueden optimizar el `switch` para que sea ligeramente más rápido, pero no es algo que debas priorizar al principio. La legibilidad es más importante.
+* **Múltiples casos con la misma acción:** Como viste en la estructura, puedes apilar `case`s sin `break;` para que varios valores ejecuten el mismo bloque de código. Por ejemplo:
+    ```javascript
+    let dia = "sábado";
+    switch (dia) {
+        case "lunes":
+        case "martes":
+        case "miércoles":
+        case "jueves":
+        case "viernes":
+            console.log("Es día laboral. 💻");
+            break;
+        case "sábado":
+        case "domingo":
+            console.log("¡Fin de semana! 🥳");
+            break;
+    }
+    // Salida: "¡Fin de semana! 🥳"
+    ```
+

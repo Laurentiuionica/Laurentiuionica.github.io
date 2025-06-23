@@ -1,0 +1,140 @@
+### 🧠 ¿Qué son las *Media Queries*?
+
+Son como una especie de hechizo en CSS que hace que tu web **se adapte automáticamente** al tamaño del dispositivo. Es decir, puedes mostrar un diseño en el móvil 📱, otro en tablet 📲 y otro en ordenador 💻 sin hacer tres webs distintas. La web se transforma según la pantalla, como un **camaleón digital** 🦎✨.
+
+---
+
+### ⚙️ ¿Cómo funcionan?
+
+Básicamente le dices al navegador:
+**“Oye, si la pantalla es más pequeña que X, haz esto.”**
+O también:
+**“Si la pantalla es más grande que Y, cambia aquello.”**
+
+Es como poner condiciones en tu CSS:
+🔹 Si es móvil = muéstrame todo en columna
+🔹 Si es tablet = haz que los textos se vean más grandes
+🔹 Si es pantalla grande = pon todo más espacioso y elegante
+
+---
+
+### 🎯 ¿Qué condiciones puedes poner?
+
+Puedes filtrar por muchas cosas, pero lo más común es:
+
+* El **ancho** de la pantalla (`max-width` o `min-width`)
+* La **orientación** (si el móvil está en vertical u horizontal)
+* Incluso la **resolución** (por si quieres algo especial para pantallas retina o 4K) 😎
+
+---
+
+### 🎨 ¿Para qué sirven en la práctica?
+
+* Que tu web **no se rompa** en móviles
+* Hacer que se vea bien en cualquier dispositivo sin hacer zoom con los dedos como un cavernícola
+* Mejorar la **experiencia de usuario**, que se vea pro y elegante en todos lados
+* Ahorrarte dolores de cabeza con clientes que dicen: *“en mi iPhone se ve mal”* 😩📉
+
+---
+
+### 🧠 Mobile First (el truco de los que saben)
+
+La mayoría de desarrolladores top usan un enfoque llamado **Mobile First**. Eso significa que diseñas para móviles primero 📲, y luego con media queries vas “desbloqueando mejoras” para tablets y PCs. Es como hacer evolucionar a un Pokémon: primero es cute, luego es una bestia 🔥💪
+
+---
+
+### 🏁 En resumen, compa
+
+Las media queries son tu herramienta ninja 🥷 en CSS para que tu web **se vea bien en todos lados**, sin romperte la cabeza. Son súper potentes y te dan un control bestial sobre cómo se muestra tu contenido según el tamaño de pantalla.
+
+
+
+
+---
+
+## 🧩 ¿Qué son Flexbox y Grid?
+
+Tanto **Flexbox** como **CSS Grid** pertenecen a la rama del CSS llamada **“layout” o disposición”**.
+👉 En español, podríamos decir que forman parte del **“sistema de posicionamiento y distribución de elementos”**.
+
+🔧 Es decir: mientras que los selectores eligen **qué** elementos estilizas, y el box model define **cómo** ocupan espacio, \*\*Flexbox y Grid te permiten controlar ***dónde se colocan, cómo se alinean, y cómo se adaptan entre ellos***.
+
+---
+
+### 🛠️ ¿Dónde entra esto dentro del CSS?
+
+💡 **Rama:** **Disposición / Layout**
+
+Es como si dijéramos que CSS tiene varias “familias de propiedades”:
+
+* 🎨 Estilos visuales → colores, tipografía, bordes…
+* 🧱 Modelo de caja → padding, margin, border…
+* ✍️ Tipografía → `font-family`, `line-height`, etc.
+* 🧭 **Disposición (Layout)** → `display`, `position`, `flex`, `grid`, `gap`, `align-*`, etc.
+
+Pues **Flexbox y Grid** están aquí, dándolo todo en el barrio del layout 🏙️
+
+---
+
+## 🔹 FLEXBOX (el ninja adaptable 🥷)
+
+Flexbox (Flexbox Layout) está diseñado para distribuir **elementos en una dimensión**, ya sea **horizontal** o **vertical**.
+Es ideal para estructuras **lineales**, tipo menús, barras, filas, columnas pequeñas…
+
+🧠 Lo importante:
+
+* Se activa con `display: flex`
+* Su elemento padre se vuelve un **contenedor flexible**
+* Los hijos se llaman **ítems flexibles**
+* Puedes alinear, justificar, invertir el orden, estirar, hacer que crezcan o se encojan dinámicamente
+
+🎯 Usos típicos:
+
+* Centrar cosas (vertical y horizontalmente)
+* Filas o columnas de botones
+* Tarjetas que se adaptan al tamaño del contenedor
+
+🧃 Muy útil cuando no necesitas control absoluto sobre filas y columnas… pero quieres que todo se ajuste como Tetris.
+
+---
+
+## 🔸 GRID (el arquitecto brutalista 🏗️)
+
+Grid Layout va un paso más allá. Te deja crear **rejillas bidimensionales**: filas y columnas al mismo tiempo. Es como hacer maquetación con planos de arquitecto 🧱
+
+🧠 Lo importante:
+
+* Se activa con `display: grid`
+* El contenedor define la rejilla: `grid-template-columns`, `grid-template-rows`
+* Cada hijo se coloca dentro del grid como si fuera un bloque de Lego 🧩
+* Puedes alinear, superponer, fusionar celdas, crear layouts responsive solo con CSS
+
+🎯 Usos típicos:
+
+* Maquetar una página entera sin usar `float` ni `position`
+* Layouts complejos: cabecera, contenido, sidebar, footer
+* Rejillas tipo galería o productos
+
+👑 Es más potente que Flexbox en temas de organización de espacio y diseño global, pero también **más exigente mentalmente** al principio.
+
+---
+
+## 🎬 ¿Flexbox o Grid?
+
+👉 **Flexbox** = “Coloca esto en línea y que se adapte bonito”
+👉 **Grid** = “Aquí tienes una cuadrícula, organiza todo con precisión quirúrgica”
+
+⚔️ No se odian, se complementan. Puedes tener un layout Grid general, y usar Flexbox **dentro de las celdas** para distribuir los elementos internos.
+
+---
+
+## 💥 Conexión con el resto
+
+* **Selector**: “Apunto a este contenedor `.galeria`”
+* **Box model**: “Le doy padding, margen y border a sus cajas internas”
+* **Flex/Grid**: “Ahora los organizo y los alíneo como me da la gana en filas/columnas”
+
+Así que sí, **Grid y Flexbox no son estilos visuales**, sino parte del cerebro de la página. Son **el sistema nervioso del layout**.
+
+---
+
