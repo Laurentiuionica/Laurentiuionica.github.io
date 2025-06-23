@@ -1,0 +1,88 @@
+🧩🚗 CLASES Y OBJETOS
+
+Una **clase** es como un **molde**, un **plano** o una **receta**. No es algo que se pueda usar directamente, pero define cómo será algo que vas a crear: qué propiedades tiene y qué puede hacer.
+
+💡 **Ejemplo mental**:
+Clase = Plano de un coche → Dice que tendrá ruedas, motor, color, y podrá arrancar o frenar.
+
+💻 **Ejemplo en código:**
+
+```js
+class Coche {
+  constructor(marca, color) {
+    this.marca = marca;
+    this.color = color;
+  }
+
+  arrancar() {
+    console.log(`${this.marca} está arrancando... VROOM!`);
+  }
+}
+```
+
+Aquí no hay ningún coche todavía. Solo le estás diciendo a JavaScript: “Así son mis coches.”
+
+---
+
+### 🚗 ¿Qué es un objeto?
+
+Un **objeto** es una **instancia de una clase**, es decir, un elemento real basado en ese plano. Es el **coche ya fabricado**, con marca y color definidos, y que puede usarse en la vida real (o en tu código, crack).
+
+💻 **Ejemplo de objeto:**
+
+```js
+const miCoche = new Coche("BMW", "negro");
+miCoche.arrancar(); // "BMW está arrancando... VROOM!"
+```
+
+🧠 Otro ejemplo guapo:
+
+```js
+class Jugador {
+  constructor(nombre, puntos) {
+    this.nombre = nombre;
+    this.puntos = puntos;
+  }
+
+  saludar() {
+    console.log(`Soy ${this.nombre} y tengo ${this.puntos} puntos`);
+  }
+}
+
+const cristiano = new Jugador("CR7", 99999);
+const messi = new Jugador("Messi", 10000);
+
+cristiano.saludar(); // Soy CR7 y tengo 99999 puntos
+messi.saludar();     // Soy Messi y tengo 10000 puntos
+```
+
+Cada jugador es un objeto distinto, creado a partir de la clase `Jugador`.
+Mismo molde, datos distintos. 💥
+
+---
+
+### ⚔️ Diferencias resumidas 🔍
+
+🧠 **Clase**:
+
+* Es la definición, el plano.
+* No tiene valor por sí sola.
+* Se usa con `new` para crear objetos.
+
+🎮 **Objeto**:
+
+* Es una instancia viva.
+* Tiene datos reales.
+* Puedes acceder a sus métodos y propiedades.
+
+---
+
+### 🤘 En resumen fino:
+
+> 🏗️ La **clase** es el diseño.
+> 🛠️ El **objeto** es el producto terminado.
+> 🎮 Y tú eres el programador que los pone a currar.
+
+---
+
+
