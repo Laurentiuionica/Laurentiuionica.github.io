@@ -1,0 +1,163 @@
+# 📌 **Entidades y Tipos de Entidades en Bases de Datos (MariaDB)**
+
+## 🏗️ **1. Concepto de Entidad**
+
+**Teoría:**  
+Una entidad es cualquier **objeto del mundo real** que existe y se puede distinguir de otros objetos. En bases de datos relacionales:
+
+- Se representan como **tablas**  
+- Cada instancia es un **registro**  
+- Sus características son **atributos (columnas)**  
+
+**Ejemplo Práctico:**  
+```sql
+CREATE TABLE clientes (  -- 👥 Entidad "Cliente"
+    id INT PRIMARY KEY,
+    nombre VARCHAR(50),  -- Atributo
+    email VARCHAR(100)   -- Atributo
+);
+
+# 📌 **Ocurrencia de Entidad en Bases de Datos**
+
+## 🌟 **Definición Fundamental**
+**Ocurrencia de entidad** = Instancia específica de una entidad (un registro concreto en una tabla). Es la **materialización** de una entidad.
+
+```sql
+-- Entidad: CLIENTES
+-- Ocurrencias: Cada fila en esta tabla
+INSERT INTO clientes (id, nombre, email) VALUES
+(1, 'María Gómez', 'maria@ejemplo.com'),  -- 📌 Ocurrencia 1
+(2, 'Carlos Ruiz', 'carlos@ejemplo.com');  -- 📌 Ocurrencia 2
+```
+
+## 🔍 **Características Clave**
+1. **Identificador único**: Cada ocurrencia debe ser distinguible (usando PK)
+2. **Atributos específicos**: Valores concretos para cada instancia
+3. **Independencia**: Cada ocurrencia existe como unidad autónoma
+
+## 🏢 **Ejemplo en Sistema Empresarial**
+
+### Estructura de Entidades
+```sql
+-- ENTIDAD PRINCIPAL: Empleados
+CREATE TABLE empleados (
+    empleado_id INT PRIMARY KEY,
+    nombre VARCHAR(100),
+    departamento VARCHAR(50)
+);
+
+-- ENTIDAD RELACIONADA: Proyectos
+CREATE TABLE proyectos (
+    proyecto_id INT PRIMARY KEY,
+    nombre VARCHAR(100),
+    fecha_inicio DATE
+);
+```
+
+### Ocurrencias Ejemplares
+```sql
+-- OCURRENCIAS de EMPLEADOS
+INSERT INTO empleados VALUES
+(101, 'Ana López', 'Ventas'),     -- 👩 Ocurrencia 1
+(102, 'Pedro Martínez', 'IT');     -- 👨 Ocurrencia 2
+
+-- OCURRENCIAS de PROYECTOS
+INSERT INTO proyectos VALUES
+(501, 'Sistema CRM', '2024-01-15'),  -- 🏗️ Ocurrencia 1
+(502, 'Web Corporativa', '2024-03-01'); -- 🌐 Ocurrencia 2
+```
+
+## 📊 **Relación con Tipos de Entidad**
+| Concepto | Ejemplo | SQL Equivalent |
+|----------|---------|----------------|
+| **Entidad** | "Empleado" | `CREATE TABLE empleados(...)` |
+| **Ocurrencia** | "Ana López (ID 101)" | `INSERT INTO empleados VALUES(101,...)` |
+
+## 🛠️ **Importancia en Operaciones**
+1. **Inserción**: Crear nuevas ocurrencias
+   ```sql
+   -- Nueva ocurrencia de empleado
+   INSERT INTO empleados VALUES (103, 'Luisa Fernández', 'Marketing');
+   ```
+
+2. **Modificación**: Actualizar ocurrencias existentes
+   ```sql
+   -- Modificar ocurrencia específica
+   UPDATE empleados SET departamento = 'Finanzas' WHERE empleado_id = 101;
+   ```
+
+3. **Eliminación**: Remover ocurrencias
+   ```sql
+   -- Eliminar ocurrencia
+   DELETE FROM empleados WHERE empleado_id = 102;
+   ```
+
+## 💡 **Buenas Prácticas**
+1. **Identificación clara**: Usar PKs autoincrementales
+   ```sql
+   CREATE TABLE productos (
+       id INT AUTO_INCREMENT PRIMARY KEY,  -- 🆔 ID automático
+       nombre VARCHAR(100)
+   );
+   ```
+
+2. **Integridad referencial**: Proteger ocurrencias relacionadas
+   ```sql
+   CREATE TABLE pedidos (
+       id INT PRIMARY KEY,
+       cliente_id INT,
+       FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE RESTRICT
+   );
+   ```
+
+3. **Registro de cambios**: Tablas de histórico para ocurrencias importantes
+   ```sql
+   CREATE TABLE empleados_historico (
+       id INT,
+       nombre VARCHAR(100),
+       fecha_modificacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+   );
+   ```
+
+## 🌐 **Ejemplo Completo: Sistema Académico**
+```sql
+-- Entidad: Estudiantes
+CREATE TABLE estudiantes (
+    matricula CHAR(9) PRIMARY KEY,  -- Identificador único
+    nombre VARCHAR(100) NOT NULL,
+    carrera VARCHAR(50)
+);
+
+-- Ocurrencias de estudiantes
+INSERT INTO estudiantes VALUES
+('A20345122', 'Juan Pérez', 'Ing. Software'),  -- 🎓 Ocurrencia 1
+('B20567189', 'Sofía García', 'Medicina');    -- 🏥 Ocurrencia 2
+
+-- Entidad relacionada: Cursos
+CREATE TABLE cursos (
+    codigo CHAR(6) PRIMARY KEY,
+    nombre VARCHAR(100),
+    creditos TINYINT
+);
+
+-- Tabla intermedia (ocurrencias de relación)
+CREATE TABLE inscripciones (
+    estudiante_matricula CHAR(9),
+    curso_codigo CHAR(6),
+    semestre CHAR(5),
+    PRIMARY KEY (estudiante_matricula, curso_codigo, semestre),
+    FOREIGN KEY (estudiante_matricula) REFERENCES estudiantes(matricula),
+    FOREIGN KEY (curso_codigo) REFERENCES cursos(codigo)
+);
+
+-- Ocurrencia de relación
+INSERT INTO inscripciones VALUES 
+('A20345122', 'CS101', '2024-1');  -- 📚 Juan inscrito en curso CS101
+```
+
+## 📌 **Puntos Clave**
+1. Cada ocurrencia representa un **ejemplo concreto** de la entidad
+2. Las operaciones CRUD manipulan ocurrencias
+3. Las relaciones conectan ocurrencias entre entidades
+4. El diseño adecuado garantiza la **integridad** de las ocurrencias
+

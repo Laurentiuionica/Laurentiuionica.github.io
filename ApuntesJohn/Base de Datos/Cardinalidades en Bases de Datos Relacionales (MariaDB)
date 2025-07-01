@@ -1,0 +1,192 @@
+# 📊 **Cardinalidades en Bases de Datos Relacionales (MariaDB)**
+
+## 🌟 **Concepto Fundamental**
+Las **cardinalidades** definen cómo se relacionan cuantitativamente las entidades. Son esenciales para el diseño de bases de datos relacionales.
+
+**Símbolo visual:**  
+`(1) ———— (N)` (Uno a Muchos)  
+`(N) ———— (M)` (Muchos a Muchos)
+
+## 🧩 **Tipos de Cardinalidad**
+
+### 1️⃣ **Uno a Uno (1:1)**
+**Definición:**  
+- Una ocurrencia de Entidad A se relaciona con **SOLO UNA** ocurrencia de Entidad B  
+- Poco común (cuando la información podría estar en la misma tabla)
+
+**Ejemplo en MariaDB:**
+```sql
+CREATE TABLE empleados (
+    id INT PRIMARY KEY,
+    nombre VARCHAR(100)
+);
+
+CREATE TABLE despachos (
+    empleado_id INT PRIMARY KEY,  -- Misma PK que empleados
+    numero VARCHAR(10),
+    FOREIGN KEY (empleado_id) REFERENCES empleados(id)
+);
+```
+*Cada empleado tiene exactamente un despacho asignado*
+
+### 2️⃣ **Uno a Muchos (1:N)**
+**Definición:**  
+- Una ocurrencia de Entidad A se relaciona con **VARIAS** ocurrencias de Entidad B  
+- El tipo de relación **más común**
+
+**Ejemplo Práctico:**
+```sql
+CREATE TABLE departamentos (
+    id INT PRIMARY KEY,
+    nombre VARCHAR(50)
+);
+
+CREATE TABLE empleados (
+    id INT PRIMARY KEY,
+    nombre VARCHAR(100),
+    departamento_id INT,
+    FOREIGN KEY (departamento_id) REFERENCES departamentos(id)
+);
+```
+*Un departamento tiene muchos empleados (1:N)*
+
+### 3️⃣ **Muchos a Muchos (N:M)**
+**Definición:**  
+- Varias ocurrencias de Entidad A se relacionan con varias ocurrencias de Entidad B  
+- Requiere **tabla puente/intermedia**
+
+**Implementación:**
+```sql
+CREATE TABLE estudiantes (
+    id INT PRIMARY KEY,
+    nombre VARCHAR(100)
+);
+
+CREATE TABLE cursos (
+    id INT PRIMARY KEY,
+    nombre VARCHAR(100)
+);
+
+-- Tabla puente para relación N:M
+CREATE TABLE matriculas (
+    estudiante_id INT,
+    curso_id INT,
+    fecha DATE,
+    PRIMARY KEY (estudiante_id, curso_id),
+    FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id),
+    FOREIGN KEY (curso_id) REFERENCES cursos(id)
+);
+```
+*Un estudiante puede tomar varios cursos y un curso tiene muchos estudiantes*
+
+## 🔍 **Representación Gráfica (Notación Crow's Foot)**
+| Cardinalidad | Símbolo | Descripción |
+|--------------|---------|-------------|
+| **Uno (1)** | `|---` | Línea simple |
+| **Muchos (N)** | `|---<` | "Pata de cuervo" |
+| **Cero o Uno (0..1)** | `|---o` | Círculo |
+| **Uno o Muchos (1..N)** | `|---<` | Pata de cuervo sin círculo |
+| **Cero o Muchos (0..N)** | `|---o<` | Círculo + pata |
+
+## 🛠️ **Cómo Implementar en MariaDB**
+
+### Para 1:1
+```sql
+-- Opción 1: Misma PK
+CREATE TABLE perfil_usuarios (
+    usuario_id INT PRIMARY KEY,
+    biografia TEXT,
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+
+-- Opción 2: FK con UNIQUE
+CREATE TABLE pasaportes (
+    id INT PRIMARY KEY,
+    numero VARCHAR(20) UNIQUE,
+    usuario_id INT UNIQUE,  -- ¡Asegura 1:1!
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+);
+```
+
+### Para 1:N
+```sql
+-- El caso más simple (FK en tabla "muchos")
+CREATE TABLE pedidos (
+    id INT PRIMARY KEY,
+    cliente_id INT,  -- Muchos pedidos pueden ser de 1 cliente
+    fecha DATE,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+);
+```
+
+### Para N:M
+```sql
+-- Tabla intermedia con PK compuesta
+CREATE TABLE autores_libros (
+    autor_id INT,
+    libro_id INT,
+    rol VARCHAR(50),
+    PRIMARY KEY (autor_id, libro_id),
+    FOREIGN KEY (autor_id) REFERENCES autores(id),
+    FOREIGN KEY (libro_id) REFERENCES libros(id)
+);
+```
+
+## 💡 **Buenas Prácticas**
+1. **Nomenclatura clara**: Usar nombres que reflejen la relación (`clientes_pedidos`, `estudiantes_cursos`)
+2. **Integridad referencial**: Siempre definir FOREIGN KEYs
+3. **Documentación**: Comentar las relaciones complejas
+4. **Rendimiento**: Indexar las columnas de relación frecuentemente consultadas
+
+## 📌 **Ejemplo Completo: Sistema Hospitalario**
+```sql
+-- Entidades principales
+CREATE TABLE medicos (
+    id INT PRIMARY KEY,
+    nombre VARCHAR(100),
+    especialidad VARCHAR(50)
+);
+
+CREATE TABLE pacientes (
+    id INT PRIMARY KEY,
+    nombre VARCHAR(100),
+    fecha_nacimiento DATE
+);
+
+-- Relación N:M (médicos-atenden-pacientes)
+CREATE TABLE consultas (
+    id INT PRIMARY KEY,
+    medico_id INT,
+    paciente_id INT,
+    fecha_hora DATETIME,
+    diagnostico TEXT,
+    FOREIGN KEY (medico_id) REFERENCES medicos(id),
+    FOREIGN KEY (paciente_id) REFERENCES pacientes(id)
+);
+
+-- Relación 1:N (paciente-historial)
+CREATE TABLE historial_medico (
+    id INT PRIMARY KEY,
+    paciente_id INT,  -- Un paciente tiene muchos registros
+    fecha DATE,
+    notas TEXT,
+    FOREIGN KEY (paciente_id) REFERENCES pacientes(id)
+);
+```
+
+## 🔍 **Casos Especiales**
+### Cardinalidad Opcional (0..1)
+```sql
+CREATE TABLE empleados (
+    id INT PRIMARY KEY,
+    nombre VARCHAR(100)
+);
+
+CREATE TABLE coches_empresa (
+    id INT PRIMARY KEY,
+    modelo VARCHAR(50),
+    empleado_id INT NULL,  -- ¡Puede ser NULL!
+    FOREIGN KEY (empleado_id) REFERENCES empleados(id)
+);
+```
+*Algunos empleados tienen coche asignado (0..1)*
