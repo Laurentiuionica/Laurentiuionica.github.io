@@ -1,0 +1,559 @@
+Construccion de modelo logico de datos
+
+
+
+La construcción del **modelo lógico de datos** es un paso crucial en el diseño de bases de datos, ya que establece cómo se organizarán y relacionarán los datos de forma estructurada y detallada, sin tener en cuenta la implementación física en un sistema de gestión de bases de datos (DBMS). El modelo lógico se basa en el modelo de datos conceptual, pero se ajusta a un nivel más técnico, teniendo en cuenta la naturaleza de las relaciones entre los datos y cómo se almacenarán.
+
+### Pasos en la construcción del modelo lógico de datos:
+
+1. **Identificación de entidades y relaciones**:
+
+   * **Entidades**: Son objetos o conceptos del mundo real que tienen relevancia para el sistema. Por ejemplo, "Películas", "Actores", "Productoras" pueden ser entidades en el contexto de una base de datos de cine.
+   * **Relaciones**: Representan los vínculos entre las entidades. Por ejemplo, "Actuar" podría ser una relación entre "Actores" y "Películas", y "Producir" entre "Productoras" y "Películas".
+
+2. **Definición de atributos**:
+
+   * Cada entidad debe tener atributos que describen sus características. Por ejemplo:
+
+     * **Películas**: `nombre`, `año`, `género`.
+     * **Actores**: `nombre`, `apellido`, `fecha de nacimiento`.
+     * **Productoras**: `nombre`, `dirección`.
+   * Los atributos también pueden tener tipos de datos, como texto, números, fechas, etc.
+
+3. **Definición de claves primarias**:
+
+   * Cada entidad debe tener una **clave primaria** que la identifique de manera única en la base de datos. Por ejemplo:
+
+     * **Películas**: `id_pelicula` (clave primaria).
+     * **Actores**: `id_actor` (clave primaria).
+     * **Productoras**: `id_productora` (clave primaria).
+
+4. **Establecimiento de las relaciones entre entidades**:
+
+   * **Relaciones de uno a muchos (1\:N)**: Un registro en una entidad se puede asociar con muchos registros en otra entidad. Por ejemplo, una **Productora** puede producir muchas **Películas**, pero cada **Película** es producida por una sola **Productora**.
+   * **Relaciones de muchos a muchos (N\:M)**: Muchos registros en una entidad pueden estar relacionados con muchos registros en otra. Por ejemplo, un **Actor** puede actuar en muchas **Películas** y una **Película** puede tener muchos **Actores**. Para representar estas relaciones, a menudo se utiliza una tabla intermedia, que contiene claves foráneas de ambas entidades.
+   * **Relaciones de uno a uno (1:1)**: Un registro en una entidad se asocia con solo un registro en otra entidad. Estas relaciones no son tan comunes en bases de datos relacionales, pero pueden existir.
+
+5. **Normalización**:
+
+   * La **normalización** es el proceso de organizar los datos para evitar redundancias y dependencias. Se busca que cada pieza de información se almacene en su lugar más adecuado.
+   * El proceso implica dividir las tablas para asegurarse de que cada tabla represente solo una entidad o relación y que los datos se almacenen de manera eficiente.
+
+6. **Determinación de las claves foráneas**:
+
+   * Las **claves foráneas** son campos en una entidad que se refieren a la clave primaria de otra entidad. Esto ayuda a establecer las relaciones entre las tablas. Por ejemplo:
+
+     * La entidad **Películas** puede tener un campo `id_productora` que sea una **clave foránea** que haga referencia a la clave primaria `id_productora` de la entidad **Productoras**.
+     * La entidad intermedia entre **Actores** y **Películas** puede tener `id_actor` y `id_pelicula` como claves foráneas.
+
+7. **Especificación de integridad referencial**:
+
+   * La **integridad referencial** asegura que las relaciones entre las tablas sean consistentes. Por ejemplo, si un actor está asignado a una película, no debería ser posible eliminar al actor sin antes verificar que la relación con la película también sea eliminada o modificada.
+
+### Ejemplo de modelo lógico de datos:
+
+Imagina que estamos creando el modelo lógico para el sistema de películas que mencionaste:
+
+1. **Entidades**:
+
+   * **Películas**: `id_pelicula`, `nombre`, `año`, `género`, `id_productora`.
+   * **Actores**: `id_actor`, `nombre`, `apellido`.
+   * **Productoras**: `id_productora`, `nombre`, `dirección`.
+
+2. **Relaciones**:
+
+   * **Actuar** (relación N\:M entre Actores y Películas):
+
+     * Tabla intermedia: `Actores_Peliculas` con `id_actor` (clave foránea de Actores) y `id_pelicula` (clave foránea de Películas).
+   * **Producir** (relación 1\:N entre Productoras y Películas):
+
+     * **Películas** tiene una clave foránea `id_productora` que hace referencia a **Productoras**.
+
+3. **Esquema de tablas**:
+
+   | **Películas**        |   | **Actores**     |   | **Productoras**      |
+   | -------------------- | - | --------------- | - | -------------------- |
+   | `id_pelicula` (PK)   |   | `id_actor` (PK) |   | `id_productora` (PK) |
+   | `nombre`             |   | `nombre`        |   | `nombre`             |
+   | `año`                |   | `apellido`      |   | `dirección`          |
+   | `género`             |   |                 |   |                      |
+   | `id_productora` (FK) |   |                 |   |                      |
+
+   | **Actores\_Peliculas** |
+   | ---------------------- |
+   | `id_actor` (FK)        |
+   | `id_pelicula` (FK)     |
+
+### Consideraciones adicionales:
+
+* **Optimización de consultas**: El modelo lógico debe ser diseñado de manera que permita realizar consultas eficientes. Esto puede incluir el uso de índices en campos clave, como las claves primarias y foráneas.
+* **Seguridad y control de acceso**: Asegurarse de que el modelo cumpla con los requisitos de seguridad de la base de datos.
+
+El modelo lógico es la base sobre la que luego se crea el modelo físico de la base de datos, donde se definen aspectos específicos de implementación, como los tipos de almacenamiento, índices, particiones, etc.
+
+
+La **definición de columnas** es una parte fundamental de la construcción de un modelo lógico de datos. Cada columna en una tabla representa un atributo de una entidad o una relación y debe ser definida de manera precisa para que los datos sean almacenados de forma eficiente y consistente. A continuación te explico los elementos clave que deben considerarse al definir las columnas de una tabla:
+
+### Elementos clave en la **definición de columnas**:
+
+1. **Nombre de la columna**:
+
+   * Cada columna debe tener un nombre único que describa de forma clara el tipo de dato que contendrá. Por ejemplo:
+
+     * En la tabla **Películas**, una columna puede llamarse `nombre` para almacenar el título de la película, o `año` para almacenar el año de estreno.
+
+2. **Tipo de dato**:
+
+   * El tipo de dato define qué tipo de valor puede contener una columna. Los tipos de datos comunes incluyen:
+
+     * **VARCHAR** o **TEXT**: Para texto o cadenas de caracteres. Por ejemplo, `nombre` podría ser de tipo `VARCHAR(255)`.
+     * **INT** o **INTEGER**: Para números enteros. Por ejemplo, `año` podría ser de tipo `INT`.
+     * **DATE** o **DATETIME**: Para fechas. Por ejemplo, si tuvieras una columna para la fecha de lanzamiento de una película, el tipo sería `DATE`.
+     * **DECIMAL** o **FLOAT**: Para valores numéricos con decimales. Por ejemplo, una columna para el presupuesto de una película.
+     * **BOOLEAN**: Para valores lógicos (verdadero o falso).
+
+   Es fundamental elegir el tipo de dato adecuado para cada columna, ya que influirá en la eficiencia del almacenamiento y las operaciones de consulta.
+
+3. **Restricciones**:
+
+   Las restricciones definen las reglas que deben cumplirse para los valores de las columnas. Algunas de las restricciones más comunes son:
+
+* **NOT NULL**: Asegura que la columna no pueda tener valores nulos.
+* **UNIQUE**: Garantiza que todos los valores de la columna sean únicos.
+* **PRIMARY KEY**: Define una columna o combinación de columnas como la clave primaria, única y no nula.
+* **FOREIGN KEY**: Establece una relación entre tablas, haciendo referencia a la clave primaria de otra tabla.
+* **CHECK**: Asegura que los valores de la columna cumplan con ciertas condiciones (por ejemplo, edad >= 18).
+* **DEFAULT**: Define un valor predeterminado para una columna cuando no se proporciona un valor al insertar un registro.
+* **BINARY**: Se usa para almacenar datos binarios (como imágenes o contraseñas) en formato binario.
+* **UNSIGNED**: Se utiliza en columnas numéricas para asegurar que los valores sean siempre positivos o cero (no negativos).
+* **Zero Filled (ZF)**: Si el campo es numérico, rellena con ceros a la izquierda para completar hasta su longitud máxima. Se usa para asegurar un formato fijo en campos numéricos.
+* **Auto Increment (AI)**: Si el campo es numérico, incrementa su valor automáticamente en uno con cada nuevo registro, ideal para generar identificadores únicos secuenciales.
+* **Generated Column (G)**: Permite crear columnas basadas en el cálculo de otras columnas. Puede ser `stored` (almacenado) o `virtual` (calculado sin almacenarlo).
+
+Estas restricciones y características permiten un control más preciso sobre los datos y su formato en la base de datos, asegurando integridad, eficiencia y consistencia en el almacenamiento y manejo de la información.
+
+
+Estas restricciones ayudan a garantizar la integridad de los datos, optimizar el rendimiento y asegurar que los valores en las columnas sean consistentes con los requisitos del sistema.
+
+
+4. **Valor predeterminado (DEFAULT)**:
+
+   * Algunas columnas pueden tener un valor predeterminado. Esto significa que, si no se proporciona un valor explícito al insertar un registro, se usará este valor predeterminado. Por ejemplo:
+
+     * Si una columna `estado` tiene el valor predeterminado `activo`, entonces, si no se especifica un valor para `estado`, se asignará `activo` automáticamente.
+
+5. **Comentarios**:
+
+   * Aunque no es estrictamente necesario, es útil agregar comentarios en las columnas para documentar su propósito, especialmente en bases de datos más grandes o complejas. Esto facilita la comprensión del diseño de la base de datos tanto para el equipo de desarrollo como para otros usuarios.
+
+6. **Longitud o precisión**:
+
+   * Algunas columnas requieren que se defina su longitud o precisión, dependiendo del tipo de dato:
+
+     * En columnas de tipo **VARCHAR**, debes especificar la longitud máxima de la cadena. Ejemplo: `nombre VARCHAR(255)` indica que el campo `nombre` puede almacenar cadenas de texto de hasta 255 caracteres.
+     * En columnas de tipo **DECIMAL**, debes definir la precisión y escala (número total de dígitos y número de dígitos después del punto decimal). Ejemplo: `presupuesto DECIMAL(10,2)` permite almacenar números con hasta 10 dígitos, de los cuales 2 serán decimales.
+
+7. **Índices**:
+
+   * Los índices pueden definirse sobre ciertas columnas para mejorar el rendimiento de las consultas. Por ejemplo, si haces muchas búsquedas por el nombre de la película, puede ser útil crear un índice sobre la columna `nombre` en la tabla **Películas**.
+
+### Ejemplo de definición de columnas en un modelo lógico:
+
+**Tabla: Películas**
+
+| Columna         | Tipo de Dato | Restricciones             | Descripción                               |
+| --------------- | ------------ | ------------------------- | ----------------------------------------- |
+| `id_pelicula`   | INT          | PRIMARY KEY, NOT NULL     | Identificador único para la película      |
+| `nombre`        | VARCHAR(255) | NOT NULL                  | Nombre de la película                     |
+| `año`           | INT          | NOT NULL                  | Año de estreno de la película             |
+| `género`        | VARCHAR(100) |                           | Género de la película                     |
+| `id_productora` | INT          | FOREIGN KEY (Productoras) | Referencia a la productora que la produjo |
+
+**Tabla: Actores**
+
+| Columna            | Tipo de Dato | Restricciones         | Descripción                       |
+| ------------------ | ------------ | --------------------- | --------------------------------- |
+| `id_actor`         | INT          | PRIMARY KEY, NOT NULL | Identificador único para el actor |
+| `nombre`           | VARCHAR(100) | NOT NULL              | Nombre del actor                  |
+| `apellido`         | VARCHAR(100) | NOT NULL              | Apellido del actor                |
+| `fecha_nacimiento` | DATE         |                       | Fecha de nacimiento del actor     |
+
+**Tabla: Actores\_Peliculas** (Relación N\:M entre Actores y Películas)
+
+| Columna       | Tipo de Dato | Restricciones           | Descripción              |
+| ------------- | ------------ | ----------------------- | ------------------------ |
+| `id_actor`    | INT          | FOREIGN KEY (Actores)   | Referencia al actor      |
+| `id_pelicula` | INT          | FOREIGN KEY (Películas) | Referencia a la película |
+
+### Conclusión:
+
+La definición de columnas es esencial para garantizar que los datos se almacenen correctamente y de manera eficiente. Al definirlas, asegúrate de elegir los tipos de datos adecuados, aplicar restricciones apropiadas y documentar el propósito de cada columna para facilitar el mantenimiento y el uso de la base de datos.
+
+
+
+
+
+#### 1. **Conversión a formas normales**:
+
+* **Definición**: La normalización se refiere al proceso de organizar los datos de manera eficiente y sin redundancias.
+* **Objetivo**: Aplicar **formas normales** a las tablas para evitar problemas de duplicación y mantener la integridad de los datos.
+* **Forma normal N**: Si todas las tablas de la base de datos están en la forma normal N, se considera que la base de datos está en la **forma normal N**.
+
+#### 2. **Ejemplo de tabla no normalizada**:
+
+* La tabla muestra un ejemplo de usuarios con columnas de **NOMBRE**, **CLAVE**, **EMPRESA** y **DIRECCIÓN**. A continuación, te muestro cómo está estructurada la tabla según la imagen:
+
+| **USUARIOS** |           |             |                   |
+| ------------ | --------- | ----------- | ----------------- |
+| **NOMBRE**   | **CLAVE** | **EMPRESA** | **DIRECCIÓN**     |
+| Juan         | Abc2015   | ABC         | C/ Buenventura    |
+| Pedro        | Abc2015   | ABC         | C/ Buenventura    |
+| Juan         | Juan2015  | XYZ         | C/ Divina Comedia |
+| Susana       | Nyork2015 | XYZ         | C/ El Quijote     |
+
+#### 3. **Explicación**:
+
+* **Redundancia**: Observa que los datos están repetidos:
+
+  * **Juan** aparece dos veces con diferentes direcciones y claves, pero la empresa **ABC** y la dirección **C/ Buenaventura** se repiten.
+  * **Pedro** también tiene la misma empresa y dirección que Juan, pero con su propia clave.
+  * Esta repetición puede generar problemas a largo plazo, como dificultad para actualizar datos si se cambian direcciones o empresas.
+
+### **Conclusión**:
+
+Este tipo de tablas no normalizadas es propenso a la **duplicación de datos**, lo cual se resuelve aplicando las formas normales (1NF, 2NF, 3NF, etc.). Al normalizar los datos, se eliminan las redundancias, lo que facilita la actualización y mantiene la integridad de la base de datos.
+
+
+
+
+---
+
+### **Primera Forma Normal (1FN)** 🧑‍💻📊
+
+**Objetivo**: Evitar **duplicación** de datos y asegurar que cada columna contenga **valores únicos e indivisibles**. ¡Todo debe estar bien organizado! ✨
+
+#### **¿Qué hacer?** 🤔
+
+1. **Eliminar grupos repetitivos** ❌:
+   Si tenemos columnas que se repiten (como "Coche1", "Coche2"), debemos **crear una tabla separada** para esos datos repetidos y vincularla a la tabla principal. Esto mejora la eficiencia y reduce la redundancia.
+
+2. **Crear una tabla separada por cada grupo relacionado** 🛠️:
+   Los datos relacionados deben estar en su propia tabla. Por ejemplo, si una persona tiene varios coches, no agregamos múltiples columnas de coche. Creamos una tabla llamada **"Coches"** con el **ID de la persona** (relación) y su **matrícula** 🚗.
+
+#### **Ejemplo:**
+
+* Tabla **Usuarios**:
+
+  | NOMBRE | CLAVE | EMPRESA | DIRECCIÓN      |
+  | ------ | ----- | ------- | -------------- |
+  | Juan   | Abc15 | ABC     | C/ Buenventura |
+
+* **¿Y si Juan tiene 2 coches?**
+  En lugar de agregar columnas como "Coche1" y "Coche2", creamos una **tabla nueva** de **Coches**:
+
+  | NIF   | MATRÍCULA |
+  | ----- | --------- |
+  | Abc15 | 123ABC    |
+  | Abc15 | 456DEF    |
+
+---
+
+**Resumen:** Para la **Primera Forma Normal (1FN)**, creamos nuevas tablas para evitar la repetición de datos y mantenemos los valores atómicos (sin divisiones innecesarias). ¡Esto hace que tu base de datos sea más limpia y fácil de manejar! ✨
+
+---
+
+
+
+
+### **Segunda Forma Normal (2FN) 📊🎯**
+
+#### **¿Qué es la Segunda Forma Normal (2FN)?**
+
+La **Segunda Forma Normal (2FN)** se centra en **eliminar dependencias parciales** en las tablas con **clave primaria compuesta**. Esto significa que **todas las columnas no clave** deben depender **totalmente** de la clave primaria completa (y no solo de una parte de ella). 🔄
+
+---
+
+### **¿Por qué es importante la 2FN?** 🤔
+
+* **Eliminación de dependencias parciales**: Si una columna depende solo de una parte de la clave primaria, está violando la **2FN**.
+* **Optimización de la base de datos**: La base de datos se vuelve más eficiente y sin redundancias.
+* **Integridad de los datos**: Se garantiza que los datos no se repitan innecesariamente, y es más fácil hacer actualizaciones.
+
+---
+
+### **¿Cómo se aplica la 2FN?** 🛠️
+
+1. **Identificar las dependencias parciales**:
+   Si tienes una **clave primaria compuesta** (es decir, la clave primaria se forma con más de una columna), algunas columnas pueden depender solo de una parte de esa clave. Esto debe corregirse moviendo esas columnas a otras tablas.
+
+2. **Dividir las tablas correctamente**:
+   Se deben crear nuevas tablas para almacenar los datos que dependen solo de una parte de la clave primaria. Así, cada columna estará completamente relacionada con la clave primaria de su tabla.
+
+---
+
+### **Ejemplo: Tabla sin normalizar (violando 2FN) 😬**
+
+Imagina que tienes una tabla de **Eventos**, donde la clave primaria es una **combinación de `Curso` y `Fecha`**.
+
+| **Curso** | **Fecha** | **CourseTitle**  | **Room** | **Capacity** | **Available** |
+| --------- | --------- | ---------------- | -------- | ------------ | ------------- |
+| SQL101    | 3/1/2013  | SQL Fundamentals | 4A       | 12           | 4             |
+| DB202     | 3/1/2013  | Database Design  | 7B       | 14           | 7             |
+| SQL101    | 4/14/2013 | SQL Fundamentals | 7B       | 14           | 10            |
+| SQL101    | 5/28/2013 | SQL Fundamentals | 12A      | 8            | 8             |
+| CS200     | 4/15/2012 | C Programming    | 4A       | 12           | 11            |
+
+#### **Problema:**
+
+* **`CourseTitle`** depende solo de **`Curso`** y no de **`Fecha`**.
+* **`Room`**, **`Capacity`**, y **`Available`** dependen de **`Curso`** y **`Fecha`** juntos.
+* La tabla no está en **2FN** porque algunas columnas dependen solo de una parte de la clave primaria.
+
+---
+
+### **Solución con 2FN** ✂️
+
+Vamos a separar la tabla en dos para eliminar las dependencias parciales:
+
+1. **Tabla de Cursos** (con clave primaria `Curso`):
+
+| **IDCurso** | **Titulo**       |
+| ----------- | ---------------- |
+| SQL101      | SQL Fundamentals |
+| DB202       | Database Design  |
+| CS200       | C Programming    |
+
+2. **Tabla de Eventos** (con clave primaria compuesta `Curso` y `Fecha`):
+
+| **Curso** | **Fecha** | **Room** | **Capacity** | **Available** |
+| --------- | --------- | -------- | ------------ | ------------- |
+| SQL101    | 3/1/2013  | 4A       | 12           | 4             |
+| DB202     | 3/1/2013  | 7B       | 14           | 7             |
+| SQL101    | 4/14/2013 | 7B       | 14           | 10            |
+| SQL101    | 5/28/2013 | 12A      | 8            | 8             |
+| CS200     | 4/15/2012 | 4A       | 12           | 11            |
+
+---
+
+### **¿Qué hemos logrado?** 🏆
+
+* **Eliminamos la redundancia**: El **`CourseTitle`** se guarda solo una vez en la tabla de **Cursos**, lo que reduce la repetición de datos.
+* **Mejoramos la integridad**: Si cambiamos el **nombre del curso**, solo lo necesitamos actualizar en la tabla de **Cursos**, no en todas las filas de la tabla de **Eventos**.
+* **Estructura más limpia y eficiente**: Ahora, las tablas están mejor organizadas y cumplen con la **2FN**.
+
+---
+
+### **Resumen final de la 2FN con emojis 🔑**:
+
+* La **Segunda Forma Normal (2FN)** asegura que **todas las columnas no clave** dependan **completamente** de la **clave primaria completa** (y no de una parte de ella).
+* Si tienes una **clave primaria compuesta**, las columnas que dependen solo de una parte de ella deben moverse a una nueva tabla.
+* Esto mejora la **estructura de la base de datos**, **reduce redundancias**, y **mejora la integridad de los datos**.
+
+---
+
+
+
+
+
+
+### **Tercera Forma Normal (3FN) 📊**
+
+#### **¿Qué es la Tercera Forma Normal (3FN)?** 🤔
+
+La **3FN** va más allá de la **2FN**. El objetivo es eliminar **dependencias transitivas**. Esto significa que si una columna depende de otra columna que no es la clave primaria, debe ser movida a una tabla separada. 🛠️
+
+#### **¿Qué hacer en 3FN?** 🔧
+
+Si una columna depende de otra columna **no clave** que, a su vez, depende de la **clave primaria**, entonces esa columna **no cumple con la 3FN**. Para corregirlo, debemos dividir las tablas para que las columnas solo dependan de la clave primaria.
+
+---
+
+### **Ejemplo de 3FN**:
+
+Imagina que tenemos una tabla de **Pedidos** con una clave primaria **`ID_Pedido`**.
+
+| **ID\_Pedido** | **Nombre Cliente** | **Dirección Cliente** | **Código Postal** | **Fecha Pedido** |
+| -------------- | ------------------ | --------------------- | ----------------- | ---------------- |
+| 001            | Juan               | Calle Falsa 123       | 28001             | 3/1/2013         |
+| 002            | Pedro              | Av. Libertad 45       | 28002             | 4/1/2013         |
+
+#### **Problema:**
+
+* **`Código Postal`** depende de **`Dirección Cliente`** (ya que el código postal está relacionado con la dirección), pero **`Dirección Cliente`** depende de **`ID_Pedido`**. Esta es una **dependencia transitiva** que **no cumple con la 3FN**.
+
+#### **Solución en 3FN:**
+
+Crearemos una nueva tabla para los códigos postales, y **`Dirección Cliente`** y **`Código Postal`** estarán ahora separados:
+
+1. **Tabla de Pedidos**:
+
+   | **ID\_Pedido** | **Nombre Cliente** | **Fecha Pedido** |
+   | -------------- | ------------------ | ---------------- |
+   | 001            | Juan               | 3/1/2013         |
+   | 002            | Pedro              | 4/1/2013         |
+
+2. **Tabla de Direcciones**:
+
+   | **Dirección Cliente** | **Código Postal** |
+   | --------------------- | ----------------- |
+   | Calle Falsa 123       | 28001             |
+   | Av. Libertad 45       | 28002             |
+
+---
+
+#### **¿Qué conseguimos?** 🏆
+
+* **Eliminamos dependencias transitivas**: Ahora, el **`Código Postal`** depende solo de **`Dirección Cliente`** en la tabla **Direcciones**, y no de la **clave primaria** de **Pedidos**.
+* **Mejoramos la estructura**: La base de datos está más organizada y mantiene la integridad de los datos sin redundancias.
+
+---
+
+
+
+### **Cuarta Forma Normal (4FN) 📊**
+
+#### **¿Qué es la Cuarta Forma Normal (4FN)?** 🤔
+
+La **4FN** se centra en la **eliminación de dependencias multivaluadas**. Esto sucede cuando una columna tiene más de un valor independiente que no está relacionado con otras columnas. Es decir, cada atributo debe ser independiente de los demás.
+
+#### **¿Qué hacer en 4FN?** 🔧
+
+Si una tabla tiene dos o más grupos de datos independientes, cada uno debe estar en su propia tabla para cumplir con la 4FN.
+
+---
+
+### **Ejemplo de 4FN**:
+
+Imagina una tabla de **Productos** que contiene información sobre los colores y tamaños disponibles:
+
+| **ID\_Producto** | **Colores Disponibles** | **Tamaños Disponibles** |
+| ---------------- | ----------------------- | ----------------------- |
+| 001              | Rojo, Azul              | S, M, L                 |
+| 002              | Verde, Blanco           | M, L, XL                |
+
+#### **Problema:**
+
+* **`Colores Disponibles`** y **`Tamaños Disponibles`** son dos grupos de datos **independientes**, pero están en la misma tabla. Esta es una **dependencia multivaluada** que **no cumple con la 4FN**.
+
+#### **Solución en 4FN:**
+
+Creamos dos tablas separadas: una para **colores** y otra para **tamaños**:
+
+1. **Tabla de Productos**:
+
+   | **ID\_Producto** |
+   | ---------------- |
+   | 001              |
+   | 002              |
+
+2. **Tabla de Colores**:
+
+   | **ID\_Producto** | **Color** |
+   | ---------------- | --------- |
+   | 001              | Rojo      |
+   | 001              | Azul      |
+   | 002              | Verde     |
+   | 002              | Blanco    |
+
+3. **Tabla de Tamaños**:
+
+   | **ID\_Producto** | **Tamaño** |
+   | ---------------- | ---------- |
+   | 001              | S          |
+   | 001              | M          |
+   | 001              | L          |
+   | 002              | M          |
+   | 002              | L          |
+   | 002              | XL         |
+
+---
+
+#### **¿Qué conseguimos?** 🏆
+
+* **Eliminamos dependencias multivaluadas**: Ahora, los colores y tamaños están en sus propias tablas, cada uno con una clave foránea **`ID_Producto`** para hacer la relación.
+* **Mejoramos la estructura**: Los datos están más organizados y no hay columnas que contengan múltiples valores no relacionados.
+
+---
+
+### **Resumen Completo 📚🎉**
+
+1. **Tercera Forma Normal (3FN)**:
+
+   * Elimina las **dependencias transitivas**.
+   * Las columnas deben depender **directamente** de la **clave primaria**, no de otras columnas no clave.
+   * **Ejemplo**: Separar **dirección** y **código postal** en diferentes tablas.
+
+2. **Cuarta Forma Normal (4FN)**:
+
+   * Elimina las **dependencias multivaluadas** (cuando una columna tiene más de un valor independiente).
+   * **Ejemplo**: Separar **colores disponibles** y **tamaños disponibles** en tablas diferentes.
+
+---
+
+
+
+
+
+### **Motores de Almacenamiento en MySQL** 🗃️
+
+1. **InnoDB** ⚙️
+
+   * **Transacciones ACID** ✅
+   * **Bloqueo a nivel de fila** 🔒
+   * **Alta disponibilidad** 💾
+   * **Rendimiento bueno en cargas mixtas** ⚡
+   * **Ideal para aplicaciones transaccionales** 🏦
+
+2. **MyISAM** 🗂️
+
+   * **No soporta transacciones** ❌
+   * **Bloqueo a nivel de tabla** 🛑
+   * **Excelente para lecturas rápidas** ⚡
+   * **Ideal para bases de datos de solo lectura** 📚
+
+3. **NDB Cluster** 🖧
+
+   * **Escalabilidad horizontal** 📈
+   * **Almacenamiento en memoria** ⚡
+   * **Alta disponibilidad** 🔄
+   * **Ideal para aplicaciones en tiempo real** 🌐
+
+4. **HEAP (Memory)** 🧠
+
+   * **Almacenamiento en RAM** 🏃
+   * **Muy rápido** ⚡
+   * **No persiste datos al reiniciar** ❌
+   * **Ideal para datos temporales o sesiones** 🔄
+
+5. **BDB (Berkeley DB)** 🏢
+
+   * **Transacciones ACID** ✅
+   * **Alta disponibilidad** 🛡️
+   * **Menos eficiente en consultas** 🐢
+   * **Ideal para sistemas con necesidad de transacciones** 🏢
+
+---
+
+### **Resumen con Emojis** 🎯
+
+| **Motor**       | **Transacciones** | **Escalabilidad** | **Disponibilidad** | **Rendimiento** | **Uso Ideal**                         |
+| --------------- | ----------------- | ----------------- | ------------------ | --------------- | ------------------------------------- |
+| **InnoDB**      | ✅ ACID            | Media (vertical)  | Alta               | Bueno           | **Aplicaciones transaccionales** 🏦   |
+| **MyISAM**      | ❌                 | Baja (vertical)   | Media              | Excelente       | **Bases de datos de solo lectura** 📚 |
+| **NDB Cluster** | ✅ ACID            | Alta (horizontal) | Alta               | Excelente       | **Aplicaciones en tiempo real** 🌐    |
+| **HEAP**        | ❌                 | Baja (en memoria) | Baja               | Excelente       | **Datos temporales o de sesión** 🧠   |
+| **BDB**         | ✅ ACID            | Media (vertical)  | Alta               | Bajo            | **Sistemas con transacciones** 🏢     |
+
+---
+
+### **¿Cuál Elegir?** 🤔
+
+* **InnoDB**: Si necesitas **transacciones** y **alta disponibilidad**. 🔐
+* **MyISAM**: Si necesitas **lecturas rápidas** y tu base es **de solo lectura**. ⚡
+* **NDB Cluster**: Si necesitas **escalabilidad horizontal** y **rendimiento en tiempo real**. 🌍
+* **HEAP**: Si necesitas **almacenamiento en memoria** para **datos temporales**. 🧠
+* **BDB**: Si necesitas **transacciones** y **alta disponibilidad**. 🏢
+
+---
+
+
