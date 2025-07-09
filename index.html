@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Hola! Soy Laurentiu Ionica - Mi Portfolio</title>
+    <!-- Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Estilos Generales */
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
@@ -57,27 +60,112 @@
             background-color: #38a169;
         }
 
+        /* Efecto de entrada */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Estilo de la Sección de Proyectos */
+        .proyectos-container {
+            margin-top: 50px;
+            text-align: center;
+            background-color: #2d3748;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .proyectos-container h2 {
+            color: #63b3ed;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .proyectos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .proyecto {
+            background-color: #4a5568;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .imagen-proyecto {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .enlace {
+            color: #48bb78;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .enlace:hover {
+            color: #38a169;
+        }
+
+        /* Efecto hover en proyectos */
+        .proyecto:hover {
+            transform: scale(1.05);
+            transition: 0.3s ease-in-out;
+        }
+
+        /* Estilo para pantallas pequeñas */
+        @media screen and (max-width: 768px) {
+            .proyectos {
+                grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+            }
+
+            .cta-button {
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Introducción -->
     <div class="introduccion-container">
         <h1>¡Hola a tod@s! 👋 Soy Laurentiu Ionica</h1>
         <p>
+            Soy un desarrollador de 24 años que se está <strong>sumergiendo a tope en el fascinante universo de la programación</strong>. Actualmente, estoy a tope con la <strong>programación orientada a objetos (POO)</strong> y dándole caña a las <strong>bases de datos relacionales</strong>. ¡Porque una buena app sin una buena base de datos es como un coche sin ruedas, no va a ninguna parte!
 
-Soy un desarrollador de 24 años que se está **sumergiendo a tope en el fascinante universo de la programación**. Actualmente, estoy a tope con la **programación orientada a objetos (POO)** y dándole caña a las **bases de datos relacionales**. ¡Porque una buena app sin una buena base de datos es como un coche sin ruedas, no va a ninguna parte!
+            Mi foco principal está en el <strong>desarrollo web</strong>, donde me muevo como pez en el agua con <span style="color:#48bb78;"><strong>HTML, CSS y JavaScript</strong></span>. Además, le estoy metiendo turbo con <span style="color:#f6ad55;"><strong>TypeScript</strong></span> para tener un código más robusto y escalable, y estoy dominando <span style="color:#e53e3e;"><strong>Angular</strong></span> para crear interfaces de usuario dinámicas y de primera. En el lado del almacenamiento de datos, <strong>MariaDB</strong> es mi compañera de batallas para mantener todo organizado y accesible.
 
-Mi foco principal está en el **desarrollo web**, donde me muevo como pez en el agua con **HTML, CSS y JavaScript**. Además, le estoy metiendo turbo con **TypeScript** para tener un código más robusto y escalable, y estoy dominando **Angular** para crear interfaces de usuario dinámicas y de primera. En el lado del almacenamiento de datos, **MariaDB** es mi compañera de batallas para mantener todo organizado y accesible.
-
-Estoy siempre buscando aprender y mejorar, ¡así que prepárate para ver cómo mis proyectos cobran vida! Si te mola lo que ves o tienes alguna idea loca que quieras construir, ¡no dudes en contactarme! ¡El futuro es ahora, y lo estamos programando juntos!
-
+            Estoy siempre buscando aprender y mejorar, ¡así que prepárate para ver cómo mis proyectos cobran vida! Si te mola lo que ves o tienes alguna idea loca que quieras construir, ¡no dudes en contactarme! ¡El futuro es ahora, y lo estamos programando juntos!
         </p>
         <a href="#proyectos" class="cta-button">Ver mis Proyectos</a>
     </div>
+
+    <!-- Sección de Proyectos -->
+    <section id="proyectos" class="proyectos-container">
+        <h2>Mis Proyectos</h2>
+        <div class="proyectos">
+            <div class="proyecto">
+                <img src="proyecto1.jpg" alt="Proyecto 1" class="imagen-proyecto">
+                <h3>Proyecto 1</h3>
+                <p>Descripción corta del proyecto.</p>
+                <a href="https://github.com/tuusuario/proyecto1" class="enlace">Ver en GitHub</a>
+            </div>
+            <div class="proyecto">
+                <img src="proyecto2.jpg" alt="Proyecto 2" class="imagen-proyecto">
+                <h3>Proyecto 2</h3>
+                <p>Descripción corta del proyecto.</p>
+                <a href="https://github.com/tuusuario/proyecto2" class="enlace">Ver en GitHub</a>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
