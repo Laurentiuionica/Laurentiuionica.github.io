@@ -1,0 +1,116 @@
+# Arrays en JavaScript
+
+## ¿Qué es un array?
+
+Un **array** es una estructura de datos que almacena una lista ordenada de elementos. Estos elementos pueden ser de cualquier tipo: números, textos, objetos, otros arrays, funciones, etc.
+
+Cada elemento dentro del array tiene un **índice** que comienza en **0**.
+
+---
+
+## Declarar un array
+
+```javascript
+let frutas = ["manzana", "banana", "uva"];
+```
+
+Aquí `frutas` es un array con tres elementos.
+
+---
+
+## Acceder a elementos
+
+* Para acceder a un elemento, usa su índice:
+
+```javascript
+frutas[0]  // "manzana"
+frutas[1]  // "banana"
+```
+
+* Recuerda: el primer elemento está en la posición 0.
+
+---
+
+## Métodos comunes para manipular arrays
+
+| Método               | Qué hace                                                                     |
+| -------------------- | ---------------------------------------------------------------------------- |
+| `push(elemento)`     | Añade un elemento al final del array                                         |
+| `pop()`              | Elimina el último elemento y lo devuelve                                     |
+| `unshift(elemento)`  | Añade un elemento al inicio del array                                        |
+| `shift()`            | Elimina el primer elemento y lo devuelve                                     |
+| `includes(valor)`    | Devuelve `true` si el valor está en el array, sino `false`                   |
+| `indexOf(valor)`     | Devuelve la posición del valor en el array o -1 si no existe                 |
+| `slice(inicio, fin)` | Devuelve una copia de una porción del array (desde `inicio` hasta `fin - 1`) |
+| `join(separador)`    | Convierte el array a una cadena, uniendo elementos con el separador          |
+
+---
+
+## Recorrer un array
+
+Puedes recorrer los elementos de un array usando un bucle `for...of`:
+
+```javascript
+for (let fruta of frutas) {
+  console.log(fruta);
+}
+```
+
+Esto imprimirá cada fruta en consola.
+
+---
+
+## Tipos de datos en arrays
+
+Los arrays pueden contener elementos de diferentes tipos, por ejemplo:
+
+```javascript
+let mixto = [42, "texto", true, [1, 2, 3], { nombre: "Carlos" }];
+```
+
+---
+
+## Ejemplo completo
+
+```javascript
+let numeros = [1, 2, 3];
+
+// Añadir un número al final
+numeros.push(4);  // [1, 2, 3, 4]
+
+// Eliminar el último número
+let ultimo = numeros.pop();  // 4, numeros queda [1, 2, 3]
+
+// Añadir al inicio
+numeros.unshift(0);  // [0, 1, 2, 3]
+
+// Eliminar el primero
+let primero = numeros.shift();  // 0, numeros queda [1, 2, 3]
+
+// Ver si incluye un valor
+console.log(numeros.includes(2));  // true
+
+// Obtener índice de un valor
+console.log(numeros.indexOf(3));  // 2
+
+// Crear un nuevo array con parte del original
+let subset = numeros.slice(1, 3);  // [2, 3]
+
+// Convertir a texto
+console.log(numeros.join(" - "));  // "1 - 2 - 3"
+```
+
+---
+
+## Resumen rápido
+
+* Los arrays almacenan listas ordenadas de datos.
+* Los índices empiezan en 0.
+* Métodos como `push`, `pop`, `shift`, `unshift` modifican el array.
+* `slice` devuelve una copia parcial sin cambiar el original.
+* `includes` y `indexOf` ayudan a buscar valores.
+* Se pueden recorrer con bucles.
+
+---
+
+

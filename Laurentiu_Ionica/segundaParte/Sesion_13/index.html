@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modern Image Slider - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="title">Creative Portfolio</h1>
+      <p class="subtitle">Showcasing my latest projects</p>
+    </header>
+
+    <div class="slider-container">
+      <div class="slider">
+        <div class="slide active">
+          <img src="imagenes/img1.jpeg" alt="Project 1">
+          <div class="slide-content">
+            <h3>Project One</h3>
+            <p>Innovative design solution</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="imagenes/img2.jpeg" alt="Project 2">
+          <div class="slide-content">
+            <h3>Project Two</h3>
+            <p>Creative development approach</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="imagenes/img3.jpeg" alt="Project 3">
+          <div class="slide-content">
+            <h3>Project Three</h3>
+            <p>Modern web application</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="imagenes/img4.jpeg" alt="Project 4">
+          <div class="slide-content">
+            <h3>Project Four</h3>
+            <p>User experience focused</p>
+          </div>
+        </div>
+        <div class="slide">
+          <img src="imagenes/img5.jpg" alt="Project 5">
+          <div class="slide-content">
+            <h3>Project Five</h3>
+            <p>Cutting-edge technology</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Arrows -->
+      <button class="nav-btn prev-btn" aria-label="Previous slide">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="nav-btn next-btn" aria-label="Next slide">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <!-- Indicators -->
+      <div class="indicators"></div>
+
+      <!-- Progress Bar -->
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+
+      <!-- Slide Counter -->
+      <div class="slide-counter">
+        <span class="current">1</span>
+        <span class="separator">/</span>
+        <span class="total">5</span>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button class="control-btn play-pause" aria-label="Play/Pause slideshow">
+        <i class="fas fa-pause"></i>
+      </button>
+      <button class="control-btn fullscreen" aria-label="Toggle fullscreen">
+        <i class="fas fa-expand"></i>
+      </button>
+      <button class="control-btn settings" aria-label="Settings">
+        <i class="fas fa-cog"></i>
+      </button>
+    </div>
+
+    <!-- Settings Panel -->
+    <div class="settings-panel" hidden>
+      <h3>Slider Settings</h3>
+      <div class="setting-group">
+        <label for="speed">Speed (seconds):</label>
+        <input type="range" id="speed" min="1" max="10" value="3">
+        <span class="speed-value">3s</span>
+      </div>
+      <div class="setting-group">
+        <label for="transition">Transition:</label>
+        <select id="transition">
+          <option value="fade">Fade</option>
+          <option value="slide">Slide</option>
+          <option value="zoom">Zoom</option>
+        </select>
+      </div>
+      <button class="close-settings">Close</button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

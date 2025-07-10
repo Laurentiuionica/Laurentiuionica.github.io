@@ -1,0 +1,103 @@
+## ⌨️ Comandos Básicos de Teclado en Windows
+
+### 🗂️ Gestión de archivos y ventanas
+
+* 📁 `Ctrl + C` → Copiar
+* ✂️ `Ctrl + X` → Cortar
+* 📋 `Ctrl + V` → Pegar
+* 🗑️ `Del` → Eliminar
+* ↩️ `Ctrl + Z` → Deshacer
+* 🔁 `Ctrl + Y` → Rehacer
+* 🔎 `Alt + Tab` → Cambiar entre ventanas
+* 🧭 `Win + E` → Abrir el Explorador de archivos
+* ⬆️ `Alt + ↑` → Subir un nivel en el explorador
+
+---
+
+### 🧠 Atajos del sistema
+
+* 🪟 `Win + D` → Mostrar / ocultar el escritorio
+* 💡 `Win + L` → Bloquear la sesión
+* ⚙️ `Win + I` → Abrir configuración
+* 🖼️ `Win + P` → Elegir modo de pantalla (proyección)
+* 🔍 `Win + S` → Abrir la búsqueda
+* 🧮 `Win + R` → Ejecutar comando o programa
+
+----
+
+### ✍️ Edición y texto
+
+* 📄 `Ctrl + A` → Seleccionar todo
+* 🔠 `Ctrl + B` → Negrita
+* 🔡 `Ctrl + I` → Cursiva
+* 📝 `Ctrl + U` → Subrayado
+* 🔙 `Backspace` → Borrar hacia atrás
+* 🔚 `Ctrl + Fin` → Ir al final del documento
+* 🔝 `Ctrl + Inicio` → Ir al inicio del documento
+
+---
+
+### 🔄 Funciones especiales
+
+* 💾 `Ctrl + S` → Guardar
+* 🖨️ `Ctrl + P` → Imprimir
+* 🔐 `Ctrl + Alt + Supr` → Menú de seguridad (bloquear, cerrar sesión, administrador de tareas)
+* 🎥 `Win + G` → Abrir barra de juegos / grabación
+* 🧾 `Alt + F4` → Cerrar ventana activa
+* 🪟 `Win + M` → Minimizar todas las ventanas
+
+---
+
+
+## ⚡ Comandos de Teclado en Windows – Nivel Intermedio/Avanzado
+
+### 🖥️ Multitarea y administración de ventanas
+
+* 🧊 `Win + Tab` → Vista de tareas (escritorios virtuales y ventanas abiertas)
+* 🖥️ `Ctrl + Win + D` → Crear nuevo escritorio virtual
+* 🔁 `Ctrl + Win + ← / →` → Cambiar entre escritorios virtuales
+* 🧹 `Win + Home` → Minimizar todas las ventanas excepto la activa
+* 📐 `Win + ← / → / ↑ / ↓` → Anclar ventana a un lado o maximizar/restaurar
+
+---
+
+### 🔡 Productividad en texto y código
+
+* 🧠 `Ctrl + Flecha Izq./Der.` → Mover el cursor palabra por palabra
+* 🪄 `Ctrl + Retroceso` → Eliminar palabra completa hacia atrás
+* 🧽 `Ctrl + Supr` → Eliminar palabra completa hacia adelante
+* ⏫ `Shift + Flechas` → Seleccionar texto por caracteres o líneas
+* ⏹️ `Ctrl + Shift + Flechas` → Seleccionar por bloques de texto
+
+---
+
+### 🧰 Funciones del sistema
+
+* 📤 `Win + Shift + S` → Captura de pantalla parcial (abre Snipping Tool)
+* 🖼️ `Win + PrtScn` → Captura de pantalla completa (se guarda en Imágenes/Capturas)
+* 📑 `Alt + Enter` → Propiedades del archivo o carpeta seleccionada
+* 🧠 `Ctrl + Shift + Esc` → Abrir el Administrador de tareas directamente
+* 🧮 `Win + Ctrl + Shift + B` → Reiniciar los controladores gráficos (útil si la pantalla se congela)
+
+---
+
+### 🦾 Accesibilidad y ajustes
+
+* 📢 `Win + Ctrl + Enter` → Activar el narrador (lector de pantalla)
+* 🔍 `Win + + / -` → Zoom de pantalla (lupa)
+* 🧏 `Win + U` → Abrir configuración de accesibilidad
+* 🧘 `Win + Espacio` → Cambiar idioma del teclado
+* ✋ `Alt + Shift` → Alternar idioma de entrada (más clásico)
+
+---
+
+### 🗃️ Navegación avanzada en explorador
+
+* 🧷 `Alt + D` → Seleccionar la barra de direcciones del explorador
+* 🗂️ `Ctrl + N` → Nueva ventana del explorador (o navegador)
+* 🔁 `Ctrl + W` → Cerrar pestaña o ventana actual
+* 🔍 `F3` → Activar búsqueda dentro de carpeta o navegador
+* 🧭 `Ctrl + Shift + N` → Crear nueva carpeta rápidamente
+
+---
+

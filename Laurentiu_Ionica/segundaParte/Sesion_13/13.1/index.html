@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio Gallery - Professional Carousel</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Portfolio Gallery</h1>
+            <p class="subtitle">Showcasing my creative work</p>
+        </header>
+
+        <div class="carousel">
+            <div class="carousel-track"></div>
+            
+            <!-- Navigation Buttons -->
+            <button class="btn prev" aria-label="Previous slide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="btn next" aria-label="Next slide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <!-- Indicators -->
+            <div class="indicators"></div>
+            
+            <!-- Slide Counter -->
+            <div class="slide-counter">
+                <span class="current-slide">1</span>
+                <span class="separator">/</span>
+                <span class="total-slides">4</span>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="control-btn play-pause" aria-label="Play/Pause slideshow">
+                <i class="fas fa-play"></i>
+            </button>
+            <button class="control-btn fullscreen" aria-label="Toggle fullscreen">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

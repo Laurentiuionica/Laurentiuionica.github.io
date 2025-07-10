@@ -1,0 +1,79 @@
+CODING
+
+NESTING:
+**Nesting en HTML y CSS** se refiere a la idea de **anidar elementos o reglas** dentro de otros. Aunque el concepto existe en ambos lenguajes, funciona de maneras distintas:
+
+---
+
+### **Nesting en HTML** 🧱
+
+En HTML, el **nesting** ocurre cuando **unas etiquetas se colocan dentro de otras**, creando una estructura jerarquica que refleja la organizacion logica del contenido.
+
+Ejemplo basico:
+
+```html
+<body>
+  <section>
+    <h1>Noticias</h1>
+    <article>
+      <h2>Titulo del articulo</h2>
+      <p>Este es el contenido del articulo.</p>
+    </article>
+  </section>
+</body>
+```....
+
+Aqui `<article>` esta dentro de `<section>`, y a su vez todo esta dentro del `<body>`. Este tipo de nesting ayuda a los navegadores y motores de busqueda a entender mejor el contenido y su jerarquia.
+
+Errores comunes:
+
+* Mal cierre de etiquetas anidadas
+* Etiquetas que no deben estar dentro de otras (por ejemplo, un `<div>` dentro de un `<p>`, lo cual no es valido)
+
+---
+
+### **Nesting en CSS** 🎨
+
+En CSS tradicional, las reglas no se pueden anidar. Sin embargo, con **preprocesadores** como **SASS o SCSS**, y ahora con **CSS Nesting nativo** (soportado en navegadores modernos), puedes anidar reglas para organizar mejor el estilo.
+
+Ejemplo en CSS nativo moderno (o SCSS):
+
+```css
+nav {
+  background: black;
+  ul {
+    list-style: none;
+    li {
+      display: inline-block;
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+```
+
+Esto mejora la legibilidad y estructura del estilo cuando trabajas con componentes complejos. Al compilarse (o si usas nesting nativo), se transforma en reglas completas como:
+
+```css
+nav ul { ... }
+nav ul li { ... }
+nav ul li a { ... }
+```
+
+**Ventajas del nesting en CSS:**
+
+* Mayor claridad estructural
+* Evita repetir selectores
+* Facilita el mantenimiento del codigo
+
+**Cuidado:** No abuses del nesting en CSS, especialmente si anidas mas de 3 niveles, ya que puede dificultar la lectura y afectar el rendimiento.
+
+---
+
+### Conclusion 📌
+
+* En HTML, **nesting** refleja la estructura del contenido mediante etiquetas dentro de otras.
+* En CSS, el **nesting** permite escribir reglas mas organizadas, ya sea mediante SASS o el nuevo soporte nativo.
+

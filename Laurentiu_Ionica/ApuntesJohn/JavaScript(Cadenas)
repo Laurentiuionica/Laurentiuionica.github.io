@@ -1,0 +1,80 @@
+## 🔗 **cadena** en JavaScript
+
+Una **cadena** (string) es simplemente un texto. Puede contener letras, números, espacios, símbolos... cualquier carácter.
+
+```javascript
+let cadena = "Esto es una cadena";
+```
+
+---
+
+## 🧩 ¿Qué es una **subcadena**?
+
+Una **subcadena** es **una parte de una cadena más grande**.
+
+Por ejemplo:
+
+```javascript
+let texto = "JavaScript";
+let sub = texto.slice(0, 4); // "Java"
+```
+
+La palabra `"Java"` es una **subcadena** de `"JavaScript"`.
+
+---
+
+## 🧠 ¿Cómo obtener subcadenas?
+
+Aquí tienes **métodos** que te permiten trabajar con subcadenas:
+
+### 1. `slice(inicio, fin)`
+
+Devuelve una parte de la cadena.
+
+```javascript
+let texto = "Hola, mundo";
+console.log(texto.slice(0, 4)); // "Hola"
+```
+
+### 2. `substring(inicio, fin)`
+
+Parecido a `slice`, pero no acepta negativos.
+
+```javascript
+let frase = "Cadena de texto";
+console.log(frase.substring(7, 9)); // "de"
+```
+
+### 3. `substr(inicio, longitud)`
+
+(Más antiguo, aún funciona, pero menos usado)
+
+```javascript
+let palabra = "primo";
+console.log(palabra.substr(0, 3)); // "pri"
+```
+
+---
+
+## 🧪 ¿Cómo saber si una subcadena está dentro de una cadena?
+
+### ✅ `includes()`
+
+```javascript
+let frase = "Eres un crack";
+console.log(frase.includes("crack")); // true
+```
+
+---
+
+### 🧩 Resumen rápido:
+
+| Método            | ¿Para qué sirve?                           |
+| ----------------- | ------------------------------------------ |
+| `slice(a, b)`     | Saca desde `a` hasta `b` (sin incluir `b`) |
+| `substring(a, b)` | Igual que `slice`, pero sin negativos      |
+| `includes("x")`   | Ver si contiene la subcadena "x"           |
+| `indexOf("x")`    | Te dice en qué posición empieza "x"        |
+
+---
+
