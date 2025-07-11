@@ -300,9 +300,116 @@ body {
     border-color: var(--primary-color);
 }
 
+/* Fondos animados para cada proyecto */
+.project-bg-cronometro {
+    background: linear-gradient(120deg, #667eea 0%, #43e97b 100%);
+    position: relative;
+    overflow: hidden;
+    animation: gradMove1 6s ease-in-out infinite alternate;
+}
+@keyframes gradMove1 {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.project-bg-formulario {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    position: relative;
+    overflow: hidden;
+    animation: gradMove2 7s ease-in-out infinite alternate;
+}
+@keyframes gradMove2 {
+    0% { background-position: 100% 0%; }
+    100% { background-position: 0% 100%; }
+}
+
+.project-bg-lista {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    position: relative;
+    overflow: hidden;
+    animation: gradMove3 8s ease-in-out infinite alternate;
+}
+@keyframes gradMove3 {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+.project-bg-ahorcado {
+    background: linear-gradient(120deg, #667eea 0%, #f093fb 100%);
+    position: relative;
+    overflow: hidden;
+    animation: gradMove4 6s ease-in-out infinite alternate;
+}
+@keyframes gradMove4 {
+    0% { background-position: 0% 100%; }
+    100% { background-position: 100% 0%; }
+}
+
+.project-bg-buscador {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    position: relative;
+    overflow: hidden;
+    animation: gradMove5 7s ease-in-out infinite alternate;
+}
+@keyframes gradMove5 {
+    0% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+.project-bg-primos {
+    background: linear-gradient(120deg, #f093fb 0%, #43e97b 100%);
+    position: relative;
+    overflow: hidden;
+    animation: gradMove6 8s ease-in-out infinite alternate;
+}
+@keyframes gradMove6 {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.project-bg-coordenadas {
+    background: linear-gradient(135deg, #38f9d7 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+    animation: gradMove7 7s ease-in-out infinite alternate;
+}
+@keyframes gradMove7 {
+    0% { background-position: 100% 0%; }
+    100% { background-position: 0% 100%; }
+}
+
+.project-bg-galeria {
+    background: linear-gradient(120deg, #f5576c 0%, #667eea 100%);
+    position: relative;
+    overflow: hidden;
+    animation: gradMove8 6s ease-in-out infinite alternate;
+}
+@keyframes gradMove8 {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+.project-bg-banderas {
+    background: linear-gradient(135deg, #43e97b 0%, #f093fb 100%);
+    position: relative;
+    overflow: hidden;
+    animation: gradMove9 8s ease-in-out infinite alternate;
+}
+@keyframes gradMove9 {
+    0% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
 .project-image {
-    height: 200px;
-    background: var(--gradient-secondary);
+    min-height: 210px;
+    height: 210px;
+    border-radius: 28px 28px 0 0;
+    margin-bottom: 0;
+    width: 100%;
+    box-shadow: 0 6px 32px rgba(102,126,234,0.18), 0 1.5px 8px rgba(0,0,0,0.10);
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+    transition: box-shadow 0.4s, transform 0.4s, border-radius 0.4s;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -310,31 +417,22 @@ body {
     overflow: hidden;
 }
 
-.project-image::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
-    transform: translateX(-100%);
-    transition: transform 0.6s ease;
+.project-card:hover .project-image {
+    box-shadow: 0 16px 48px rgba(102,126,234,0.28), 0 4px 16px rgba(0,0,0,0.13);
+    transform: scale(1.035) translateY(-4px);
+    border-radius: 32px 32px 0 0;
 }
 
-.project-card:hover .project-image::before {
-    transform: translateX(100%);
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
 }
 
-.project-icon {
-    font-size: 4rem;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
+.project-card:hover .project-img {
+    transform: scale(1.05);
 }
 
 .project-content {
@@ -505,4 +603,21 @@ html {
 ::-moz-selection {
     background: var(--primary-color);
     color: white;
+} 
+
+.project-icon-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.25);
+    z-index: 2;
+    opacity: 0.97;
+    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.13));
+    pointer-events: none;
+    transition: transform 0.4s, opacity 0.3s;
+}
+
+.project-card:hover .project-icon-svg {
+    transform: translate(-50%, -50%) scale(1.35) rotate(-3deg);
+    opacity: 1;
 } 

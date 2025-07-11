@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Buscador de Documentación - Laurentiu Ionica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>🔍 Buscador de Documentación</h1>
+            <p class="subtitle">Encuentra repositorios y documentación en GitHub</p>
+        </header>
+
+        <!-- Barra de búsqueda -->
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-input-group">
+                    <div class="search-icon">🔍</div>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Buscar repositorios, documentación, frameworks..."
+                        autocomplete="off"
+                    >
+                    <button id="searchButton" class="search-btn">
+                        <span class="btn-text">Buscar</span>
+                        <span class="btn-icon">🚀</span>
+                    </button>
+                </div>
+                
+                <!-- Filtros -->
+                <div class="filters">
+                    <select id="languageFilter" class="filter-select">
+                        <option value="">Todos los lenguajes</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="python">Python</option>
+                        <option value="java">Java</option>
+                        <option value="c++">C++</option>
+                        <option value="c#">C#</option>
+                        <option value="php">PHP</option>
+                        <option value="ruby">Ruby</option>
+                        <option value="go">Go</option>
+                        <option value="rust">Rust</option>
+                        <option value="swift">Swift</option>
+                    </select>
+                    
+                    <select id="sortFilter" class="filter-select">
+                        <option value="stars">Más populares</option>
+                        <option value="updated">Más recientes</option>
+                        <option value="forks">Más bifurcados</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading -->
+        <div class="loading" id="loading">
+            <div class="loading-spinner"></div>
+            <p>Buscando repositorios...</p>
+        </div>
+
+        <!-- Resultados -->
+        <section class="results-section">
+            <div class="results-header">
+                <h2 id="resultsTitle">Resultados de búsqueda</h2>
+                <div class="results-count" id="resultsCount"></div>
+            </div>
+            
+            <div class="results-grid" id="results">
+                <!-- Los resultados se añaden aquí dinámicamente -->
+            </div>
+            
+            <!-- Mensaje de no resultados -->
+            <div class="no-results" id="noResults">
+                <div class="no-results-icon">🔍</div>
+                <h3>No se encontraron resultados</h3>
+                <p>Intenta con otros términos de búsqueda</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>&copy; 2024 Laurentiu Ionica - Buscador de Documentación</p>
+        </footer>
+    </div>
+
+    <!-- Template para resultados -->
+    <template id="resultTemplate">
+        <div class="result-card">
+            <div class="card-header">
+                <h3 class="repo-name"></h3>
+                <div class="repo-stats">
+                    <span class="stat stars">
+                        <span class="stat-icon">⭐</span>
+                        <span class="stat-value"></span>
+                    </span>
+                    <span class="stat forks">
+                        <span class="stat-icon">🔀</span>
+                        <span class="stat-value"></span>
+                    </span>
+                </div>
+            </div>
+            
+            <p class="repo-description"></p>
+            
+            <div class="card-footer">
+                <div class="repo-meta">
+                    <span class="language-badge"></span>
+                    <span class="last-updated"></span>
+                </div>
+                <a href="#" class="view-btn" target="_blank">
+                    <span class="btn-text">Ver en GitHub</span>
+                    <span class="btn-icon">🔗</span>
+                </a>
+            </div>
+        </div>
+    </template>
+
+    <script src="main.js"></script>
+</body>
+</html>
