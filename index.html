@@ -4,80 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Hola! Soy Laurentiu Ionica - Mi Portfolio</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #1a202c;
-            color: #e2e8f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .introduccion-container {
-            background-color: #2d3748;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            max-width: 800px;
-            text-align: center;
-            animation: fadeIn 1s ease-out;
-        }
-
-        .introduccion-container h1 {
-            color: #63b3ed;
-            margin-bottom: 15px;
-            font-size: 2.5em;
-        }
-
-        .introduccion-container p {
-            font-size: 1.1em;
-            margin-bottom: 25px;
-            color: #cbd5e0;
-        }
-
-        .introduccion-container .cta-button {
-            display: inline-block;
-            background-color: #48bb78;
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            font-weight: bold;
-        }
-
-        .introduccion-container .cta-button:hover {
-            background-color: #38a169;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="introduccion-container">
-        <h1>¡Hola a tod@s! 👋 Soy Laurentiu Ionica</h1>
-        <p>
-
-Soy un desarrollador de 24 años que se está **sumergiendo a tope en el fascinante universo de la programación**. Actualmente, estoy a tope con la **programación orientada a objetos (POO)** y dándole caña a las **bases de datos relacionales**. ¡Porque una buena app sin una buena base de datos es como un coche sin ruedas, no va a ninguna parte!
-
-Mi foco principal está en el **desarrollo web**, donde me muevo como pez en el agua con **HTML, CSS y JavaScript**. Además, le estoy metiendo turbo con **TypeScript** para tener un código más robusto y escalable, y estoy dominando **Angular** para crear interfaces de usuario dinámicas y de primera. En el lado del almacenamiento de datos, **MariaDB** es mi compañera de batallas para mantener todo organizado y accesible.
-
-Estoy siempre buscando aprender y mejorar, ¡así que prepárate para ver cómo mis proyectos cobran vida! Si te mola lo que ves o tienes alguna idea loca que quieras construir, ¡no dudes en contactarme! ¡El futuro es ahora, y lo estamos programando juntos!
-
-        </p>
-        <a href="#proyectos" class="cta-button">Ver mis Proyectos</a>
-    </div>
-
+    <header class="header">
+        <div class="container">
+            <h1>¡Hola a tod@s! 👋 Soy Laurentiu Ionica</h1>
+            <p class="subtitulo">Desarrollador Web | Apasionado por la Programación y las Bases de Datos</p>
+        </div>
+    </header>
+    <main class="main-content container">
+        <section class="presentacion">
+            <p>
+                Soy un desarrollador de 24 años que se está <strong>sumergiendo a tope en el fascinante universo de la programación</strong>.<br>
+                Actualmente, estoy a tope con la <strong>programación orientada a objetos (POO)</strong> y dándole caña a las <strong>bases de datos relacionales</strong>.<br>
+                ¡Porque una buena app sin una buena base de datos es como un coche sin ruedas, no va a ninguna parte!
+            </p>
+            <p>
+                Mi foco principal está en el <strong>desarrollo web</strong>, donde me muevo como pez en el agua con <strong>HTML, CSS y JavaScript</strong>.<br>
+                Además, le estoy metiendo turbo con <strong>TypeScript</strong> para tener un código más robusto y escalable, y estoy dominando <strong>Angular</strong> para crear interfaces de usuario dinámicas y de primera.<br>
+                En el lado del almacenamiento de datos, <strong>MariaDB</strong> es mi compañera de batallas para mantener todo organizado y accesible.
+            </p>
+            <p>
+                Estoy siempre buscando aprender y mejorar, ¡así que prepárate para ver cómo mis proyectos cobran vida!<br>
+                Si te mola lo que ves o tienes alguna idea loca que quieras construir, ¡no dudes en contactarme!<br>
+                <strong>¡El futuro es ahora, y lo estamos programando juntos!</strong>
+            </p>
+            <a href="#proyectos" class="cta-button">Ver mis Proyectos</a>
+        </section>
+        <section id="proyectos" class="proyectos">
+            <h2>Mis Proyectos</h2>
+            <div class="proyectos-lista" id="proyectos-lista">
+                <!-- Aquí irán tus proyectos. Puedes añadirlos manualmente o con JS. -->
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 Laurentiu Ionica. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script src="main.js"></script>
 </body>
 </html>
