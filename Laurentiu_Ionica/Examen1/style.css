@@ -1,0 +1,10 @@
+#parrafo1 {
+  color: blue;
+}
+.parrafo2 {
+ font-size: 23px;
+}
+footer {
+  background-color: #222; /* Cambia el fondo  del pie de página */
+  color: white;           /* Cambia el color del texto  */
+}

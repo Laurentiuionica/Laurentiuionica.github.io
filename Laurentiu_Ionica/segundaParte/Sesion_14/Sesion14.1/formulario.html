@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Personas - Portfolio</title>
+  <script src="main.js"></script>
+  <script src="formulario.js"></script>
+  <script src="demo-data.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-card">
+      <div class="form-header">
+        <div class="header-icon">
+          <i class="fas fa-user-plus"></i>
+        </div>
+        <h2 id="form-title">Registro de Persona</h2>
+        <p class="form-subtitle">Completa los datos para crear un nuevo registro</p>
+      </div>
+
+      <form id="miFormulario">
+        <div class="form-group">
+          <div class="input-wrapper">
+            <i class="fas fa-user input-icon"></i>
+            <input type="text" id="nombre" placeholder="Nombre completo" required>
+            <div class="input-focus-border"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-wrapper">
+            <i class="fas fa-id-card input-icon"></i>
+            <input type="text" id="apellidos" placeholder="Apellidos" required>
+            <div class="input-focus-border"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-wrapper">
+            <i class="fas fa-calendar-alt input-icon"></i>
+            <input type="date" id="fechaNacimiento" placeholder="Fecha de Nacimiento" required>
+            <div class="input-focus-border"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-wrapper">
+            <i class="fas fa-map-marker-alt input-icon"></i>
+            <input type="text" id="localidad" placeholder="Localidad" required>
+            <div class="input-focus-border"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="input-wrapper">
+            <i class="fas fa-home input-icon"></i>
+            <input type="text" id="direccion" placeholder="Dirección completa" required>
+            <div class="input-focus-border"></div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-submit">
+            <i class="fas fa-save"></i>
+            <span>Guardar Registro</span>
+          </button>
+        </div>
+      </form>
+
+      <div class="form-footer">
+        <a href="lista.html" class="btn-back">
+          <i class="fas fa-arrow-left"></i>
+          <span>Volver a la lista</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner">
+      <i class="fas fa-spinner fa-spin"></i>
+      <p>Guardando...</p>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🖼️ Galería de Imágenes - Laurentiu Ionica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="gallery-container">
+        <!-- Header -->
+        <header class="gallery-header">
+            <h1>🖼️ Galería de Proyectos</h1>
+            <p class="subtitle">Explora mis proyectos de desarrollo web con controles avanzados</p>
+        </header>
+
+        <!-- Controles principales -->
+        <div class="controls-section">
+            <div class="control-group">
+                <button id="prevBtn" class="control-btn">
+                    <span class="btn-icon">⬅️</span>
+                    <span class="btn-text">Anterior</span>
+                </button>
+                
+                <div class="slide-info">
+                    <span id="currentSlide">1</span>
+                    <span class="separator">/</span>
+                    <span id="totalSlides">5</span>
+                </div>
+                
+                <button id="nextBtn" class="control-btn">
+                    <span class="btn-text">Siguiente</span>
+                    <span class="btn-icon">➡️</span>
+                </button>
+            </div>
+
+            <div class="control-group">
+                <button id="playPauseBtn" class="control-btn control-btn-primary">
+                    <span class="btn-icon">⏸️</span>
+                    <span class="btn-text">Pausar</span>
+                </button>
+                
+                <div class="speed-control">
+                    <label for="speedSlider">Velocidad:</label>
+                    <input type="range" id="speedSlider" min="1" max="5" value="3" class="speed-slider">
+                    <span id="speedValue">3s</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Galería principal -->
+        <div class="gallery-main">
+            <div class="gallery-viewer">
+                <div class="slide-container">
+                    <img id="currentImage" src="" alt="Imagen actual" class="slide-image">
+                    <div class="slide-overlay">
+                        <div class="slide-title" id="slideTitle">GTA VI - Vice City</div>
+                        <div class="slide-description" id="slideDescription">Explora la nueva aventura en Vice City</div>
+                    </div>
+                </div>
+                
+                <!-- Botones de navegación en la imagen -->
+                <button class="nav-btn nav-btn-left" id="navLeft">
+                    <span>‹</span>
+                </button>
+                <button class="nav-btn nav-btn-right" id="navRight">
+                    <span>›</span>
+                </button>
+            </div>
+
+            <!-- Miniaturas -->
+            <div class="thumbnails-container">
+                <div class="thumbnails-scroll">
+                    <div class="thumbnails-grid" id="thumbnailsGrid">
+                        <!-- Las miniaturas se generan dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel de información -->
+        <div class="info-panel">
+            <div class="info-card">
+                <h3>📊 Información de la imagen</h3>
+                <div class="info-content">
+                    <div class="info-item">
+                        <span class="info-label">Resolución:</span>
+                        <span class="info-value" id="imageResolution">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Tamaño:</span>
+                        <span class="info-value" id="imageSize">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Formato:</span>
+                        <span class="info-value" id="imageFormat">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3>🎮 Controles</h3>
+                <div class="controls-help">
+                    <div class="help-item">
+                        <span class="help-key">← →</span>
+                        <span class="help-text">Navegar entre imágenes</span>
+                    </div>
+                    <div class="help-item">
+                        <span class="help-key">Espacio</span>
+                        <span class="help-text">Play/Pausar</span>
+                    </div>
+                    <div class="help-item">
+                        <span class="help-key">F</span>
+                        <span class="help-text">Pantalla completa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modo pantalla completa -->
+        <div class="fullscreen-overlay" id="fullscreenOverlay">
+            <div class="fullscreen-content">
+                <img id="fullscreenImage" src="" alt="Imagen pantalla completa" class="fullscreen-img">
+                <div class="fullscreen-controls">
+                    <button class="fullscreen-btn" id="fullscreenClose">✕</button>
+                    <button class="fullscreen-btn" id="fullscreenPrev">‹</button>
+                    <button class="fullscreen-btn" id="fullscreenNext">›</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="gallery-footer">
+            <p>&copy; 2024 Laurentiu Ionica - Galería de Proyectos de Desarrollo Web</p>
+        </footer>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

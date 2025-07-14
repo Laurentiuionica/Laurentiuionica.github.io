@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Personas</title>
+  <script src="main.js"></script>
+  <script src="formulario.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-card">
+      <div class="form-header">
+        <h2 id="form-title">Registro de Persona</h2>
+        <p class="form-subtitle">Completa los datos para crear un nuevo registro</p>
+      </div>
+
+      <form id="miFormulario">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" placeholder="Escribe tu nombre" required>
+        </div>
+
+        <div class="form-group">
+          <label for="apellidos">Apellidos:</label>
+          <input type="text" id="apellidos" placeholder="Escribe tus apellidos" required>
+        </div>
+
+        <div class="form-group">
+          <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+          <input type="date" id="fechaNacimiento" required>
+        </div>
+
+        <div class="form-group">
+          <label for="localidad">Localidad:</label>
+          <input type="text" id="localidad" placeholder="Escribe tu localidad" required>
+        </div>
+
+        <div class="form-group">
+          <label for="direccion">Dirección:</label>
+          <input type="text" id="direccion" placeholder="Escribe tu dirección" required>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-submit">
+            <span id="btn-text">Guardar Registro</span>
+          </button>
+        </div>
+      </form>
+
+      <div class="form-footer">
+        <a href="lista.html" class="btn-back">
+          Volver a la lista
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mensaje de carga simple -->
+  <div class="loading-message" id="loadingMessage">
+    <p>Guardando...</p>
+  </div>
+</body>
+
+</html>

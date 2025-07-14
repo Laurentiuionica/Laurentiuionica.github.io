@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronómetro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cronómetro</h1>
+        
+        <div class="timer">
+            <div class="time" id="display">00:00:00</div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number" id="laps-count">0</div>
+                <div class="stat-label">Vueltas</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" id="avg-lap">00:00</div>
+                <div class="stat-label">Promedio</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number" id="best-lap">00:00</div>
+                <div class="stat-label">Mejor</div>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <button class="btn btn-start" id="startBtn">Iniciar</button>
+            <button class="btn btn-lap" id="lapBtn" disabled>Vuelta</button>
+            <button class="btn btn-reset" id="resetBtn" disabled>Reiniciar</button>
+        </div>
+        
+        <div class="laps">
+            <h3>Historial de Vueltas</h3>
+            <div id="lapsList"></div>
+        </div>
+    </div>
+    
+    <script src="cronometro.js"></script>
+</body>
+</html>

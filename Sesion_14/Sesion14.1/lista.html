@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Personas</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="main.js"></script>
+    <script src="mainLista.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="list-header">
+            <h1>Lista de Personas</h1>
+            <p class="list-subtitle">Gestiona todos los registros de personas</p>
+        </div>
+
+        <div class="table-container">
+            <table id="personas">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Localidad</th>
+                        <th>Dirección</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-personas"></tbody>
+            </table>
+        </div>
+
+        <div class="list-actions">
+            <a href="formulario.html" class="btn-add">
+                Agregar nueva persona
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

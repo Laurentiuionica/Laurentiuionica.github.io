@@ -1,0 +1,27 @@
+button {
+    background-color: #fdfdfd; /* Green */
+    border: 2px solid #001aff; /* Green */
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+body {
+    background-color: #f0f0f0; 
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 20px;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+    
+}
