@@ -1,0 +1,104 @@
+### **🌐 ¿Qué son los Componentes Web?**  
+Los **componentes web** son un conjunto de estándares de la web (APIs del navegador) que permiten crear **elementos HTML personalizados**, reutilizables y encapsulados. 🧩  
+
+🔹 **Ventajas**:  
+✅ **Reutilizables** ♻️  
+✅ **Encapsulados** (no afectan/ni son afectados por el CSS/JS externo) 🛡️  
+✅ **Compatibles con frameworks** (React, Angular, Vue, etc.) 🤝  
+✅ **Nativos del navegador** (no necesitan librerías externas) 🌍  
+
+---
+
+### **🔧 Los 3 Pilares de los Componentes Web**  
+
+1️⃣ **🛑 Custom Elements (Elementos Personalizados)**  
+   - Permiten definir **nuevas etiquetas HTML** con su propio comportamiento.  
+   - Ejemplo:  
+     ```html
+     <mi-boton color="azul">¡Haz clic!</mi-boton>
+     ```  
+   - Se registran con:  
+     ```javascript
+     customElements.define('mi-boton', MiBoton);
+     ```  
+
+2️⃣ **🖇️ Shadow DOM (DOM encapsulado)**  
+   - Crea un **DOM privado** para el componente, evitando conflictos con estilos globales.  
+   - Ejemplo:  
+     ```javascript
+     const shadow = this.attachShadow({ mode: 'open' });
+     shadow.innerHTML = `<style>button { color: red; }</style><button>Click</button>`;
+     ```  
+
+3️⃣ **📦 HTML Templates (Plantillas HTML)**  
+   - Permiten definir **fragmentos de HTML reutilizables** que no se renderizan hasta que se usan.  
+   - Ejemplo:  
+     ```html
+     <template id="mi-template">
+       <p>¡Hola, soy un componente!</p>
+     </template>
+     ```  
+
+---
+
+### **⚡ Ejemplo de un Componente Web**  
+
+```javascript
+// 1️⃣ Definir el componente
+class MiBoton extends HTMLElement {
+  constructor() {
+    super();
+    // 2️⃣ Crear Shadow DOM
+    const shadow = this.attachShadow({ mode: 'open' });
+    shadow.innerHTML = `
+      <style>
+        button {
+          background: ${this.getAttribute('color') || 'blue'};
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          cursor: pointer;
+        }
+      </style>
+      <button><slot></slot></button> <!-- Slot para contenido dinámico -->
+    `;
+  }
+}
+
+// 3️⃣ Registrar el componente
+customElements.define('mi-boton', MiBoton);
+```
+
+**Uso en HTML:**  
+```html
+<mi-boton color="purple">✨ Soy un botón mágico</mi-boton>
+```
+
+---
+
+### **🚀 ¿Por qué usar Componentes Web?**  
+- **🔨 Mantenimiento fácil**: Cada componente es independiente.  
+- **⚡ Performance**: Más eficientes que frameworks en algunos casos.  
+- **🔒 Compatibilidad**: Funcionan en todos los navegadores modernos.  
+
+---
+
+### **🔮 Frameworks vs. Componentes Web**  
+| **🔘 Frameworks (React, Angular, Vue)** | **🔘 Componentes Web** |  
+|-----------------------------------------|------------------------|  
+| Necesitan librerías externas 📦 | Nativos del navegador 🌐 |  
+| Más peso y complejidad ⚖️ | Ligeros y simples 🪶 |  
+| Bueno para apps grandes 🏗️ | Ideales para diseño modular 🧩 |  
+
+---
+
+### **🎯 Conclusión**  
+Los **componentes web** son el futuro del desarrollo frontend, permitiendo crear **UI modular, escalable y mantenible** sin depender de frameworks. 🚀✨  
+
+¿Quieres un ejemplo más avanzado? ¡Dímelo! 😊  
+
+---  
+**🔗 Recursos útiles**:  
+- [MDN Web Components](https://developer.mozilla.org/es/docs/Web/Web_Components)  
+- [webcomponents.org](https://www.webcomponents.org/)  
+
