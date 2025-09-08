@@ -3,155 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔢 Calculadora de Números Primos - Laurentiu Ionica</title>
+    <title>Número Primo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-container">
-        <!-- Header -->
-        <header class="app-header">
-            <h1>🔢 Calculadora de Números Primos</h1>
-            <p class="subtitle">Herramienta completa para trabajar con números primos</p>
-        </header>
+    <main class="contenedor">
+        <h1 class="titulo">Comprobador de Número Primo</h1>
 
-        <!-- Panel de estadísticas -->
-        <div class="stats-panel">
-            <div class="stat-item">
-                <span class="stat-icon">🔢</span>
-                <span class="stat-label">Número actual</span>
-                <span class="stat-value" id="currentNumber">-</span>
+        <section class="tarjeta">
+            <div class="fila-entrada">
+                <input id="numero" class="entrada-numero" type="number" inputmode="numeric" placeholder="Escribe un número" aria-label="Número" />
+                <button id="btn-comprobar" class="btn">Comprobar</button>
+                <button id="btn-limpiar" class="btn secundario">Limpiar</button>
             </div>
-            <div class="stat-item">
-                <span class="stat-icon">✅</span>
-                <span class="stat-label">Es primo</span>
-                <span class="stat-value" id="isPrimeResult">-</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-icon">📊</span>
-                <span class="stat-label">Total primos</span>
-                <span class="stat-value" id="totalPrimes">0</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-icon">⚡</span>
-                <span class="stat-label">Tiempo</span>
-                <span class="stat-value" id="calculationTime">0ms</span>
-            </div>
-        </div>
-
-        <!-- Herramientas principales -->
-        <div class="tools-section">
-            <!-- Verificador individual -->
-            <div class="tool-card">
-                <h3>🔍 Verificar Número</h3>
-                <div class="input-group">
-                    <input 
-                        type="number" 
-                        id="numberInput" 
-                        placeholder="Introduce un número..."
-                        min="1"
-                        max="999999999"
-                    >
-                    <button id="checkButton" class="btn btn-primary">
-                        <span class="btn-icon">🔍</span>
-                        <span class="btn-text">Verificar</span>
-                    </button>
-                </div>
-                <div class="result-display" id="individualResult">
-                    <div class="result-icon">❓</div>
-                    <div class="result-text">Introduce un número para verificar</div>
-                </div>
-            </div>
-
-            <!-- Generador de rangos -->
-            <div class="tool-card">
-                <h3>📋 Generar Rango de Primos</h3>
-                <div class="range-inputs">
-                    <div class="input-group">
-                        <label>Desde:</label>
-                        <input type="number" id="rangeStart" placeholder="1" min="1" max="999999">
-                    </div>
-                    <div class="input-group">
-                        <label>Hasta:</label>
-                        <input type="number" id="rangeEnd" placeholder="100" min="1" max="999999">
-                    </div>
-                </div>
-                <button id="generateRangeButton" class="btn btn-secondary">
-                    <span class="btn-icon">📊</span>
-                    <span class="btn-text">Generar Primos</span>
-                </button>
-                <div class="range-results" id="rangeResults">
-                    <div class="results-header">
-                        <span>Primos encontrados: <span id="primesCount">0</span></span>
-                        <button id="copyResults" class="btn-small">📋 Copiar</button>
-                    </div>
-                    <div class="primes-grid" id="primesGrid"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Calculadora avanzada -->
-        <div class="advanced-section">
-            <h3>🧮 Calculadora Avanzada</h3>
-            <div class="advanced-tools">
-                <!-- Factores primos -->
-                <div class="advanced-tool">
-                    <h4>🔬 Factores Primos</h4>
-                    <div class="input-group">
-                        <input type="number" id="factorInput" placeholder="Número para factorizar" min="2">
-                        <button id="factorizeButton" class="btn btn-success">Factorizar</button>
-                    </div>
-                    <div class="factorization-result" id="factorizationResult"></div>
-                </div>
-
-                <!-- Siguiente primo -->
-                <div class="advanced-tool">
-                    <h4>➡️ Siguiente Primo</h4>
-                    <div class="input-group">
-                        <input type="number" id="nextPrimeInput" placeholder="Número base" min="1">
-                        <button id="nextPrimeButton" class="btn btn-warning">Buscar</button>
-                    </div>
-                    <div class="next-prime-result" id="nextPrimeResult"></div>
-                </div>
-
-                <!-- Primos gemelos -->
-                <div class="advanced-tool">
-                    <h4>👯 Primos Gemelos</h4>
-                    <div class="input-group">
-                        <input type="number" id="twinPrimesInput" placeholder="Límite superior" min="5">
-                        <button id="twinPrimesButton" class="btn btn-info">Buscar</button>
-                    </div>
-                    <div class="twin-primes-result" id="twinPrimesResult"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Información educativa -->
-        <div class="info-section">
-            <h3>📚 ¿Qué son los números primos?</h3>
-            <div class="info-content">
-                <p>Un <strong>número primo</strong> es un número natural mayor que 1 que solo es divisible por 1 y por sí mismo. Los primeros números primos son: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29...</p>
-                <div class="prime-facts">
-                    <div class="fact">
-                        <span class="fact-icon">💡</span>
-                        <span class="fact-text">El 2 es el único número primo par</span>
-                    </div>
-                    <div class="fact">
-                        <span class="fact-icon">🔢</span>
-                        <span class="fact-text">Hay infinitos números primos</span>
-                    </div>
-                    <div class="fact">
-                        <span class="fact-icon">🎯</span>
-                        <span class="fact-text">Son fundamentales en criptografía</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <footer class="app-footer">
-            <p>&copy; 2024 Laurentiu Ionica - Calculadora de Números Primos</p>
-        </footer>
-    </div>
+            <p class="resultado" id="resultado" aria-live="polite"></p>
+            <p class="detalle" id="detalle"></p>
+        </section>
+    </main>
 
     <script src="main.js"></script>
 </body>

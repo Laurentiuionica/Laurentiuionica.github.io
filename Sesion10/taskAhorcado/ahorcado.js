@@ -1,4 +1,4 @@
-// Juego del Ahorcado - versión simple en español
+// Juego del Ahorcado 
 (function () {
     "use strict";
 
