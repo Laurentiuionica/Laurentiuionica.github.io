@@ -3,153 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🏳️ Adivina la Bandera - Laurentiu Ionica</title>
+    <title>Adivina la Bandera</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="game-container">
-        <!-- Header del juego -->
-        <header class="game-header">
-            <h1>🏳️ Adivina la Bandera</h1>
-            <p class="subtitle">¡Pon a prueba tus conocimientos geográficos!</p>
-        </header>
+    <header class="header">
+        <h1>Adivina la Bandera</h1>
+        <p class="sub">Juego rápido y sencillo</p>
+    </header>
 
-        <!-- Panel de estadísticas -->
-        <div class="stats-panel">
-            <div class="stat-item">
-                <span class="stat-icon">🎯</span>
-                <span class="stat-label">Aciertos</span>
-                <span class="stat-value" id="correctAnswers">0</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-icon">❌</span>
-                <span class="stat-label">Errores</span>
-                <span class="stat-value" id="wrongAnswers">0</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-icon">📊</span>
-                <span class="stat-label">Precisión</span>
-                <span class="stat-value" id="accuracy">0%</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-icon">🔥</span>
-                <span class="stat-label">Racha</span>
-                <span class="stat-value" id="streak">0</span>
-            </div>
+    <main class="main">
+        <section class="score">
+            <span>Ronda: <strong id="ronda">1</strong>/<span id="total">10</span></span>
+            <span>Aciertos: <strong id="aciertos">0</strong></span>
+        </section>
+
+        <section class="flag">
+            <img id="bandera" alt="Bandera" />
+        </section>
+
+        <section class="options" id="opciones"></section>
+
+        <section class="feedback" id="mensaje"></section>
+
+        <div class="actions">
+            <button id="siguiente" disabled>Siguiente</button>
+            <button id="reiniciar">Nueva partida</button>
         </div>
+    </main>
 
-        <!-- Selector de modo de juego -->
-        <div class="game-mode-selector">
-            <h3>🎮 Selecciona el modo de juego</h3>
-            <div class="mode-buttons">
-                <button class="mode-btn active" data-mode="easy">
-                    <span class="mode-icon">🌍</span>
-                    <span class="mode-name">Fácil</span>
-                    <span class="mode-desc">4 opciones</span>
-                </button>
-                <button class="mode-btn" data-mode="medium">
-                    <span class="mode-icon">🌎</span>
-                    <span class="mode-name">Medio</span>
-                    <span class="mode-desc">6 opciones</span>
-                </button>
-                <button class="mode-btn" data-mode="hard">
-                    <span class="mode-icon">🌏</span>
-                    <span class="mode-name">Difícil</span>
-                    <span class="mode-desc">8 opciones</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Área principal del juego -->
-        <main class="game-main">
-            <!-- Progreso -->
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                <span class="progress-text" id="progressText">Ronda 1 de 10</span>
-            </div>
-
-            <!-- Bandera -->
-            <div class="flag-container">
-                <div class="flag-wrapper">
-                    <img id="flagImage" alt="Bandera misteriosa" class="flag-image">
-                    <div class="flag-overlay">
-                        <span class="flag-hint">¿De qué país es esta bandera?</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Opciones -->
-            <div class="options-container" id="optionsContainer">
-                <!-- Las opciones se generan dinámicamente -->
-            </div>
-
-            <!-- Resultado -->
-            <div class="result-container" id="resultContainer">
-                <div class="result-message" id="resultMessage"></div>
-                <div class="result-details" id="resultDetails"></div>
-            </div>
-
-            <!-- Botones de control -->
-            <div class="control-buttons">
-                <button id="nextButton" class="btn btn-primary" disabled>
-                    <span class="btn-icon">➡️</span>
-                    <span class="btn-text">Siguiente</span>
-                </button>
-                <button id="restartButton" class="btn btn-secondary">
-                    <span class="btn-icon">🔄</span>
-                    <span class="btn-text">Nueva partida</span>
-                </button>
-            </div>
-        </main>
-
-        <!-- Panel de resultados finales -->
-        <div class="final-results" id="finalResults">
-            <div class="results-card">
-                <h2>🎉 ¡Juego terminado!</h2>
-                <div class="final-stats">
-                    <div class="final-stat">
-                        <span class="final-stat-icon">🏆</span>
-                        <span class="final-stat-label">Puntuación final</span>
-                        <span class="final-stat-value" id="finalScore">0/10</span>
-                    </div>
-                    <div class="final-stat">
-                        <span class="final-stat-icon">📈</span>
-                        <span class="final-stat-label">Precisión</span>
-                        <span class="final-stat-value" id="finalAccuracy">0%</span>
-                    </div>
-                    <div class="final-stat">
-                        <span class="final-stat-icon">🔥</span>
-                        <span class="final-stat-label">Mejor racha</span>
-                        <span class="final-stat-value" id="finalStreak">0</span>
-                    </div>
-                </div>
-                <div class="final-actions">
-                    <button class="btn btn-primary" onclick="startNewGame()">
-                        <span class="btn-icon">🎮</span>
-                        <span class="btn-text">Jugar de nuevo</span>
-                    </button>
-                    <button class="btn btn-secondary" onclick="showLeaderboard()">
-                        <span class="btn-icon">🏅</span>
-                        <span class="btn-text">Ver estadísticas</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Loading -->
-        <div class="loading-screen" id="loadingScreen">
-            <div class="loading-spinner"></div>
-            <p>Cargando banderas del mundo...</p>
-        </div>
-    </div>
-
-    <!-- Template para opciones -->
-    <template id="optionTemplate">
-        <button class="option-btn">
-            <span class="option-text"></span>
-        </button>
+    <template id="tplOpcion">
+        <button class="opcion"></button>
     </template>
 
     <script src="main.js"></script>
