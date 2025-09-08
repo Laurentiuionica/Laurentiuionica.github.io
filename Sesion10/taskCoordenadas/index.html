@@ -3,181 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎯 Detector de Coordenadas - Laurentiu Ionica</title>
+    <title>Coordenadas del Ratón</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-container">
-        <!-- Header -->
-        <header class="app-header">
-            <h1>🎯 Detector de Coordenadas</h1>
-            <p class="subtitle">Herramienta profesional para desarrollo web</p>
-        </header>
+    <main class="contenedor">
+        <h1 class="titulo">Coordenadas del Ratón</h1>
 
-        <!-- Panel principal -->
-        <main class="main-content">
-            <!-- Panel de coordenadas en tiempo real -->
-            <section class="coordinates-panel">
-                <div class="panel-header">
-                    <h2>📍 Coordenadas en Tiempo Real</h2>
-                    <div class="capture-controls">
-                        <button class="btn btn-primary" id="capture-btn">
-                            <span class="btn-icon">📸</span>
-                            <span class="btn-text">Capturar</span>
-                        </button>
-                        <button class="btn btn-secondary" id="clear-btn">
-                            <span class="btn-icon">🗑️</span>
-                            <span class="btn-text">Limpiar</span>
-                        </button>
-                    </div>
+        <section class="tarjeta">
+            <p class="ayuda">Mueve el ratón por el área o toca en móvil. También puedes hacer clic para fijar un punto.</p>
+            <div class="zona" id="zona" tabindex="0" aria-label="Zona interactiva para ver coordenadas">
+                <div class="punto oculto" id="punto"></div>
+                <div class="guia guia-x" id="guia-x"></div>
+                <div class="guia guia-y" id="guia-y"></div>
+                <span class="tooltip oculto" id="tooltip"></span>
+            </div>
+
+            <div class="panel">
+                <div class="fila">
+                    <span class="etq">X:</span>
+                    <span class="valor" id="x"></span>
                 </div>
-                
-                <div class="coordinates-grid">
-                    <div class="coord-card">
-                        <div class="coord-label">Posición del Cliente</div>
-                        <div class="coord-value" id="client-coords">X: 0, Y: 0</div>
-                        <div class="coord-description">Relativo al viewport</div>
-                    </div>
-                    
-                    <div class="coord-card">
-                        <div class="coord-label">Posición de la Página</div>
-                        <div class="coord-value" id="page-coords">X: 0, Y: 0</div>
-                        <div class="coord-description">Incluye scroll</div>
-                    </div>
-                    
-                    <div class="coord-card">
-                        <div class="coord-label">Posición de la Pantalla</div>
-                        <div class="coord-value" id="screen-coords">X: 0, Y: 0</div>
-                        <div class="coord-description">Relativo a la pantalla</div>
-                    </div>
-                    
-                    <div class="coord-card">
-                        <div class="coord-label">Elemento Bajo el Cursor</div>
-                        <div class="coord-value" id="element-info">Ninguno</div>
-                        <div class="coord-description">Tag y clases</div>
-                    </div>
+                <div class="fila">
+                    <span class="etq">Y:</span>
+                    <span class="valor" id="y"></span>
                 </div>
-            </section>
-
-            <!-- Panel de información del dispositivo -->
-            <section class="device-panel">
-                <h2>📱 Información del Dispositivo</h2>
-                <div class="device-grid">
-                    <div class="info-card">
-                        <div class="info-label">Tamaño de Pantalla</div>
-                        <div class="info-value" id="screen-size">0 x 0</div>
-                    </div>
-                    
-                    <div class="info-card">
-                        <div class="info-label">Tamaño del Viewport</div>
-                        <div class="info-value" id="viewport-size">0 x 0</div>
-                    </div>
-                    
-                    <div class="info-card">
-                        <div class="info-label">Scroll Actual</div>
-                        <div class="info-value" id="scroll-position">X: 0, Y: 0</div>
-                    </div>
-                    
-                    <div class="info-card">
-                        <div class="info-label">Zoom del Navegador</div>
-                        <div class="info-value" id="zoom-level">100%</div>
-                    </div>
+                <div class="fila">
+                    <span class="etq">Relativo a la página:</span>
+                    <span class="valor" id="pag"></span>
                 </div>
-            </section>
-
-            <!-- Panel de historial -->
-            <section class="history-panel">
-                <div class="panel-header">
-                    <h2>📋 Historial de Coordenadas</h2>
-                    <div class="history-controls">
-                        <button class="btn btn-secondary" id="export-btn">
-                            <span class="btn-icon">📤</span>
-                            <span class="btn-text">Exportar</span>
-                        </button>
-                        <button class="btn btn-secondary" id="copy-btn">
-                            <span class="btn-icon">📋</span>
-                            <span class="btn-text">Copiar</span>
-                        </button>
-                    </div>
+                <div class="fila">
+                    <span class="etq">Relativo a la ventana:</span>
+                    <span class="valor" id="vent"></span>
                 </div>
-                
-                <div class="history-container">
-                    <div class="history-list" id="history-list">
-                        <!-- Las coordenadas capturadas se añaden aquí -->
-                    </div>
-                </div>
-            </section>
+            </div>
 
-            <!-- Panel de herramientas -->
-            <section class="tools-panel">
-                <h2>🛠️ Herramientas</h2>
-                <div class="tools-grid">
-                    <div class="tool-card">
-                        <h3>📏 Medidor de Distancia</h3>
-                        <div class="tool-content">
-                            <div class="distance-info">
-                                <div class="distance-point">
-                                    <span class="point-label">Punto A:</span>
-                                    <span class="point-coords" id="point-a">No seleccionado</span>
-                                </div>
-                                <div class="distance-point">
-                                    <span class="point-label">Punto B:</span>
-                                    <span class="point-coords" id="point-b">No seleccionado</span>
-                                </div>
-                                <div class="distance-result">
-                                    <span class="distance-label">Distancia:</span>
-                                    <span class="distance-value" id="distance-value">-</span>
-                                </div>
-                            </div>
-                            <div class="tool-buttons">
-                                <button class="btn btn-small" id="set-point-a">Establecer A</button>
-                                <button class="btn btn-small" id="set-point-b">Establecer B</button>
-                                <button class="btn btn-small" id="clear-points">Limpiar</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="tool-card">
-                        <h3>🎨 Selector de Color</h3>
-                        <div class="tool-content">
-                            <div class="color-preview" id="color-preview">
-                                <div class="color-swatch"></div>
-                                <div class="color-info">
-                                    <div class="color-value" id="color-value">#000000</div>
-                                    <div class="color-rgb" id="color-rgb">RGB(0, 0, 0)</div>
-                                </div>
-                            </div>
-                            <div class="tool-buttons">
-                                <button class="btn btn-small" id="copy-color">Copiar Color</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Footer -->
-        <footer class="app-footer">
-            <p>&copy; 2024 Laurentiu Ionica - Herramienta de Desarrollo Web</p>
-        </footer>
-    </div>
-
-    <!-- Overlay para captura de coordenadas -->
-    <div class="capture-overlay" id="capture-overlay">
-        <div class="capture-crosshair"></div>
-        <div class="capture-info">
-            <div class="capture-coords" id="capture-coords">X: 0, Y: 0</div>
-            <div class="capture-instructions">Haz clic para capturar las coordenadas</div>
-        </div>
-    </div>
-
-    <!-- Notificaciones -->
-    <div class="notification" id="notification">
-        <div class="notification-content">
-            <span class="notification-icon">✅</span>
-            <span class="notification-text">Coordenadas copiadas al portapapeles</span>
-        </div>
-    </div>
+            <div class="botones">
+                <button id="btn-limpiar" class="btn secundario">Limpiar punto</button>
+                <button id="btn-copiar" class="btn">Copiar (x, y)</button>
+            </div>
+        </section>
+    </main>
 
     <script src="coordenadas.js"></script>
 </body>
