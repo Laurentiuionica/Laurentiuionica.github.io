@@ -3,143 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎮 Juego del Ahorcado - Laurentiu Ionica</title>
+    <title>Juego del Ahorcado</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="game-container">
-        <!-- Header del juego -->
-        <header class="game-header">
-            <h1>🎮 Juego del Ahorcado</h1>
-            <div class="game-stats">
-                <div class="stat">
-                    <span class="stat-label">Puntuación</span>
-                    <span class="stat-value" id="score">0</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-label">Racha</span>
-                    <span class="stat-value" id="streak">0</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-label">Jugadas</span>
-                    <span class="stat-value" id="games">0</span>
-                </div>
-            </div>
-        </header>
+    <main class="contenedor">
+        <h1 class="titulo">Ahorcado</h1>
 
-        <!-- Panel principal del juego -->
-        <main class="game-main">
-            <!-- Área del dibujo del ahorcado -->
-            <div class="hangman-area">
-                <div class="hangman-container">
-                    <div class="hangman-drawing" id="hangman-drawing">
-                        <!-- El dibujo se genera con CSS -->
-                    </div>
-                    <div class="hangman-base"></div>
-                </div>
-                <div class="hangman-info">
-                    <div class="category-display">
-                        <span class="category-label">Categoría:</span>
-                        <span class="category-name" id="category-name">Animales</span>
-                    </div>
-                    <div class="attempts-display">
-                        <span class="attempts-label">Intentos restantes:</span>
-                        <span class="attempts-value" id="attempts">6</span>
-                    </div>
-                </div>
+        <section class="juego">
+            <div class="figura" aria-hidden="true">
+                <div class="horca base"></div>
+                <div class="horca palo"></div>
+                <div class="horca barra"></div>
+                <div class="horca cuerda"></div>
+                <div class="muñeco cabeza oculto" id="parte-cabeza"></div>
+                <div class="muñeco tronco oculto" id="parte-tronco"></div>
+                <div class="muñeco brazo izquierda oculto" id="parte-brazo-izq"></div>
+                <div class="muñeco brazo derecha oculto" id="parte-brazo-der"></div>
+                <div class="muñeco pierna izquierda oculto" id="parte-pierna-izq"></div>
+                <div class="muñeco pierna derecha oculto" id="parte-pierna-der"></div>
             </div>
 
-            <!-- Área de la palabra -->
-            <div class="word-area">
-                <div class="word-display" id="word-display">
-                    <!-- Las letras se generan dinámicamente -->
+            <div class="panel">
+                <div class="palabra" id="palabra"></div>
+                <p class="pista" id="pista"></p>
+                <div class="fila-entrada">
+                    <input id="letra" class="entrada-letra" type="text" maxlength="1" autocomplete="off" aria-label="Letra" />
+                    <button id="btn-probar" class="btn">Probar</button>
+                    <button id="btn-nueva" class="btn secundario">Nueva palabra</button>
                 </div>
-                <div class="word-hint" id="word-hint">
-                    <!-- Pista de la palabra -->
-                </div>
+                <div class="letras-usadas" id="letras-usadas"></div>
+                <p class="estado" id="estado" aria-live="polite"></p>
             </div>
-
-            <!-- Mensajes del juego -->
-            <div class="game-messages">
-                <div class="message" id="game-message"></div>
-                <div class="used-letters" id="used-letters">
-                    <span class="used-label">Letras usadas:</span>
-                    <span class="used-letters-display"></span>
-                </div>
-            </div>
-
-            <!-- Teclado virtual -->
-            <div class="virtual-keyboard">
-                <div class="keyboard-row">
-                    <button class="key" data-letter="q">Q</button>
-                    <button class="key" data-letter="w">W</button>
-                    <button class="key" data-letter="e">E</button>
-                    <button class="key" data-letter="r">R</button>
-                    <button class="key" data-letter="t">T</button>
-                    <button class="key" data-letter="y">Y</button>
-                    <button class="key" data-letter="u">U</button>
-                    <button class="key" data-letter="i">I</button>
-                    <button class="key" data-letter="o">O</button>
-                    <button class="key" data-letter="p">P</button>
-                </div>
-                <div class="keyboard-row">
-                    <button class="key" data-letter="a">A</button>
-                    <button class="key" data-letter="s">S</button>
-                    <button class="key" data-letter="d">D</button>
-                    <button class="key" data-letter="f">F</button>
-                    <button class="key" data-letter="g">G</button>
-                    <button class="key" data-letter="h">H</button>
-                    <button class="key" data-letter="j">J</button>
-                    <button class="key" data-letter="k">K</button>
-                    <button class="key" data-letter="l">L</button>
-                    <button class="key" data-letter="ñ">Ñ</button>
-                </div>
-                <div class="keyboard-row">
-                    <button class="key" data-letter="z">Z</button>
-                    <button class="key" data-letter="x">X</button>
-                    <button class="key" data-letter="c">C</button>
-                    <button class="key" data-letter="v">V</button>
-                    <button class="key" data-letter="b">B</button>
-                    <button class="key" data-letter="n">N</button>
-                    <button class="key" data-letter="m">M</button>
-                </div>
-            </div>
-
-            <!-- Botones de control -->
-            <div class="game-controls">
-                <button class="btn btn-primary" id="new-game-btn">🔄 Nueva Partida</button>
-                <button class="btn btn-secondary" id="hint-btn">💡 Pista</button>
-                <button class="btn btn-secondary" id="theme-toggle">🌙</button>
-            </div>
-        </main>
-
-        <!-- Modal de resultado -->
-        <div class="modal" id="result-modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 id="modal-title">¡Resultado!</h2>
-                </div>
-                <div class="modal-body">
-                    <div class="result-icon" id="result-icon">🎉</div>
-                    <p id="modal-message">¡Mensaje del resultado!</p>
-                    <div class="result-stats">
-                        <div class="result-stat">
-                            <span class="stat-name">Puntuación obtenida:</span>
-                            <span class="stat-value" id="modal-score">0</span>
-                        </div>
-                        <div class="result-stat">
-                            <span class="stat-name">Palabra:</span>
-                            <span class="stat-value" id="modal-word">palabra</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" id="play-again-btn">Jugar de nuevo</button>
-                    <button class="btn btn-secondary" id="close-modal-btn">Cerrar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <script src="ahorcado.js"></script>
 </body>
