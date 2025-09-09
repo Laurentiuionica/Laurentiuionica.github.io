@@ -1,0 +1,181 @@
+/* Contenedor principal */
+.productos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Título principal */
+.titulo {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+/* Indicador de carga */
+.cargando {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* Mensaje cuando no hay productos */
+.sin-productos {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+  font-size: 1.1rem;
+}
+
+/* Grid de productos */
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* Tarjeta de producto */
+.producto-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+/* Efecto hover en las tarjetas */
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilo especial para productos destacados */
+.producto-card.destacado {
+  border: 2px solid #ffd700;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+
+/* Contenedor de la imagen */
+.imagen-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+/* Imagen del producto */
+.imagen-producto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto zoom en hover de la imagen */
+.producto-card:hover .imagen-producto {
+  transform: scale(1.05);
+}
+
+/* Badge de destacado */
+.badge-destacado {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Información del producto */
+.info-producto {
+  padding: 20px;
+}
+
+/* Nombre del producto */
+.nombre-producto {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Categoría */
+.categoria {
+  margin: 0 0 10px 0;
+  color: #666;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Descripción */
+.descripcion {
+  margin: 0 0 15px 0;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Contenedor de precio y stock */
+.precio-stock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+/* Precio */
+.precio {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Stock */
+.stock {
+  font-size: 0.9rem;
+  color: #27ae60;
+  font-weight: 500;
+}
+
+/* Stock bajo (menos de 10 unidades) */
+.stock-bajo {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .productos-container {
+    padding: 15px;
+  }
+  
+  .titulo {
+    font-size: 2rem;
+  }
+  
+  .grid-productos {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .precio-stock {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+}
