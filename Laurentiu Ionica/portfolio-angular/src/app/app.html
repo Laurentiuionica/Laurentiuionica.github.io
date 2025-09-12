@@ -1,0 +1,21 @@
+<!-- Header -->
+<app-header 
+  [currentSection]="currentSection()" 
+  [personalInfo]="personalInfo()"
+  (sectionChange)="setCurrentSection($event)" />
+
+<!-- Main Content -->
+<app-main 
+  [currentSection]="currentSection()"
+  [personalInfo]="personalInfo()"
+  [skills]="skills()"
+  [projects]="projects()"
+  [filteredProjects]="filteredProjects()"
+  [availableTechnologies]="availableTechnologies()"
+  [selectedFilter]="selectedFilter()"
+  (filterChange)="setFilter($event)"
+  (projectView)="viewProject($event)"
+  (projectGithub)="openGithub($event)" />
+
+<!-- Footer -->
+<app-footer [personalInfo]="personalInfo()" />

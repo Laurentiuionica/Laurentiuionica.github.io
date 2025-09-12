@@ -1,0 +1,23 @@
+<!-- Contenido principal -->
+<main class="main-content">
+  @switch (currentSection()) {
+    @case ('about') {
+      <app-about [personalInfo]="personalInfo()" />
+    }
+    
+    @case ('skills') {
+      <app-skills [skills]="skills()" />
+    }
+    
+    @case ('portfolio') {
+      <app-portfolio 
+        [projects]="projects()"
+        [filteredProjects]="filteredProjects()"
+        [availableTechnologies]="availableTechnologies()"
+        [selectedFilter]="selectedFilter()"
+        (filterChange)="filterChange.emit($event)"
+        (projectView)="projectView.emit($event)"
+        (projectGithub)="projectGithub.emit($event)" />
+    }
+  }
+</main>

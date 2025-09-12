@@ -1,0 +1,54 @@
+<section class="content-section portfolio-section">
+  <h2 class="section-title">💼 Portfolio de Proyectos</h2>
+  
+  <div class="portfolio-filters">
+    <button 
+      class="filter-btn" 
+      [class.active]="selectedFilter() === 'all'"
+      (click)="setFilter('all')">
+      Todos
+    </button>
+    @for (tech of availableTechnologies(); track tech) {
+      <button 
+        class="filter-btn" 
+        [class.active]="selectedFilter() === tech"
+        (click)="setFilter(tech)">
+        {{ tech }}
+      </button>
+    }
+  </div>
+  
+  <div class="projects-grid">
+    @for (project of filteredProjects(); track project.id) {
+      <div class="project-card" [class.featured]="project.featured">
+        <div class="project-icon">
+          <span class="icon">{{ project.icon }}</span>
+        </div>
+        <div class="project-content">
+          <h3 class="project-name">{{ project.name }}</h3>
+          <p class="project-description">{{ project.description }}</p>
+          <div class="project-tech">
+            @for (tech of project.technologies; track tech) {
+              <span class="tech-tag">{{ tech }}</span>
+            }
+          </div>
+          <div class="project-year">{{ project.year }}</div>
+        </div>
+        <div class="project-actions">
+          <button 
+            class="action-btn primary-btn" 
+            (click)="viewProject(project)">
+            <span class="btn-icon">🚀</span>
+            Ver Proyecto
+          </button>
+          <button 
+            class="action-btn github-btn" 
+            (click)="openGithub(project)">
+            <span class="btn-icon">💻</span>
+            GitHub
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+</section>
