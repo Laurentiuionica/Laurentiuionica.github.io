@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordenadas del Ratón</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="contenedor">
+        <h1 class="titulo">Coordenadas del Ratón</h1>
+
+        <section class="tarjeta">
+            <p class="ayuda">Mueve el ratón por el área o toca en móvil. También puedes hacer clic para fijar un punto.</p>
+            <div class="zona" id="zona" tabindex="0" aria-label="Zona interactiva para ver coordenadas">
+                <div class="punto oculto" id="punto"></div>
+                <div class="guia guia-x" id="guia-x"></div>
+                <div class="guia guia-y" id="guia-y"></div>
+                <span class="tooltip oculto" id="tooltip"></span>
+            </div>
+
+            <div class="panel">
+                <div class="fila">
+                    <span class="etq">X:</span>
+                    <span class="valor" id="x"></span>
+                </div>
+                <div class="fila">
+                    <span class="etq">Y:</span>
+                    <span class="valor" id="y"></span>
+                </div>
+                <div class="fila">
+                    <span class="etq">Relativo a la página:</span>
+                    <span class="valor" id="pag"></span>
+                </div>
+                <div class="fila">
+                    <span class="etq">Relativo a la ventana:</span>
+                    <span class="valor" id="vent"></span>
+                </div>
+            </div>
+
+            <div class="botones">
+                <button id="btn-limpiar" class="btn secundario">Limpiar punto</button>
+                <button id="btn-copiar" class="btn">Copiar (x, y)</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="coordenadas.js"></script>
+</body>
+</html>

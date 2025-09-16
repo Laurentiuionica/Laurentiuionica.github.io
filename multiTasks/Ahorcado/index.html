@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego del Ahorcado</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="contenedor">
+        <h1 class="titulo">Ahorcado</h1>
+
+        <section class="juego">
+            <div class="figura" aria-hidden="true">
+                <div class="horca base"></div>
+                <div class="horca palo"></div>
+                <div class="horca barra"></div>
+                <div class="horca cuerda"></div>
+                <div class="muñeco cabeza oculto" id="parte-cabeza"></div>
+                <div class="muñeco tronco oculto" id="parte-tronco"></div>
+                <div class="muñeco brazo izquierda oculto" id="parte-brazo-izq"></div>
+                <div class="muñeco brazo derecha oculto" id="parte-brazo-der"></div>
+                <div class="muñeco pierna izquierda oculto" id="parte-pierna-izq"></div>
+                <div class="muñeco pierna derecha oculto" id="parte-pierna-der"></div>
+            </div>
+
+            <div class="panel">
+                <div class="palabra" id="palabra"></div>
+                <p class="pista" id="pista"></p>
+                <div class="fila-entrada">
+                    <input id="letra" class="entrada-letra" type="text" maxlength="1" autocomplete="off" aria-label="Letra" />
+                    <button id="btn-probar" class="btn">Probar</button>
+                    <button id="btn-nueva" class="btn secundario">Nueva palabra</button>
+                </div>
+                <div class="letras-usadas" id="letras-usadas"></div>
+                <p class="estado" id="estado" aria-live="polite"></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="ahorcado.js"></script>
+</body>
+</html>

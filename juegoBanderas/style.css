@@ -1,0 +1,44 @@
+/* Estilos mínimos y limpios */
+:root {
+    --bg: #0f1226;
+    --card: #171a33;
+    --text: #e9ecff;
+    --muted: #a9b1d6;
+    --primary: #6c7bff;
+    --ok: #35d49a;
+    --bad: #ff6b6b;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background: var(--bg); color: var(--text); min-height: 100vh; display: grid; place-items: start center; padding: 24px; }
+
+.header { text-align: center; margin-bottom: 16px; }
+.header h1 { font-size: 28px; }
+.header .sub { color: var(--muted); margin-top: 6px; }
+
+.main { width: 100%; max-width: 720px; background: var(--card); border: 1px solid #252a4d; border-radius: 12px; padding: 16px; display: grid; gap: 16px; }
+
+.score { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); border: 1px solid #252a4d; border-radius: 10px; padding: 10px 12px; font-size: 14px; color: var(--muted); }
+.score strong { color: var(--text); }
+
+.flag { display: grid; place-items: center; padding: 8px; }
+.flag img { width: 320px; height: 200px; border-radius: 10px; object-fit: cover; border: 1px solid #252a4d; background: #0b0e20; }
+
+.opciones { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+.opcion { background: #0f1330; border: 1px solid #252a4d; color: var(--text); padding: 12px; border-radius: 10px; cursor: pointer; transition: .15s ease; text-align: center; }
+.opcion:hover { border-color: var(--primary); transform: translateY(-1px); }
+.opcion.correct { background: rgba(53,212,154,.12); border-color: var(--ok); }
+.opcion.wrong { background: rgba(255,107,107,.12); border-color: var(--bad); }
+.opcion:disabled { opacity: .7; cursor: not-allowed; }
+
+.mensaje { min-height: 22px; text-align: center; color: var(--muted); }
+
+.actions { display: flex; gap: 10px; justify-content: center; }
+.actions button { padding: 10px 14px; border-radius: 10px; border: 1px solid #252a4d; background: #0f1330; color: var(--text); cursor: pointer; min-width: 140px; }
+.actions button#siguiente { background: var(--primary); border-color: var(--primary); color: white; }
+.actions button:disabled { opacity: .6; }
+
+@media (max-width: 520px) {
+  .opciones { grid-template-columns: 1fr; }
+  .flag img { width: 260px; height: 160px; }
+} 

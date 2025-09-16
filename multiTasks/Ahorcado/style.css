@@ -1,0 +1,165 @@
+/* Estilos básicos y limpios para el Ahorcado */
+:root {
+    --fondo: #0f172a;
+    --tarjeta: #111827;
+    --texto: #e5e7eb;
+    --muted: #9ca3af;
+    --borde: #1f2937;
+    --peligro: #ef4444;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    background: radial-gradient(1200px 800px at 10% 10%, #0b1220, var(--fondo));
+    color: var(--texto);
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 920px;
+    padding: 24px;
+}
+
+.titulo {
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+
+.juego {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 24px;
+}
+
+@media (max-width: 800px) {
+    .juego { grid-template-columns: 1fr; }
+}
+
+.figura {
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 24px;
+    min-height: 320px;
+    position: relative;
+    overflow: hidden;
+}
+
+.horca.base,
+.horca.palo,
+.horca.barra,
+.horca.cuerda,
+.muñeco.cabeza,
+.muñeco.tronco,
+.muñeco.brazo,
+.muñeco.pierna {
+    position: absolute;
+    background: #374151;
+}
+
+.horca.base { left: 24px; right: 24px; bottom: 24px; height: 6px; }
+.horca.palo { left: 64px; bottom: 24px; width: 6px; height: 220px; }
+.horca.barra { left: 64px; top: 24px; width: 140px; height: 6px; }
+.horca.cuerda { left: 198px; top: 24px; width: 3px; height: 28px; background: #475569; }
+
+.muñeco.cabeza {
+    left: 184px; top: 52px; width: 32px; height: 32px; border-radius: 50%; background: transparent; border: 4px solid #94a3b8;
+}
+.muñeco.tronco { left: 198px; top: 84px; width: 3px; height: 64px; background: #94a3b8; }
+.muñeco.brazo.izquierda { left: 198px; top: 96px; width: 48px; height: 3px; transform-origin: left; transform: rotate(-30deg); background: #94a3b8; }
+.muñeco.brazo.derecha { left: 150px; top: 96px; width: 48px; height: 3px; transform-origin: right; transform: rotate(30deg); background: #94a3b8; }
+.muñeco.pierna.izquierda { left: 198px; top: 146px; width: 48px; height: 3px; transform-origin: left; transform: rotate(30deg); background: #94a3b8; }
+.muñeco.pierna.derecha { left: 150px; top: 146px; width: 48px; height: 3px; transform-origin: right; transform: rotate(-30deg); background: #94a3b8; }
+
+.oculto { opacity: 0; }
+
+.panel {
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    padding: 24px;
+    display: grid;
+    gap: 16px;
+}
+
+.palabra {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    min-height: 44px;
+}
+
+.palabra .casilla {
+    width: 28px;
+    height: 40px;
+    border-bottom: 2px solid #334155;
+    display: grid;
+    place-items: center;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.pista {
+    color: var(--muted);
+    min-height: 20px;
+}
+
+.fila-entrada {
+    display: flex;
+    gap: 10px;
+}
+
+.entrada-letra {
+    flex: 1;
+    height: 40px;
+    background: #0b1220;
+    color: var(--texto);
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 0 12px;
+}
+
+.btn {
+    height: 40px;
+    padding: 0 14px;
+    border-radius: 8px;
+    border: 1px solid var(--borde);
+    background: linear-gradient(180deg, #1f2937, #0b1220);
+    color: var(--texto);
+    cursor: pointer;
+}
+
+.btn:hover { border-color: #334155; }
+
+.btn.secundario { background: linear-gradient(180deg, #0f172a, #0b1220); }
+
+.letras-usadas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.letras-usadas .etiqueta {
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #0b1220;
+    border: 1px solid var(--borde);
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.estado { min-height: 20px; }
+
+.estado.ganas { color: #22c55e; }
+.estado.pierdes { color: var(--peligro); }

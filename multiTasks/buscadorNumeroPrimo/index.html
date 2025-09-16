@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número Primo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="contenedor">
+        <h1 class="titulo">Comprobador de Número Primo</h1>
+
+        <section class="tarjeta">
+            <div class="fila-entrada">
+                <input id="numero" class="entrada-numero" type="number" inputmode="numeric" placeholder="Escribe un número" aria-label="Número" />
+                <button id="btn-comprobar" class="btn">Comprobar</button>
+                <button id="btn-limpiar" class="btn secundario">Limpiar</button>
+            </div>
+            <p class="resultado" id="resultado" aria-live="polite"></p>
+            <p class="detalle" id="detalle"></p>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

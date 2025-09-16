@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Galería</h1>
+    </header>
+
+    <main class="main">
+        <section class="viewer">
+            <button class="nav" id="anterior" aria-label="Anterior">‹</button>
+            <img id="photo" alt="Imagen" />
+            <button class="nav" id="siguiente" aria-label="Siguiente">›</button>
+        </section>
+
+        <section class="caption">
+            <h2 id="title">-</h2>
+            <p id="desc">-</p>
+        </section>
+
+        <section class="thumbs" id="miniaturas"></section>
+
+        <div class="actions">
+            <button id="reproducir">Reproducir</button>
+            <label class="speed">Velocidad <input type="range" id="velocidad" min="2" max="6" value="3"></label>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
