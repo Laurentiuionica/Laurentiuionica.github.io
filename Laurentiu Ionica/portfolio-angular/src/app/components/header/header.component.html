@@ -1,0 +1,31 @@
+<!-- Header fijo -->
+<header class="portfolio-header">
+  <div class="header-content">
+    <div class="logo-container">
+      <span class="logo-text">LI</span>
+    </div>
+    <div class="profile-info">
+      <h1 class="profile-name">{{ personalInfo().name }}</h1>
+    </div>
+    <nav class="main-nav">
+      <button 
+        class="nav-btn" 
+        [class.active]="currentSection() === 'about'"
+        (click)="setCurrentSection('about')">
+        👤 Sobre Mí
+      </button>
+      <button 
+        class="nav-btn" 
+        [class.active]="currentSection() === 'skills'"
+        (click)="setCurrentSection('skills')">
+        🛠️ Habilidades
+      </button>
+      <button 
+        class="nav-btn" 
+        [class.active]="currentSection() === 'portfolio'"
+        (click)="setCurrentSection('portfolio')">
+        💼 Portfolio
+      </button>
+    </nav>
+  </div>
+</header>

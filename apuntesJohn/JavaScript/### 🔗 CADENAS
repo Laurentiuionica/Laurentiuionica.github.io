@@ -1,0 +1,55 @@
+### 🔗 CADENAS
+
+Una **cadena** (o string) es simplemente texto. Todo lo que pongas entre comillas es una cadena:
+
+* `"Hola bro"`
+* `'Estoy aprendiendo JS'`
+* `` `Esto es una cadena también` `` ← (estas molan porque te dejan meter variables dentro con `${}`)
+
+---
+
+### 🧪 ¿Qué se puede hacer con ellas?
+
+🔸 **Concatenar** (unir textos):
+`"Hola" + " " + "mundo"` → `"Hola mundo"`
+
+🔸 **Interpolar** (usar variables dentro):
+
+```js
+let nombre = "Laurentiu";
+`Hola, ${nombre}` → "Hola, Laurentiu"
+```
+
+🔸 **Saber cuántos caracteres tiene**:
+`"Espaguetis".length` → `10`
+
+🔸 **Cambiar a mayúsculas o minúsculas**:
+`"hola".toUpperCase()` → `"HOLA"`
+
+🔸 **Cortar partes**:
+`"JavaScript".slice(0, 4)` → `"Java"`
+
+🔸 **Reemplazar texto**:
+`"Me gusta el té".replace("té", "café")` → `"Me gusta el café"`
+
+🔸 **Quitar espacios sobrantes**:
+`"  hola  ".trim()` → `"hola"`
+
+---
+
+### 🎯 Detalle fino:
+
+Las cadenas son **inmutables**. Si haces algo como `"hola".toUpperCase()`, el original no cambia, solo te devuelve una nueva versión.
+
+Y puedes encadenar métodos como un combo de Tekken:
+`"  cr7 ".trim().toUpperCase()` → `"CR7"`
+
+---
+
+### 🧠 En resumen:
+
+Las **cadenas** son como el idioma que habla tu código cuando quiere mostrar, transformar o trabajar con texto. Son básicas en cualquier app, página web o script. Si no sabes manipular strings, estás frito.
+
+---
+
+

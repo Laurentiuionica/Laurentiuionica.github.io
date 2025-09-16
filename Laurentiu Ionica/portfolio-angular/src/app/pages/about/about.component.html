@@ -1,0 +1,63 @@
+<section class="content-section about-section">
+  <h2 class="section-title">👤 Sobre Mí</h2>
+  
+  <!-- Introducción personal -->
+  <div class="intro-card">
+    <p class="intro-text">{{ personalInfo().introduction }}</p>
+  </div>
+  
+  <div class="about-content">
+    <div class="about-card">
+      <h3>🎓 Formación</h3>
+      <div class="education-item">
+        <h4>Desarrollo de Aplicaciones Web</h4>
+        <p>Copermatica Formación - Tomelloso, Ciudad Real</p>
+        <span class="year">Mayo 2025 - Presente</span>
+      </div>
+    </div>
+    
+    <div class="about-card">
+      <h3>💼 Experiencia</h3>
+      <div class="experience-item">
+        <h4>Proyectos Académicos y Personales</h4>
+        <p>Desarrollo de aplicaciones web completas utilizando tecnologías modernas como Angular, TypeScript, HTML5, CSS3 y JavaScript. Implementación de funcionalidades avanzadas, diseño responsive y optimización de rendimiento.</p>
+        <span class="year">Mayo 2025 - Presente</span>
+      </div>
+      <div class="experience-item">
+        <h4>Desarrollo Frontend</h4>
+        <p>Creación de interfaces de usuario intuitivas y atractivas, implementación de componentes reutilizables y desarrollo de aplicaciones web interactivas con enfoque en la experiencia del usuario.</p>
+        <span class="year">Mayo 2025 - Presente</span>
+      </div>
+    </div>
+    
+    <div class="about-card personal-info">
+      <h3>ℹ️ Información Personal</h3>
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Edad:</span>
+          <span class="info-value">{{ personalInfo().age }} años</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Ubicación:</span>
+          <span class="info-value">{{ personalInfo().location }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Disponibilidad:</span>
+          <span class="info-value">Inmediata</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Email:</span>
+          <span class="info-value">{{ personalInfo().email }}</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Especialización:</span>
+          <span class="info-value">Frontend Development</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Idiomas:</span>
+          <span class="info-value">Español (Nativo), Inglés (Intermedio)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

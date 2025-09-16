@@ -1,0 +1,118 @@
+JavaScript(Control de flujo)
+
+Nos permite indicarle al codigo que camino tomar. Las decisiones se toman dependiendo de los datos que tenemos ( si un usuario es mayor de edad se toma un camino, si no lo es se puede ejecutar otra logica distinta). 
+
+Perfecto tío, vamos con **JavaScript**, el rey del frontend (y también se mete en backend el cabrón). Aquí te explico el **control de flujo en JS**, sin rodeos, con ejemplos y algo de picante 😎.
+
+---
+
+### 🔹 `if`, `else if`, `else`
+
+Básico. Para tomar decisiones.
+
+```javascript
+let edad = 20;
+
+if (edad < 18) {
+  console.log("No puedes entrar, chavalín");
+} else if (edad < 21) {
+  console.log("Puedes entrar, pero sin copas");
+} else {
+  console.log("Bienvenido al infierno legal 🎉");
+}
+```
+
+---
+
+### 🔹 `switch`
+
+Ideal cuando tienes **muchas opciones**. Más limpio que varios `if`.
+
+```javascript
+let comando = "jugar";
+
+switch (comando) {
+  case "jugar":
+    console.log("Empieza la partida");
+    break;
+  case "salir":
+    console.log("Adiós máquina");
+    break;
+  default:
+    console.log("No reconozco ese comando, bro");
+}
+```
+
+---
+
+### 🔹 `for`
+
+Para repetir algo un número fijo de veces. Lo clásico.
+
+```javascript
+for (let i = 0; i < 5; i++) {
+  console.log("Número: " + i);
+}
+```
+
+---
+
+### 🔹 `while`
+
+Mientras se cumpla una condición… sigue la fiesta.
+
+```javascript
+let x = 0;
+while (x < 3) {
+  console.log("x vale: " + x);
+  x++;
+}
+```
+
+---
+
+### 🔹 `do...while`
+
+Se ejecuta **mínimo una vez**, incluso si la condición es falsa.
+
+```javascript
+let y = 5;
+do {
+  console.log("Esto se ejecuta al menos una vez");
+  y++;
+} while (y < 3);
+```
+En while se evalua primero la condicion, si esta se cumple se ejecuta el codigo de abajo. El do while primero ejecuta el codigo y luego comprueba si la condicion se cumple. Si esta se cumple vuelve a subir y vuelve a ejecutar la porcion de codigo.
+---
+
+### 🔹 `break`, `continue`
+
+* `break`: corta el bucle.
+* `continue`: salta a la siguiente iteración.
+
+```javascript
+for (let i = 0; i < 10; i++) {
+  if (i === 3) continue; // saltamos el 3
+  if (i === 7) break;    // nos vamos en el 7
+  console.log(i);
+}
+```
+
+---
+
+### 🔹 Extra 🔥: operador ternario
+
+Es como un `if` rápido en una sola línea.
+
+```javascript
+let permiso = edad >= 18 ? "Puedes entrar" : "Ni lo sueñes";
+console.log(permiso);
+```
+
+---
+
+### 🧠 En resumen:
+
+En JS usas control de flujo **todo el rato**: para menús, validaciones, loops de juego, reacciones del jugador, lógica de IA, etc. Si estás haciendo un juego, esto es **el corazón de tu lógica**. Sin estas estructuras, tu código sería un bloque sin cerebro.
+
+Si me dices qué estás programando ahora mismo, te tiro un ejemplo real aplicado a tu código.

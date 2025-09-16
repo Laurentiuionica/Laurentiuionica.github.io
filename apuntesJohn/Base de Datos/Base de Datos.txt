@@ -1,0 +1,175 @@
+# 🧠 **TEORÍA + PRÁCTICA DE BASES DE DATOS EN MARIADB**  
+*Explicación completa con fundamentos y ejemplos prácticos*  
+
+---
+
+## 🏛️ **1. Modelo Relacional**  
+
+**Teoría:**  
+- **Tablas** = Estructuras con columnas (campos) y filas (registros)  
+- **Claves** = Identificadores únicos (PRIMARY KEY) y relaciones (FOREIGN KEY)  
+
+**Ejemplo:**  
+```sql
+-- Creación de tabla con claves
+CREATE TABLE clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,  -- 🗝️ Clave primaria
+    nombre VARCHAR(50),
+    email VARCHAR(100) UNIQUE          -- 🔐 Clave única
+);
+
+CREATE TABLE pedidos (
+    id INT PRIMARY KEY,
+    cliente_id INT,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id)  -- 🤝 Clave foránea
+);
+```
+
+---
+
+## ⚙️ **2. Motores de Almacenamiento**  
+
+**Teoría:**  
+- **InnoDB** = Soporta transacciones ACID  
+- **MyISAM** = Más rápido para lecturas, sin transacciones  
+
+**Ejemplo:**  
+```sql
+-- Tabla con motor InnoDB (por defecto)
+CREATE TABLE cuentas_bancarias (
+    id INT PRIMARY KEY,
+    saldo DECIMAL(10,2)
+) ENGINE=InnoDB;  -- 💳 Para operaciones transaccionales
+
+-- Tabla con MyISAM
+CREATE TABLE logs (
+    id INT PRIMARY KEY,
+    mensaje TEXT
+) ENGINE=MyISAM;  -- 📝 Para registros de solo lectura
+```
+
+---
+
+## 🔍 **3. Procesamiento de Consultas**  
+
+**Teoría:**  
+El optimizador elige el plan de ejecución más eficiente  
+
+**Ejemplo:**  
+```sql
+-- Consulta con EXPLAIN para ver el plan de ejecución
+EXPLAIN SELECT * FROM clientes WHERE nombre LIKE 'A%';  -- 🧠 Ver cómo se ejecuta
+
+-- Crear índice para optimizar
+CREATE INDEX idx_nombre ON clientes(nombre);  -- ⚡ Acelera búsquedas por nombre
+```
+
+---
+
+## 🛡️ **4. Transacciones ACID**  
+
+**Teoría:**  
+Propiedades:  
+- **Atomicidad**: Todo o nada  
+- **Consistencia**: Datos válidos  
+- **Aislamiento**: Ejecución independiente  
+- **Durabilidad**: Cambios permanentes  
+
+**Ejemplo:**  
+```sql
+START TRANSACTION;  -- 🛡️ Inicio de transacción
+    UPDATE cuentas SET saldo = saldo - 100 WHERE id = 1;
+    UPDATE cuentas SET saldo = saldo + 100 WHERE id = 2;
+COMMIT;  -- ✅ Confirma cambios (o ROLLBACK para cancelar)
+```
+
+---
+
+## 🧮 **5. Álgebra Relacional**  
+
+**Teoría:**  
+Operaciones fundamentales:  
+- **Selección (σ)** = WHERE  
+- **Proyección (π)** = SELECT columnas  
+- **Join (⋈)** = Unir tablas  
+
+**Ejemplo:**  
+```sql
+-- Selección (σ)
+SELECT * FROM productos WHERE precio > 50;  -- ✖️ Filtra filas
+
+-- Proyección (π)
+SELECT nombre, precio FROM productos;  -- ✖️ Selecciona columnas
+
+-- Join (⋈)
+SELECT p.nombre, c.nombre 
+FROM pedidos p JOIN clientes c ON p.cliente_id = c.id;  -- ✖️ Combina tablas
+```
+
+---
+
+## 🔐 **6. Seguridad**  
+
+**Teoría:**  
+- **Usuarios** = Acceso controlado  
+- **Permisos** = GRANT/REVOKE  
+
+**Ejemplo:**  
+```sql
+-- Crear usuario
+CREATE USER 'app_user'@'localhost' IDENTIFIED BY 'password';  -- 👤 Usuario nuevo
+
+-- Dar permisos
+GRANT SELECT, INSERT ON base_datos.* TO 'app_user'@'localhost';  -- 🔑 Permisos específicos
+```
+
+---
+
+## 🌟 **7. Normalización**  
+
+**Teoría:**  
+Eliminar redundancias mediante formas normales  
+
+**Ejemplo:**  
+```sql
+-- Forma normal 1NF (valores atómicos)
+CREATE TABLE estudiantes (
+    id INT PRIMARY KEY,
+    nombre VARCHAR(50),
+    telefono VARCHAR(15)  -- 📱 Solo un teléfono por campo
+);
+
+-- Forma normal 2NF (dependencia completa de la PK)
+CREATE TABLE cursos (
+    estudiante_id INT,
+    curso_id INT,
+    nota DECIMAL(3,1),
+    PRIMARY KEY (estudiante_id, curso_id),  -- 🗝️ Clave compuesta
+    FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id)
+);
+```
+
+---
+
+## ☁️ **8. MariaDB en la Nube**  
+
+**Teoría:**  
+SkySQL ofrece MariaDB como servicio gestionado  
+
+**Ejemplo (conexión):**  
+```bash
+mysql -h skysql.example.com -u usuario -p -D basedatos  -- ☁️ Conectar a instancia cloud
+```
+
+---
+
+## 📚 **Resumen Final**  
+✔️ **Modelo relacional** = Tablas + relaciones  
+✔️ **SQL** = Lenguaje para manipular datos  
+✔️ **ACID** = Transacciones seguras  
+✔️ **Normalización** = Estructura óptima  
+✔️ **Seguridad** = Usuarios y permisos  
+
+
+```
+

@@ -1,0 +1,56 @@
+### 🎨 ¿Qué es CSS?
+
+* ✍️ Es **Cascading Style Sheets** (hojas de estilo en cascada).
+* 🎯 Sirve para **darle diseño y forma** a una web: colores, márgenes, tipografía, etc.
+* 🧼 Separa el contenido (HTML) del diseño.
+
+---
+
+### 🤓 Datos Curiosos
+
+* 🧠 Solo con CSS puedes hacer **formas, efectos y animaciones**.
+* 🕹️ Hay juegos como Flexbox Froggy para aprender CSS jugando.
+* 🎞️ Las animaciones con `@keyframes` no necesitan JavaScript.
+* 🌓 Puede detectar **modo oscuro**, gracias a `@media (prefers-color-scheme)`.
+
+---
+
+### 💡 Consejos Útiles
+
+* 📦 Siempre usa `box-sizing: border-box;` (control total del tamaño de elementos).
+* 🎯 Aprende bien `flexbox` y `grid` para hacer layouts rápidos.
+* 📏 Usa `rem`, `%` y `vh/vw` para diseño responsive.
+* 🎨 Declara **variables** con `--color` para mantener estilos consistentes.
+* 🖱️ Usa pseudoclases como `:hover` y `:focus` para interactividad visual.
+
+---
+
+### ⚙️ Propiedades Básicas
+
+* `color` – Color del texto
+* `background-color` – Fondo
+* `font-size` – Tamaño de texto
+* `margin / padding` – Espaciado
+* `border` – Bordes
+* `display: flex` – Diseño en fila/columna
+* `transition` – Animaciones suaves
+
+---
+
+### 🧰 Herramientas Top
+
+* 🎨 **Coolors.co** – Paletas de colores
+* 👀 **CanIUse.com** – Compatibilidad entre navegadores
+* 🧪 **CSS Tricks** – Tips y soluciones visuales
+* 🧩 **Flexbox Froggy / Grid Garden** – Juegos para practicar diseño
+
+---
+
+### 🚀 CSS + HTML = Páginas increíbles
+
+* 🧱 HTML te da la estructura
+* 🎨 CSS le da la pinta
+* ⚙️ JS le da el cerebro (opcional, pero potente)
+
+---
+

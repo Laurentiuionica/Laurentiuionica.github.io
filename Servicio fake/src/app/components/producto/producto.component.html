@@ -1,0 +1,71 @@
+<!-- Contenedor principal del componente -->
+<div class="productos-container">
+  
+  <!-- Título de la sección -->
+  <h2 class="titulo">Nuestros Productos</h2>
+  
+  <!-- Indicador de carga mientras se obtienen los datos -->
+  <div *ngIf="cargando" class="cargando">
+    <p>Cargando productos...</p>
+  </div>
+  
+  <!-- Lista de productos (solo se muestra cuando no está cargando) -->
+  <div *ngIf="!cargando" class="lista-productos">
+    
+    <!-- Mensaje si no hay productos -->
+    <div *ngIf="productos.length === 0" class="sin-productos">
+      <p>No se encontraron productos.</p>
+    </div>
+    
+    <!-- Grid de productos usando CSS Grid -->
+    <div class="grid-productos">
+      
+      <!-- Iteramos sobre cada producto de la lista -->
+      <div 
+        *ngFor="let producto of productos" 
+        class="producto-card"
+        [class]="obtenerClasesDestacado(producto)"
+      >
+        
+        <!-- Imagen del producto -->
+        <div class="imagen-container">
+          <img 
+            [src]="producto.imagen" 
+            [alt]="producto.nombre"
+            class="imagen-producto"
+          >
+          <!-- Badge de destacado -->
+          <span *ngIf="producto.destacado" class="badge-destacado">
+            ⭐ Destacado
+          </span>
+        </div>
+        
+        <!-- Información del producto -->
+        <div class="info-producto">
+          
+          <!-- Nombre del producto -->
+          <h3 class="nombre-producto">{{ producto.nombre }}</h3>
+          
+          <!-- Categoría -->
+          <p class="categoria">{{ producto.categoria }}</p>
+          
+          <!-- Descripción -->
+          <p class="descripcion">{{ producto.descripcion }}</p>
+          
+          <!-- Precio y stock en la misma línea -->
+          <div class="precio-stock">
+            <span class="precio">{{ formatearPrecio(producto.precio) }}</span>
+            <span class="stock" [class.stock-bajo]="producto.stock < 10">
+              Stock: {{ producto.stock }}
+            </span>
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    </div>
+    
+  </div>
+  
+</div>

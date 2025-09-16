@@ -1,0 +1,203 @@
+# 📚 **Gestión de Registros en Tablas (MariaDB / SQL Básico)**  
+
+## 🔹 **1. Creación de Tablas (`CREATE TABLE`)**  
+Para almacenar datos, primero necesitas una tabla. Ejemplo:  
+```sql
+CREATE TABLE clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    fecha_registro DATE DEFAULT CURRENT_DATE,
+    saldo DECIMAL(10, 2)
+);
+```
+📌 **Detalles importantes:**  
+- `AUTO_INCREMENT`: Asigna un número automático (ideal para PK).  
+- `PRIMARY KEY`: Identificador único.  
+- `NOT NULL`: Obliga a que el campo no sea vacío.  
+- `UNIQUE`: Evita valores duplicados.  
+- `DEFAULT`: Establece un valor por defecto.  
+
+---
+
+## 🔹 **2. Inserción de Datos (`INSERT`)**  
+Añade registros a una tabla:  
+```sql
+-- Forma explícita (indicando columnas)
+INSERT INTO clientes (nombre, email, saldo)
+VALUES ('Juan Pérez', 'juan@example.com', 1500.50);
+
+-- Forma implícita (todas las columnas, en orden)
+INSERT INTO clientes VALUES (NULL, 'Ana López', 'ana@test.com', '2023-10-01', 2000.00);
+```
+⚠ **Cuidado:** Si omites columnas con `NOT NULL`, dará error.  
+
+---
+
+## 🔹 **3. Consulta de Datos (`SELECT`)**  
+Recupera registros con filtros, ordenamiento y agrupación:  
+```sql
+-- Básico
+SELECT * FROM clientes; -- Todos los campos
+
+-- Con filtros (WHERE)
+SELECT nombre, saldo FROM clientes WHERE saldo > 1000;
+
+-- Ordenar (ORDER BY)
+SELECT * FROM clientes ORDER BY nombre DESC; -- ASC (ascendente) o DESC (descendente)
+
+-- Agrupar (GROUP BY)
+SELECT COUNT(*) AS total, fecha_registro 
+FROM clientes 
+GROUP BY fecha_registro;
+```
+🔍 **Funciones útiles:**  
+- `COUNT()`, `SUM()`, `AVG()` → Agregación.  
+- `LIKE '%palabra%'` → Búsqueda parcial.  
+
+---
+
+## 🔹 **4. Actualización de Datos (`UPDATE`)**  
+Modifica registros existentes:  
+```sql
+UPDATE clientes 
+SET saldo = saldo + 100, email = 'nuevo@email.com'
+WHERE id = 1;
+```
+🚨 **¡OJO!** Si olvidas el `WHERE`, se actualizarán **TODOS** los registros.  
+
+---
+
+## 🔹 **5. Eliminación de Datos (`DELETE`)**  
+Borra registros (pero no la tabla):  
+```sql
+DELETE FROM clientes WHERE saldo = 0;
+```
+💀 **Peligro:** Sin `WHERE`, borras **todo el contenido** (pero la tabla sigue existiendo).  
+
+---
+
+## 🔹 **6. Modificación de Estructura (`ALTER TABLE`)**  
+Cambia la estructura de una tabla:  
+```sql
+-- Añadir columna
+ALTER TABLE clientes ADD COLUMN telefono VARCHAR(15);
+
+-- Eliminar columna
+ALTER TABLE clientes DROP COLUMN telefono;
+
+-- Modificar tipo de dato
+ALTER TABLE clientes MODIFY COLUMN saldo FLOAT;
+```
+
+---
+
+## 🔹 **7. Claves Primarias y Foráneas (Relaciones)**  
+🗝 **Clave Primaria (PK):** Identificador único.  
+🔗 **Clave Foránea (FK):** Relaciona tablas.  
+
+```sql
+CREATE TABLE pedidos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT,
+    monto DECIMAL(10, 2),
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+);
+```
+📌 **Importante:** Las FK aseguran **integridad referencial** (no puedes borrar un cliente si tiene pedidos).  
+
+---
+
+## 🔹 **8. Transacciones (ACID)**  
+Para operaciones seguras:  
+```sql
+START TRANSACTION;
+INSERT INTO clientes (nombre) VALUES ('Carlos');
+UPDATE pedidos SET monto = 100 WHERE cliente_id = 1;
+COMMIT; -- Confirma los cambios
+-- O bien: ROLLBACK; (Deshace todo en la transacción)
+```
+✅ **Ventaja:** Si algo falla, puedes revertir todo con `ROLLBACK`.  
+
+---
+
+## 🔹 **9. Índices (`CREATE INDEX`)**  
+Mejoran la velocidad de búsqueda:  
+```sql
+CREATE INDEX idx_nombre ON clientes(nombre);
+```
+⚡ **Útil** en columnas usadas frecuentemente en `WHERE` o `JOIN`.  
+
+---
+
+## 🔹 **10. Vistas (`CREATE VIEW`)**  
+Consulta guardada como "tabla virtual":  
+```sql
+CREATE VIEW clientes_premium AS
+SELECT * FROM clientes WHERE saldo > 5000;
+```
+📁 **Ventaja:** Simplifica consultas complejas.  
+
+---
+
+## 🔥 **Bonus: Buenas Prácticas**  
+✔ **Usa `WHERE` en `UPDATE`/`DELETE`** para evitar cambios masivos.  
+✔ **Normaliza tus tablas** (evita datos duplicados).  
+✔ **Backups frecuentes** (`mysqldump` es tu amigo).  
+✔ **Prueba en desarrollo** antes de ejecutar en producción.  
+
+---
+
+
+
+
+# 🎯 **Resumen Express: `DISTINCT` y `LIMIT` en SQL**  
+
+## 🔍 **`DISTINCT` → Elimina duplicados**  
+Filtra registros **únicos** en una columna o conjunto de columnas:  
+```sql
+SELECT DISTINCT columna FROM tabla;  
+-- Ejemplo:  
+SELECT DISTINCT ciudad FROM clientes;  -- Lista ciudades sin repetir  
+```  
+📌 **Clave:**  
+- Útil para datos repetidos (ej: países, categorías).  
+- Puede ralentizar consultas en tablas grandes (¡usa con cabeza!).  
+
+---
+
+## 🛑 **`LIMIT` → Controla la cantidad de resultados**  
+Limita el número de filas devueltas:  
+```sql
+SELECT * FROM tabla LIMIT 5;  -- Solo 5 registros  
+-- Con paginación:  
+SELECT * FROM productos LIMIT 10 OFFSET 20;  -- Registros 21 al 30  
+```  
+📌 **Clave:**  
+- Ideal para paginación o evitar sobrecarga.  
+- **Siempre va al final** de la consulta.  
+
+---
+
+## 💡 **Combinando ambos**  
+```sql
+-- "Dame 5 ciudades únicas, ordenadas alfabéticamente":  
+SELECT DISTINCT ciudad FROM clientes  
+ORDER BY ciudad  
+LIMIT 5;  
+```  
+✅ **¿Cuándo usarlos juntos?**  
+- Cuando necesitas **un muestreo rápido sin duplicados**.  
+- Ejemplo: Top 3 categorías más vendidas (sin repetir).  
+
+---
+
+### 🚀 **Bonus: Diferencias clave**  
+| `DISTINCT` | `LIMIT` |  
+|------------|---------|  
+| Filtra duplicados | Limita filas |  
+| Afecta a columnas | Afecta a registros |  
+| Puede ser lento | Siempre rápido |  
+
+⚠ **¡Ojo!** `DISTINCT` aplica a **todas las columnas** del `SELECT`. Si necesitas granularidad, usa `GROUP BY`.  
+

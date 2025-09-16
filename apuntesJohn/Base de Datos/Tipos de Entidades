@@ -1,0 +1,121 @@
+## 🔣 **2. Tipos de Entidades**
+
+### 🔹 **Entidades Fuertes (Independientes)**
+**Características:**  
+- Existen por sí mismas  
+- Tienen **identificador único (PK)**  
+- No dependen de otras entidades  
+
+**Ejemplo:**  
+```sql
+CREATE TABLE autores (  -- 📚 Entidad fuerte
+    id_autor INT PRIMARY KEY,
+    nombre VARCHAR(100)
+);
+```
+
+### 🔸 **Entidades Débiles (Dependientes)**
+**Características:**  
+- Dependen de una entidad fuerte  
+- Su PK suele ser **compuesta** (incluye FK de la entidad fuerte)  
+
+**Ejemplo:**  
+```sql
+CREATE TABLE libros (  -- 📖 Entidad débil (depende de autores)
+    id_libro INT,
+    id_autor INT,      -- FK a entidad fuerte
+    titulo VARCHAR(200),
+    PRIMARY KEY (id_libro, id_autor),
+    FOREIGN KEY (id_autor) REFERENCES autores(id_autor)
+);
+```
+
+## 🧩 **3. Relaciones Entre Entidades**
+
+### 🔗 **Tipos de Cardinalidad**
+| Tipo | Símbolo | Ejemplo en SQL |
+|------|---------|----------------|
+| 1:1 (Uno a Uno) | ➡️ | FK con UNIQUE |
+| 1:N (Uno a Muchos) | ➡️👥 | FK sin restricción |
+| N:M (Muchos a Muchos) | 👥➡️👥 | Tabla intermedia |
+
+**Ejemplo N:M:**  
+```sql
+-- Tabla intermedia para relación N:M entre Estudiantes y Cursos
+CREATE TABLE estudiantes_cursos (
+    estudiante_id INT,
+    curso_id INT,
+    fecha_inscripcion DATE,
+    PRIMARY KEY (estudiante_id, curso_id),
+    FOREIGN KEY (estudiante_id) REFERENCES estudiantes(id),
+    FOREIGN KEY (curso_id) REFERENCES cursos(id)
+);
+```
+
+## 🏷️ **4. Atributos de Entidades**
+
+### 📌 **Tipos de Atributos**
+| Tipo | Descripción | Ejemplo en SQL |
+|------|-------------|----------------|
+| **Simples** | No divisibles | `nombre VARCHAR(50)` |
+| **Compuestos** | Formados por otros | dirección (calle, ciudad, CP) |
+| **Derivados** | Se calculan | `edad` (de `fecha_nacimiento`) |
+| **Multivalor** | Múltiples valores | teléfonos (se normaliza en tabla aparte) |
+
+**Ejemplo Atributo Multivalor:**  
+```sql
+CREATE TABLE clientes_telefonos (
+    cliente_id INT,
+    telefono VARCHAR(15),
+    PRIMARY KEY (cliente_id, telefono),
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+);
+```
+
+## 🛠️ **5. Ejemplo Completo: Sistema Biblioteca**
+
+```sql
+-- Entidad Fuerte: Autor
+CREATE TABLE autores (
+    id_autor INT AUTO_INCREMENT PRIMARY KEY,  -- 🗝️ PK
+    nombre VARCHAR(100) NOT NULL,
+    nacionalidad VARCHAR(50)
+);
+
+-- Entidad Débil: Libro (depende de Autor)
+CREATE TABLE libros (
+    id_libro INT AUTO_INCREMENT,
+    id_autor INT NOT NULL,
+    titulo VARCHAR(200) NOT NULL,
+    isbn VARCHAR(17) UNIQUE,                 -- 🦄 Atributo único
+    PRIMARY KEY (id_libro, id_autor),        -- 🗝️ PK compuesta
+    FOREIGN KEY (id_autor) REFERENCES autores(id_autor) ON DELETE CASCADE
+);
+
+-- Entidad Fuerte: Usuario
+CREATE TABLE usuarios (
+    id_usuario INT PRIMARY KEY,
+    nombre VARCHAR(100),
+    dni VARCHAR(9) UNIQUE
+);
+
+-- Tabla intermedia para relación N:M Usuario-Libro (Préstamos)
+CREATE TABLE prestamos (
+    id_prestamo INT PRIMARY KEY,
+    id_usuario INT,
+    id_libro INT,
+    fecha_prestamo DATE DEFAULT (CURRENT_DATE),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario),
+    FOREIGN KEY (id_libro) REFERENCES libros(id_libro)
+);
+```
+
+## 💡 **Consejos de Diseño**
+1. **Identifica claramente** entidades fuertes y débiles  
+2. **Normaliza** para evitar redundancias  
+3. **Usa nombres descriptivos** (ej: `autores`, no `tabla1`)  
+4. **Documenta** las relaciones entre entidades  
+
+
+
+

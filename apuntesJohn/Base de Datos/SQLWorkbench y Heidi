@@ -1,0 +1,298 @@
+### **SQL Workbench** 🚀
+
+**SQL Workbench** es una herramienta potente para gestionar bases de datos SQL. Es comúnmente usada para interactuar con bases de datos, hacer consultas, crear tablas, realizar modificaciones, y más. Es bastante flexible, soportando distintos sistemas de bases de datos como MySQL, PostgreSQL, etc.
+
+#### **Términos clave en SQL Workbench** 🔑
+
+1. **Conexión** 🌐: Para empezar a trabajar, necesitas conectar tu SQL Workbench a un servidor de base de datos. Esto generalmente requiere información como el nombre de usuario, la contraseña y la dirección IP del servidor.
+
+2. **Consultas (Queries)** 🔍: Las consultas son instrucciones SQL que le dicen a la base de datos qué hacer (como seleccionar, insertar, actualizar o borrar datos).
+
+3. **Scripts SQL** 📝: Los scripts son conjuntos de consultas que puedes ejecutar de forma secuencial.
+
+4. **Esquemas y Tablas** 🏗️: Los **esquemas** son estructuras dentro de una base de datos que organizan las tablas. Las **tablas** son donde se almacenan los datos.
+
+5. **Sintaxis SQL** 📜: SQL Workbench usa **SQL** (Structured Query Language) como el lenguaje para interactuar con la base de datos. Algunas de las sentencias más comunes son:
+
+   * **SELECT**: Para leer datos.
+   * **INSERT**: Para agregar datos.
+   * **UPDATE**: Para modificar datos existentes.
+   * **DELETE**: Para borrar datos.
+   * **CREATE**: Para crear bases de datos, tablas, índices, etc.
+
+#### **Cómo usar SQL Workbench** 💻
+
+1. **Conectar a la base de datos**: Una vez que abres el programa, debes configurar la conexión a tu servidor de base de datos. Ingresa la IP del servidor, usuario, y contraseña.
+
+2. **Ejecutar consultas**: Puedes escribir consultas SQL en el área de texto y presionar "Run" o el botón de ejecución para obtener resultados.
+
+3. **Ver resultados**: Los resultados de las consultas se muestran en la parte inferior, donde puedes ver las filas devueltas por tu consulta.
+
+4. **Explorar bases de datos**: Puedes ver las tablas y otros objetos de la base de datos desde el panel izquierdo, y hacer clic sobre ellos para ver más detalles.
+
+---
+
+### **HeidiSQL** 🌟
+
+**HeidiSQL** es una herramienta similar pero más orientada a usuarios de MySQL, MariaDB, PostgreSQL y otros, permitiendo una gestión visual de bases de datos. Es fácil de usar y ligera, ideal para principiantes y usuarios intermedios.
+
+#### **Términos clave en HeidiSQL** 🔑
+
+1. **Conexión a bases de datos** 🌐: Al igual que en SQL Workbench, necesitas conectarte a un servidor de base de datos para interactuar con él. HeidiSQL ofrece una interfaz gráfica amigable para configurar esta conexión.
+
+2. **Interfaz gráfica** 🖥️: A diferencia de SQL Workbench, HeidiSQL se enfoca en ofrecer una interfaz de usuario más visual, donde puedes ver las bases de datos, tablas, registros, y mucho más sin tener que escribir tanto código.
+
+3. **Gestión de bases de datos** 🛠️: HeidiSQL te permite crear, modificar y eliminar bases de datos y tablas directamente desde la interfaz.
+
+4. **Consultas SQL** 💬: Al igual que SQL Workbench, puedes escribir y ejecutar consultas SQL. Además, puedes guardar consultas como scripts para su reutilización.
+
+#### **Cómo usar HeidiSQL** 💡
+
+1. **Conectar a la base de datos**: Inicia HeidiSQL y configura tu conexión con los datos del servidor (usuario, contraseña, puerto, etc.).
+
+2. **Explorar bases de datos**: Una vez conectado, puedes ver las bases de datos y sus tablas desde el panel izquierdo. Al hacer clic sobre una tabla, puedes ver su estructura y contenido.
+
+3. **Ejecutar consultas**: Similar a SQL Workbench, puedes escribir SQL en la pestaña de consultas y ejecutarlas. Los resultados se muestran en una tabla en la parte inferior.
+
+4. **Editar registros** 🖊️: HeidiSQL permite editar los registros directamente desde la interfaz, lo que facilita tareas como actualizar o borrar datos sin necesidad de escribir código SQL.
+
+---
+
+### **Funciones principales en ambos** 📊
+
+1. **SELECT** 📜: Extraer datos de las tablas.
+
+   ```sql
+   SELECT * FROM empleados;
+   ```
+
+2. **INSERT** 📈: Añadir nuevos registros.
+
+   ```sql
+   INSERT INTO empleados (nombre, edad, puesto) VALUES ('Juan', 30, 'Desarrollador');
+   ```
+
+3. **UPDATE** 🔄: Modificar datos existentes.
+
+   ```sql
+   UPDATE empleados SET edad = 31 WHERE nombre = 'Juan';
+   ```
+
+4. **DELETE** 🗑️: Borrar registros.
+
+   ```sql
+   DELETE FROM empleados WHERE nombre = 'Juan';
+   ```
+
+5. **CREATE** 🏗️: Crear bases de datos, tablas, etc.
+
+   ```sql
+   CREATE TABLE empleados (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       nombre VARCHAR(100),
+       edad INT,
+       puesto VARCHAR(50)
+   );
+   ```
+
+6. **ALTER** ✏️: Modificar la estructura de una tabla (añadir columnas, cambiar tipos de datos, etc.).
+
+   ```sql
+   ALTER TABLE empleados ADD columna_sueldo DECIMAL(10,2);
+   ```
+
+---
+
+### **Consejos para un uso eficiente** 🚀
+
+1. **Usa transacciones** 🔄: Siempre que realices cambios importantes (como `UPDATE` o `DELETE`), usa **transacciones** para asegurarte de que los cambios sean reversibles si algo sale mal.
+
+   ```sql
+   BEGIN;
+   UPDATE empleados SET edad = 32 WHERE nombre = 'Juan';
+   COMMIT;
+   ```
+
+2. **Consulta el historial** 🕵️‍♂️: Tanto SQL Workbench como HeidiSQL guardan el historial de consultas ejecutadas. Úsalo para volver a ejecutar consultas pasadas rápidamente.
+
+3. **Explora las bases de datos** 🔍: Ambas herramientas tienen opciones de navegación visual. No solo dependas de las consultas, explora las tablas y relaciones de manera visual para entender mejor la estructura de tu base de datos.
+
+4. **Optimiza tus consultas** ⚡: Asegúrate de que tus consultas sean eficientes, especialmente cuando trabajas con grandes volúmenes de datos. Usa índices y evita las consultas demasiado complejas.
+
+---
+
+
+
+
+
+
+### **Funciones más avanzadas en SQL**
+
+#### **1. Funciones de agregación** 🧮
+
+Las funciones de agregación te permiten realizar cálculos sobre un conjunto de datos. Algunas de las más comunes son:
+
+* **COUNT** 🧑‍🤝‍🧑: Cuenta el número de filas.
+* **SUM** 💰: Suma los valores de una columna.
+* **AVG** 📊: Calcula el promedio de los valores de una columna.
+* **MAX** 🔝: Encuentra el valor máximo.
+* **MIN** 🔻: Encuentra el valor mínimo.
+
+##### **Ejemplo:**
+
+```sql
+SELECT AVG(edad) AS promedio_edad FROM empleados;
+```
+
+🔍 Este ejemplo calcula el promedio de la columna `edad` en la tabla `empleados`.
+
+---
+
+#### **2. **JOINs**: Combina datos de varias tablas** 🔗
+
+Las **uniones (JOINs)** te permiten combinar información de varias tablas relacionadas. Los tipos más comunes de JOIN son:
+
+* **INNER JOIN** 🔀: Devuelve solo las filas que tienen coincidencias en ambas tablas.
+* **LEFT JOIN** ↔️: Devuelve todas las filas de la tabla izquierda y las filas coincidentes de la tabla derecha (si las hay).
+* **RIGHT JOIN** ↔️: Devuelve todas las filas de la tabla derecha y las filas coincidentes de la tabla izquierda.
+* **FULL OUTER JOIN** 🌍: Devuelve todas las filas de ambas tablas, con NULL donde no haya coincidencia.
+
+##### **Ejemplo con INNER JOIN**:
+
+```sql
+SELECT empleados.nombre, departamentos.nombre_departamento
+FROM empleados
+INNER JOIN departamentos ON empleados.departamento_id = departamentos.id;
+```
+
+🔍 Este ejemplo selecciona el nombre de los empleados y el nombre de sus departamentos, combinando las tablas `empleados` y `departamentos` mediante un `INNER JOIN`.
+
+---
+
+#### **3. Subconsultas (Subqueries)** 🔍
+
+Las **subconsultas** son consultas dentro de otras consultas. Pueden usarse para filtrar resultados o realizar cálculos más complejos.
+
+##### **Subconsulta en el SELECT:**
+
+```sql
+SELECT nombre, (SELECT AVG(edad) FROM empleados) AS promedio_edad
+FROM empleados;
+```
+
+🔍 Este ejemplo obtiene el nombre de los empleados y el promedio de edad de todos los empleados en una sola consulta.
+
+##### **Subconsulta en el WHERE:**
+
+```sql
+SELECT nombre
+FROM empleados
+WHERE edad > (SELECT AVG(edad) FROM empleados);
+```
+
+🔍 Aquí se seleccionan los empleados cuya edad es mayor que el promedio de todas las edades.
+
+---
+
+#### **4. Funciones de ventana (Window Functions)** 🏞️
+
+Las funciones de ventana te permiten realizar cálculos que dependen de un grupo de filas relacionadas, pero sin colapsar las filas en un único valor como lo hace **GROUP BY**. Algunas funciones comunes de ventana son:
+
+* **ROW\_NUMBER()** 🧑‍🤝‍🧑: Asigna un número único a cada fila.
+* **RANK()** 🏅: Asigna un rango a cada fila dentro de un grupo de filas.
+* **DENSE\_RANK()** 🏆: Similar a `RANK()`, pero no deja huecos entre los rangos.
+* **NTILE()** 🔢: Divide las filas en un número especificado de grupos.
+
+##### **Ejemplo con ROW\_NUMBER()**:
+
+```sql
+SELECT nombre, edad, 
+       ROW_NUMBER() OVER (ORDER BY edad DESC) AS fila_ranking
+FROM empleados;
+```
+
+🔍 En este caso, se asigna un número de fila basado en la edad de los empleados en orden descendente.
+
+---
+
+#### **5. Agregar y Modificar Datos con **CASE WHEN**: Condicionales** ⚖️
+
+La cláusula `CASE WHEN` se utiliza para hacer comparaciones y agregar condiciones dentro de una consulta, como un "if" en otros lenguajes de programación.
+
+##### **Ejemplo con CASE WHEN**:
+
+```sql
+SELECT nombre, edad, 
+       CASE 
+           WHEN edad < 18 THEN 'Menor de edad'
+           WHEN edad >= 18 AND edad < 65 THEN 'Adulto'
+           ELSE 'Adulto mayor'
+       END AS categoria
+FROM empleados;
+```
+
+🔍 Este ejemplo asigna una categoría a cada empleado dependiendo de su edad, utilizando condiciones.
+
+---
+
+#### **6. Triggers (Disparadores)** 🔔
+
+Los **triggers** son procedimientos que se ejecutan automáticamente en respuesta a ciertos eventos en la base de datos (como insertar, actualizar o eliminar datos).
+
+##### **Ejemplo de un Trigger para **INSERT**:**
+
+```sql
+CREATE TRIGGER antes_insertar_empleado
+BEFORE INSERT ON empleados
+FOR EACH ROW
+BEGIN
+   SET NEW.nombre = UPPER(NEW.nombre);  -- Convierte el nombre a mayúsculas
+END;
+```
+
+🔍 Este trigger se ejecuta antes de insertar un nuevo empleado, y convierte su nombre a mayúsculas automáticamente.
+
+---
+
+#### **7. Indices** 🔎
+
+Los **índices** mejoran el rendimiento de las consultas, especialmente en tablas grandes. Se pueden crear sobre columnas específicas para acelerar la búsqueda y el filtrado.
+
+##### **Ejemplo de creación de un índice**:
+
+```sql
+CREATE INDEX idx_nombre ON empleados(nombre);
+```
+
+🔍 Este índice acelera las consultas que buscan por el nombre de los empleados.
+
+---
+
+#### **8. Transacciones** 🔄
+
+Las **transacciones** te permiten agrupar varias operaciones SQL en un solo bloque, de manera que se ejecuten de forma atómica (o todas se ejecuten, o ninguna). Esto es útil para asegurarte de que los cambios en la base de datos sean consistentes.
+
+##### **Ejemplo de transacción**:
+
+```sql
+START TRANSACTION;
+UPDATE empleados SET edad = 35 WHERE nombre = 'Juan';
+INSERT INTO empleados (nombre, edad, puesto) VALUES ('Carlos', 30, 'Desarrollador');
+COMMIT;
+```
+
+🔍 En este ejemplo, ambas operaciones se agrupan dentro de una transacción. Si todo sale bien, se realiza un `COMMIT` para confirmar los cambios. Si ocurre un error, puedes hacer un `ROLLBACK` para revertir la transacción.
+
+---
+
+### **Resumen final con una buena dosis de poder SQL 💪**
+
+**SQL Workbench** y **HeidiSQL** son herramientas potentes para interactuar con bases de datos SQL, y al usar funciones avanzadas como **JOINs**, **subconsultas**, **window functions**, y **triggers**, puedes realizar tareas complejas de manera eficiente. Aquí tienes algunos consejos finales para dominar estas herramientas:
+
+1. **Planifica tus consultas** 📝: Piensa en lo que quieres lograr antes de escribir tu SQL. Si es posible, utiliza funciones de agregación para simplificar los cálculos.
+
+2. **Optimiza tus consultas** ⚡: Usa **índices** y evita consultas complejas innecesarias, especialmente en tablas grandes.
+
+3. **Prueba con ejemplos pequeños** 🧪: Si no estás seguro de cómo funciona una función o una consulta, pruébala en una tabla pequeña primero.
+
+4. **Haz uso de transacciones** 🔄: Siempre que realices cambios significativos, usa transacciones para evitar datos inconsistentes.

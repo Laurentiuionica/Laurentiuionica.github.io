@@ -1,0 +1,108 @@
+## 🌀 SCRUM
+
+### 🚀 Metodologías Ágiles
+
+Se desarrollan como respuesta a los procesos, planificación y diseño del desarrollo de proyectos para solucionar problemas a largo plazo.
+
+**Scrum** (significa "todo a la vez", al unísono) surgió en 1986 como una forma de trabajo en la que un equipo transversal aborda las distintas fases. En 2001 se publicó el **Manifiesto Ágil** para la construcción de proyectos de forma ágil:
+
+🔗 [https://agilemanifesto.org/iso/es/manifesto.html](https://agilemanifesto.org/iso/es/manifesto.html)
+🔗 [https://markdown.es/sintaxis-markdown/#citas](https://markdown.es/sintaxis-markdown/#citas)
+
+📌 *Mockup*: algo que solo sirve para ser mostrado, un borrador.
+
+Los cuatro valores del manifiesto ágil vienen acompañados de los siguientes principios:
+
+✅ Prioridad absoluta en satisfacer al cliente entregando el producto con gran calidad y en un momento temprano.
+✅ Entender que los requisitos cambian y varían.
+✅ Entregar software funcional frecuentemente (cada 2 semanas a 2 meses).
+✅ Trabajo en conjunto de los responsables del negocio y los desarrolladores.
+
+🧠 Los proyectos se desarrollan en torno a individuos motivados.
+💬 La conversación cara a cara es el método más efectivo de comunicar información al equipo de desarrollo.
+📈 El software funcionando es la medida principal del progreso.
+♻️ Los procesos ágiles promueven el desarrollo sostenible.
+⚙️ Atención continua a la excelencia técnica y al diseño mejora la agilidad.
+🔧 Es esencial **simplificar** la cantidad de trabajo.
+🧩 El equipo debe ser **autoorganizado**.
+🔄 Cada cierto tiempo, el equipo reflexiona sobre cómo ser más efectivo para perfeccionar su comportamiento y mejorar.
+
+---
+
+### 🏗️ Enfoque Tradicional vs Ágil
+
+🔒 **Tradicional**: Se fijan requisitos al inicio con alto nivel de detalle y, a partir de ellos, se estima el coste y la fecha de entrega.
+📅 **Ágil**: Se parte de un presupuesto y fechas de entrega, y luego se trabaja para buscar la funcionalidad más valiosa en cada momento.
+
+---
+
+### 🧰 Metodologías Ágiles Destacadas
+
+(todas incluyen al cliente en el desarrollo)
+
+🟦 **Kanban**: Gestión visual del trabajo con límites de trabajo en progreso.
+🟥 **Scrum**: Metodología basada en sprints, roles definidos y reuniones regulares.
+🟩 **XP (Extreme Programming)**: Enfoque en calidad del código, programación en pareja y pruebas.
+🟨 **FDD**: Desarrollo basado en características pequeñas y entregas rápidas.
+🟪 **DSDM**: Participación fuerte del usuario y control sobre tiempo/presupuesto.
+⬛ **Lean**: Optimización de procesos para eliminar desperdicios y mejorar eficiencia.
+
+---
+
+### 🧠 ¿Qué es Scrum?
+
+Scrum es una metodología **iterativa** (trabajo en ciclos) e **incremental** (adición gradual de características).
+Se centra en el trabajo en equipo, la comunicación continua y la adaptación al cambio.
+
+---
+
+### 👥 Roles en Scrum
+
+* 👤 **Product Owner**: Representa al cliente, gestiona el backlog y prioriza las tareas según el valor para el negocio.
+* 🧑‍🏫 **Scrum Master**: Facilita el proceso, elimina impedimentos y asegura que Scrum se aplique correctamente.
+* 🗃️ **Gestor BBDD**: Optimiza el rendimiento de bases de datos y promueve la innovación.
+* 🖥️ **Operaciones (OPRS)**: Gestiona builds, integración continua, recursos en Azure y mejora continua.
+
+**Miembros del equipo de desarrollo:**
+
+* 💻 **Programadores**: Codifican, corrigen errores, colaboran y aplican buenas prácticas.
+* 📊 **Analistas**: Traducen las necesidades del negocio a requisitos técnicos claros.
+* 🏗️ **Arquitectos de software**: Diseñan la estructura técnica, definen tecnologías y garantizan rendimiento.
+* ✅ **QA (Aseguramiento de Calidad)**: Prueban el software, documentan errores y aseguran que cumple con los requisitos.
+
+---
+
+### 📆 Ceremonias de Scrum
+
+* 🗓️ **Sprint Planning**: Se definen los objetivos del sprint, se selecciona el trabajo a realizar y se crea el plan.
+* ⏱️ **Daily**: Reunión diaria de 15 minutos. Cada miembro responde:
+
+  * ¿Qué hice ayer?
+  * ¿Qué voy a hacer hoy?
+  * ¿Hay algún impedimento?
+* 📋 **Sprint Review**: Revisión del trabajo completado, se obtiene feedback y se planifica el próximo sprint.
+* 🔍 **Sprint Retrospective**: Reflexión sobre cómo mejorar el trabajo y eliminar obstáculos.
+
+---
+
+### 📦 Artefactos de Scrum
+
+* 🧾 **Product Backlog**: Lista priorizada de requisitos a desarrollar.
+* 🧺 **Sprint Backlog**: Lista de tareas seleccionadas para desarrollar en el sprint.
+* ✅ **Producto terminado**: Un incremento funcional que cumple con los criterios de aceptación.
+  🎯 El Product Owner define los criterios; el equipo es responsable de cumplirlos.
+
+---
+
+### ⚖️ Equilibrio en Scrum
+
+Scrum busca equilibrio entre:
+
+* 🧭 **Alcance**
+* 🎯 **Calidad**
+* ⏳ **Plazos de entrega**
+
+🎓 La capacidad del equipo se basa en su actitud, apoyo y formación.
+🏆 **La calidad es más importante que la velocidad.**
+
+---

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina la Bandera</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Adivina la Bandera</h1>
+        <p class="sub">Juego rápido y sencillo</p>
+    </header>
+
+    <main class="main">
+        <section class="score">
+            <span>Ronda: <strong id="ronda">1</strong>/<span id="total">10</span></span>
+            <span>Aciertos: <strong id="aciertos">0</strong></span>
+        </section>
+
+        <section class="flag">
+            <img id="bandera" alt="Bandera" />
+        </section>
+
+        <section class="options" id="opciones"></section>
+
+        <section class="feedback" id="mensaje"></section>
+
+        <div class="actions">
+            <button id="siguiente" disabled>Siguiente</button>
+            <button id="reiniciar">Nueva partida</button>
+        </div>
+    </main>
+
+    <template id="tplOpcion">
+        <button class="opcion"></button>
+    </template>
+
+    <script src="main.js"></script>
+</body>
+</html>

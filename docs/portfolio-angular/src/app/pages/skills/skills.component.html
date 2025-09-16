@@ -1,0 +1,23 @@
+<section class="content-section skills-section">
+  <h2 class="section-title">🛠️ Habilidades Técnicas</h2>
+  
+  <div class="skills-grid">
+    @for (category of skills(); track category.name) {
+      <div class="skill-category">
+        <h3 class="category-title">{{ category.name }}</h3>
+        <div class="skills-list">
+          @for (skill of category.skills; track skill.name) {
+            <div class="skill-item">
+              <span class="skill-name">{{ skill.name }}</span>
+              <div class="skill-stars">
+                @for (star of getStars(skill.level); track $index) {
+                  <span class="star">{{ star }}</span>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</section>
