@@ -114,8 +114,8 @@ export class AppComponent {
       icon: '🔍',
       technologies: ['TypeScript', 'JavaScript', 'HTML5'],
       year: '2024',
-      githubUrl: 'https://github.com/Laurentiuionica/Laurentiuionica.github.io/tree/main/Sesion2',
-      liveUrl: 'https://laurentiuionica.github.io/Sesion2/',
+      githubUrl: 'https://github.com/Laurentiuionica/Laurentiuionica.github.io/tree/main/buscadorAvanzado',
+      liveUrl: 'https://laurentiuionica.github.io/buscadorAvanzado/',
       featured: false
     },
     {
